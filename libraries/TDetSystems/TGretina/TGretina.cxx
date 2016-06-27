@@ -47,6 +47,7 @@ void TGretina::BuildAddback() const {
   
   std::deque<const TGretinaHit*> hits;
   for(auto& hit : gretina_hits) {
+    hit.SetCoreEnergy(hit.GetCoreEnergy(3));
     hits.push_back(&hit);
   }
   std::sort(hits.begin(), hits.end(), [](const TGretinaHit* a, const TGretinaHit* b) {
@@ -288,6 +289,10 @@ void TGretina::Print(Option_t *opt) const {
     printf(RESET_COLOR);
   }
   printf(BLUE "--------------------------------" RESET_COLOR "\n");
+}
+
+void TGretina::SortHits() {
+  std::sort(gretina_hits.begin(),gretina_hits.end());
 }
 
 void TGretina::Clear(Option_t *opt) {
