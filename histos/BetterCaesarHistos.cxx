@@ -21,8 +21,6 @@
 #include "TFile.h"
 #include "TCutG.h"
 
-TFile *cut_file  = 0;
-
 
 const int total_det_in_prev_rings[N_RINGS] = {0,10,24,48,72,96,120,144,168,182};
 const double START_ANGLE = 3.2;
@@ -44,7 +42,6 @@ void Init() {
   }
   init_called = true;
 }
-
 
 
 // extern "C" is needed to prevent name mangling.
@@ -112,6 +109,12 @@ void MakeHistograms(TRuntimeObjects& obj) {
     TFile fcut("/mnt/analysis/pecan-2015/longfellow/e10002/newmg22blob.root");
     newmg22blob = (TCutG*)fcut.Get("newmg22blob");
   }
+  static TCutG *newmg23blob = 0;
+  if(!newmg23blob) {
+    TPreserveGDirectory Preserve;
+    TFile fcut("/mnt/analysis/pecan-2015/longfellow/e10002/newmg23blob.root");
+    newmg23blob = (TCutG*)fcut.Get("newmg23blob");
+  }
 
   // Stuff for interactive gates!
   TList *gates = &(obj.GetGates());
@@ -127,8 +130,9 @@ void MakeHistograms(TRuntimeObjects& obj) {
     int ng_newal23blob=0;
     int ng_newsi24blob=0;
     int ng_newmg22blob=0;
+    int ng_newmg23blob=0;
 
-    for(int k=0;k<caesar->Size();k++) {
+    for(unsigned int k=0;k<caesar->Size();k++) {
       TCaesarHit hit_m = caesar->GetCaesarHit(k);
         if(!hit_m.IsValid())
           continue;
@@ -152,9 +156,12 @@ void MakeHistograms(TRuntimeObjects& obj) {
         if(newmg22blob->IsInside(objtac_corr_m,ic_sum_m) && InBeam_Mid->IsInside(objtac_m,xfptac_m) &&                         	      	   timingcut->IsInside(corr_time_m,hit_m.GetDoppler(beta,z_shift,&track_m)))
           ng_newmg22blob++;
 
+        if(newmg23blob->IsInside(objtac_corr_m,ic_sum_m) && InBeam_Mid->IsInside(objtac_m,xfptac_m) &&                         	      	   timingcut->IsInside(corr_time_m,hit_m.GetDoppler(beta,z_shift,&track_m)))
+          ng_newmg23blob++;
+
     }//end for loop to get multiplicity of caesar event
     
-    for(int i=0;i<caesar->Size();i++) {
+    for(unsigned int i=0;i<caesar->Size();i++) {
       TCaesarHit hit = caesar->GetCaesarHit(i);
       if(!hit.IsValid())
         continue;      
@@ -179,7 +186,7 @@ void MakeHistograms(TRuntimeObjects& obj) {
       obj.FillHistogram("Caesar","Detector_Doppler_Summary",300,0,300,hit.GetDetectorNumber()+total_det_in_prev_rings[ring],
                                                   2048,0,8192,hit.GetDoppler(beta,z_shift));
  
-      for(int j=0;j<caesar->Size();j++) {
+      for(unsigned int j=0;j<caesar->Size();j++) {
         if(i==j)
           continue;
         TCaesarHit hit2 = caesar->GetCaesarHit(j);
@@ -212,10 +219,12 @@ void MakeHistograms(TRuntimeObjects& obj) {
         double corr_time = caesar->GetCorrTime(hit,s800);
         obj.FillHistogram("Caesar","GetCorrTime_vs_GetDoppler",4000,-2000,2000,corr_time,
                                                                2048,0,8192,hit.GetDoppler(beta,z_shift,&track));
-
         
+        //obj.FillHistogram("E1UpDown","E1 Up Times",10000,-5000,5000,s800->GetScint().GetTimeUp());       
+        //obj.FillHistogram("E1UpDown","E1 Down Times",10000,-5000,5000,s800->GetScint().GetTimeDown());
 
-        if(timingcut->IsInside(corr_time,hit.GetDoppler(beta,z_shift,&track))){
+
+        //if(timingcut->IsInside(corr_time,hit.GetDoppler(beta,z_shift,&track))){
        
           std::string dirname  = "PID";
 
@@ -508,13 +517,65 @@ void MakeHistograms(TRuntimeObjects& obj) {
             obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Mid_newmg22blob",4000,-2000,2000,corr_time,
                                                             2048,0,8192,hit.GetDoppler(beta,z_shift,&track));
 	  }//end if inside newmg22blob and inside mid incomingPID
+
+          if(newmg23blob->IsInside(objtac_corr,ic_sum) && InBeam_Mid->IsInside(objtac,xfptac)){
+	    histname = "Gamma_Gated_newmg23blob";
+	    obj.FillHistogram("GATED",histname,
+			      1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+            obj.FillHistogram("s800","CRDC1Y_Gated_newmg22blob",10000,-5000,5000,s800->GetCrdc(0).GetNonDispersiveY());
+	    obj.FillHistogram("s800","CRDC2Y_Gated_newmg22blob",10000,-5000,5000,s800->GetCrdc(1).GetNonDispersiveY());
+            obj.FillHistogram("s800","CRDC1X_Gated_newmg22blob",800,-400,400,s800->GetCrdc(0).GetDispersiveX());
+	    obj.FillHistogram("s800","CRDC2X_Gated_newmg22blob",800,-400,400,s800->GetCrdc(1).GetDispersiveX());
+
+            dirname = "InverseMap_GATED";
+     
+            histname = "S800_YTA_Gated_newmg23blob";
+            obj.FillHistogram(dirname,histname,
+			      1000,-50,50,s800->GetYta());
+      
+            histname = "S800_DTA_Gated_newmg23blob";
+            obj.FillHistogram(dirname,histname,
+			      1000,-0.2,0.2,s800->GetDta());
+      
+            histname = "ATA_vs_BTA_Gated_newmg23blob";
+            obj.FillHistogram(dirname,histname,
+			      1000,-0.2,0.2,s800->GetAta(),
+			      1000,-0.2,0.2,s800->GetBta());
+     
+            histname = "FindBeta_newmg23blob";
+	      for(int beta_i=0;beta_i<300;beta_i++){
+		double beta_use = 0.2+(0.3/300.0)*double(beta_i);
+		obj.FillHistogram("GATED",histname,
+				  300,0.2,0.499,beta_use,
+				  1024,0,8192,hit.GetDoppler(beta_use,z_shift,&track));	
+
+                if(ng_newmg23blob==1){
+                   obj.FillHistogram("GATED","FindBeta_newmg23blob_Mult1",
+				  300,0.2,0.499,beta_use,
+				  1024,0,8192,hit.GetDoppler(beta_use,z_shift,&track));
+                }//if multiplicity 1
+                if(ng_newmg23blob==2){
+                   obj.FillHistogram("GATED","FindBeta_newmg23blob_Mult2",
+				  300,0.2,0.499,beta_use,
+				  1024,0,8192,hit.GetDoppler(beta_use,z_shift,&track));
+                }//if multiplicity 2
+                if(ng_newmg23blob>2){
+                   obj.FillHistogram("GATED","FindBeta_newmg23blob_Mult>2",
+				  300,0.2,0.499,beta_use,
+				  1024,0,8192,hit.GetDoppler(beta_use,z_shift,&track));
+                }//if multiplicity > 2	
+	      }//for loop over beta_i
+
+            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Mid_newmg23blob",4000,-2000,2000,corr_time,
+                                                            2048,0,8192,hit.GetDoppler(beta,z_shift,&track));
+	  }//end if inside newmg23blob and inside mid incomingPID
     
 	  obj.FillHistogram("s800","CRDC1Y",10000,-5000,5000,s800->GetCrdc(0).GetNonDispersiveY());
 	  obj.FillHistogram("s800","CRDC2Y",10000,-5000,5000,s800->GetCrdc(1).GetNonDispersiveY());
           obj.FillHistogram("s800","CRDC1X",800,-400,400,s800->GetCrdc(0).GetDispersiveX());
           obj.FillHistogram("s800","CRDC2X",800,-400,400,s800->GetCrdc(1).GetDispersiveX());
 
-	  obj.FillHistogram("s800","TrigBit",5,0,5,s800->GetTrigger().GetRegistr());
+	  obj.FillHistogram("s800","TrigBit",30,0,30,s800->GetTrigger().GetRegistr());
 
           dirname = "InverseMap";
      
@@ -530,7 +591,6 @@ void MakeHistograms(TRuntimeObjects& obj) {
           obj.FillHistogram(dirname,histname,
 			    1000,-0.2,0.2,s800->GetAta(),
 			    1000,-0.2,0.2,s800->GetBta());
-
 
 	  if(haspids) {
 	    dirname = "GATED";
@@ -568,15 +628,16 @@ void MakeHistograms(TRuntimeObjects& obj) {
 	    }// end iterating over gates
 	  }//end haspids
 
-        }// end of if inside timingcut
+        //}// end of if inside timingcut
       }// end of if(s800)
-
 
     }// end of caesar for hit loop
     obj.FillHistogram("Caesar","Multiplicity",300,0,300,valid_counter);
     obj.FillHistogram("Caesar","Multiplicity_ng_al23blob",300,0,300,ng_newal23blob);
     obj.FillHistogram("Caesar","Multiplicity_ng_si24blob",300,0,300,ng_newsi24blob);
     obj.FillHistogram("Caesar","Multiplicity_ng_mg22blob",300,0,300,ng_newmg22blob);
+    obj.FillHistogram("Caesar","Multiplicity_ng_mg23blob",300,0,300,ng_newmg23blob);
+  
   } // I have a valid caesar event
 
   if(numobj!=list->GetSize())

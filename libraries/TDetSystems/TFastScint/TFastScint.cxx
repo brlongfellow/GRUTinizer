@@ -290,24 +290,31 @@ TVector3 &TFastScint::GetPosition(int detector) {
   if(fFastScintDetectorMap.count(detector)==0) {
     double phi = TMath::Pi()/2;
     double theta = TMath::Pi()/2 - TMath::ATan(24.13/139.7);
-    //double z   = 24.13;
+    double x = 0;
+    double y = 0;
+    double z = 0;
     if(detector<8) {
       phi = phi + TMath::Pi()/8. + static_cast<double>(detector)*TMath::Pi()/4.;
+      z = 24.13;
     } else {
-      theta = -theta;
-      //z = -24.13;
+      //theta = -theta;
       phi = phi + static_cast<double>(detector-8)*TMath::Pi()/4.;
+      z = -24.13;
     }
-    if(phi>2*TMath::Pi())
-      phi -= 2*TMath::Pi();
-    double mag = TMath::Sqrt(139.7*139.7 + 24.13*24.13);
+    //if(phi>=2*TMath::Pi())
+      //phi -= 2*TMath::Pi();
+    //double mag = TMath::Sqrt(139.7*139.7 + 24.13*24.13);
    
-    printf("\t\tmag   = %f\n",mag);
-    printf("\t\ttheta = %f\n",theta*TMath::RadToDeg());
-    printf("\t\tphi   = %f\n",phi*TMath::RadToDeg());
+    //printf("\t\tmag   = %f\n",mag);
+    //printf("\t\ttheta = %f\n",theta*TMath::RadToDeg());
+    //printf("\t\tphi   = %f\n",phi*TMath::RadToDeg());
 
-    TVector3 v;
-    v.SetMagThetaPhi(mag,theta,phi);
+    x = 139.7*TMath::Cos(phi);
+    y = 139.7*TMath::Sin(phi);
+
+    //TVector3 v;
+    //v.SetMagThetaPhi(mag,theta,phi);
+    TVector3 v(x,y,z);
     fFastScintDetectorMap[detector] = v;
   }
   return fFastScintDetectorMap.at(detector);

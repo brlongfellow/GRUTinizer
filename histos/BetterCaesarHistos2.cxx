@@ -21,8 +21,6 @@
 #include "TFile.h"
 #include "TCutG.h"
 
-TFile *cut_file  = 0;
-
 
 const int total_det_in_prev_rings[N_RINGS] = {0,10,24,48,72,96,120,144,168,182};
 const double START_ANGLE = 3.2;
@@ -30,7 +28,6 @@ const double FINAL_ANGLE = 3.2;
 const double ANGLE_STEPS = 0.1;
 const int ENERGY_THRESHOLD = 300;
 const int TOTAL_ANGLES = (FINAL_ANGLE-START_ANGLE)/ANGLE_STEPS + 1;
-
 
 
 // extern "C" is needed to prevent name mangling.
