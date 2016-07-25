@@ -218,6 +218,7 @@ void MakeHistograms(TRuntimeObjects& obj) {
         TVector3 track = s800->Track();
         double corr_time = caesar->GetCorrTime(hit,s800);
         obj.FillHistogram("Caesar","GetCorrTime_vs_GetDoppler",4000,-2000,2000,corr_time,
+                                                               2048,0,8192,hit.GetDoppler(beta,z_shift));
         
         //obj.FillHistogram("E1UpDown","E1 Up Times",10000,-5000,5000,s800->GetScint().GetTimeUp());       
         //obj.FillHistogram("E1UpDown","E1 Down Times",10000,-5000,5000,s800->GetScint().GetTimeDown());
