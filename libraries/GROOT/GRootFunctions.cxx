@@ -1,6 +1,8 @@
 
 #include "GRootFunctions.h"
 
+#include <iostream>
+
 
 NamespaceImp(GRootFunctions)
 
@@ -149,10 +151,43 @@ Double_t GRootFunctions::GausExpo(Double_t *x, Double_t *pars) {
   // par[0] = height
   // par[1] = cent
   // par[2] = sigma
-  // par[3] = decay parameter
+  // par[3] = step
+  // par[4] = decay parameter
 
-  result = TMath::Gaus(pars[0],pars[1],pars[2])+(double)(x[0]>pars[1])*pars[0]*TMath::Exp(-pars[3]); 
-  return result;
+  //result = pars[0]*TMath::Gaus(x[0],pars[1],pars[2])+ pars[0]*(double)(x[0]>pars[1])*TMath::Exp(-pars[3]*x[0]);
+
+  
+  double height = pars[0];
+  double mu = pars[1];
+  double sigma = pars[2];
+  double t = pars[3];
+  double k = pars[4];
+
+  
+  double output = 0;
+  const int n = 200;
+  const double width = 5*sigma;
+  for(double y=0; y<n; y++) {
+    double gauss_x = mu - (y-n/2)*width/n;
+    double expo_x = x[0] - gauss_x;
+    
+    double expo = (expo_x>t) ? TMath::Exp(-k*(expo_x-t)) : 0;
+    double gauss = TMath::Gaus(x[0], mu, sigma);
+    output += height*expo*gauss;
+  }
+  return output;
+
+
+  // double p1 = height;
+  // double numerator = (-2*k*x[0] + 2*k*mu + sigma*sigma);
+  // double denominator = (2.0*k*k);
+  // double p2 = TMath::Exp(numerator/denominator);
+  // double p3 = TMath::Sqrt(TMath::Pi()/2) * sigma;
+  // double p4 = (1-TMath::Erf(((k*(t-x[0]+mu)+sigma*sigma))/(TMath::Sqrt(2)*k*sigma)));
+
+  // result = p1*p2*p3*p4;  
+  
+  // return result;
 }
 
 
