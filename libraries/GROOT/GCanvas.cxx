@@ -193,6 +193,8 @@ void GCanvas::AddMarker(int x,int y,int dim) {
     mark->localy = gPad->AbsPixeltoY(y);
     mark->binx = hist->GetXaxis()->FindBin(mark->localx);
     mark->biny = hist->GetYaxis()->FindBin(mark->localy);
+
+
     double bin_edge = hist->GetXaxis()->GetBinLowEdge(mark->binx);
     mark->linex = new TLine(bin_edge,hist->GetMinimum(),
                             bin_edge,hist->GetMaximum());
@@ -597,13 +599,15 @@ bool GCanvas::Process1DArrowKeyPress(Event_t *event,UInt_t *keysym) {
   bool edited = false;
   std::vector<TH1*> hists = FindHists();
 
-  TAxis* axis = hists.at(0)->GetXaxis();
-
-  int first = axis->GetFirst();
-  int last = axis->GetLast();
+  int first = hists.at(0)->GetXaxis()->GetFirst();
+  int last = hists.at(0)->GetXaxis()->GetLast();
+  //TAxis* axis = hists.at(0)->GetXaxis();
+  //int first = axis->GetFirst();
+  //int last = axis->GetLast();
 
   int min = std::min(first,0);
-  int max = std::max(last,axis->GetNbins()+1);
+  int max = std::max(last,hists.at(0)->GetXaxis()->GetNbins()+1);
+  //int max = std::max(last,axis->GetNbins()+1);
 
   int xdiff = last-first;
   int mdiff = max-min-2;
@@ -623,11 +627,13 @@ bool GCanvas::Process1DArrowKeyPress(Event_t *event,UInt_t *keysym) {
           last  = last -(xdiff/2);
         }
       }
-      double begin = axis->GetBinLowEdge(first);
-      double end = axis->GetBinUpEdge(last);
-      for(unsigned int i=0;i<hists.size();i++) {
-        hists.at(i)->GetXaxis()->SetRangeUser(begin,end);
-      }
+      for(unsigned int i=0;i<hists.size();i++)
+        hists.at(i)->GetXaxis()->SetRange(first,last);
+      //double begin = axis->GetBinLowEdge(first);
+      //double end = axis->GetBinUpEdge(last);
+      //for(unsigned int i=0;i<hists.size();i++) {
+      //  hists.at(i)->GetXaxis()->SetRangeUser(begin,end);
+      //}
 
       edited = true;
     }
@@ -645,11 +651,13 @@ bool GCanvas::Process1DArrowKeyPress(Event_t *event,UInt_t *keysym) {
           first = first+(xdiff/2);
         }
       }
-      double begin = axis->GetBinLowEdge(first);
-      double end = axis->GetBinUpEdge(last);
-      for(unsigned int i=0;i<hists.size();i++) {
-        hists.at(i)->GetXaxis()->SetRangeUser(begin,end);
-      }
+      for(unsigned int i=0;i<hists.size();i++)
+        hists.at(i)->GetXaxis()->SetRange(first,last);
+      //double begin = axis->GetBinLowEdge(first);
+      //double end = axis->GetBinUpEdge(last);
+      //for(unsigned int i=0;i<hists.size();i++) {
+      //  hists.at(i)->GetXaxis()->SetRangeUser(begin,end);
+      //}
 
       edited = true;
     }
@@ -667,8 +675,9 @@ bool GCanvas::Process1DArrowKeyPress(Event_t *event,UInt_t *keysym) {
     if(ghist) {
       TH1* prev = ghist->GetNext();
       if(prev) {
-        prev->GetXaxis()->SetRange(axis->GetBinLowEdge(first),
-                                   axis->GetBinUpEdge(last));
+        prev->GetXaxis()->SetRange(first,last);
+        //prev->GetXaxis()->SetRange(axis->GetBinLowEdge(first),
+        //                           axis->GetBinUpEdge(last));
         prev->Draw("");
         RedrawMarkers();
         edited = true;
@@ -689,8 +698,9 @@ bool GCanvas::Process1DArrowKeyPress(Event_t *event,UInt_t *keysym) {
     if(ghist) {
       TH1* prev = ghist->GetPrevious();
       if(prev) {
-        prev->GetXaxis()->SetRange(axis->GetBinLowEdge(first),
-                                   axis->GetBinUpEdge(last));
+        prev->GetXaxis()->SetRange(first,last);
+        //prev->GetXaxis()->SetRange(axis->GetBinLowEdge(first),
+        //                           axis->GetBinUpEdge(last));
         prev->Draw("");
         RedrawMarkers();
         edited = true;
@@ -915,8 +925,18 @@ bool GCanvas::Process1DKeyboardPress(Event_t *event,UInt_t *keysym) {
         if(binlow > binhigh){
           std::swap(binlow, binhigh);
         }
-        double value_low  = ghist->GetXaxis()->GetBinCenter(binlow);
-        double value_high = ghist->GetXaxis()->GetBinCenter(binhigh);
+        double value_low  = ghist->GetXaxis()->GetBinLowEdge(binlow);
+        double value_high = ghist->GetXaxis()->GetBinLowEdge(binhigh);
+
+	{
+	  double epsilon = 16*(std::nextafter(value_low, INFINITY) - value_low);
+	  value_low += epsilon;
+	}
+
+	{
+	  double epsilon = 16*(value_high - std::nextafter(value_high, -INFINITY));
+	  value_high -= epsilon;
+	}
 
         if(fBackgroundMarkers.size()>=2 &&
            fBackgroundMode!=kNoBackground){
