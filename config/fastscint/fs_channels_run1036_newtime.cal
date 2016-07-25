@@ -1,0 +1,106 @@
+LaBr3_det0 {
+  Address: 0xc0000000
+  EnergyCoeff: -100  0
+  TIMECOEFF:   0  1
+}
+
+LaBr3_det1 {
+  Address: 0xc0000001
+  EnergyCoeff: -5.93428 0.729534
+  TIMECOEFF:   0  1
+}
+
+LaBr3_det2 {
+  Address: 0xc0000002
+  EnergyCoeff: -13.4231 0.768311
+  TIMECOEFF:   759.9  1
+}
+
+LaBr3_det3 {
+  Address: 0xc0000003
+  EnergyCoeff: -13.6412 0.774848
+  TIMECOEFF:   1628  1
+}
+
+LaBr3_det4 {
+  Address: 0xc0000004
+  EnergyCoeff: -22.843 0.768908
+  TIMECOEFF:   250.4  1
+}
+
+LaBr3_det5 {
+  Address: 0xc0000005
+  EnergyCoeff: -33.6061  0.806537
+  TIMECOEFF:   766.2  1
+}
+
+LaBr3_det6 {
+  Address: 0xc0000006
+  EnergyCoeff: -100  0
+  TIMECOEFF:   0  1
+}
+
+LaBr3_det7 {
+  Address: 0xc0000007
+  EnergyCoeff: -29.1715  0.740392
+  TIMECOEFF:   1655  1
+}
+
+LaBr3_det8 {
+  Address: 0xc0000008
+  EnergyCoeff: -32.7913  0.760801
+  TIMECOEFF:   373.6  1
+}
+
+LaBr3_det9 {
+  Address: 0xc0000009
+  EnergyCoeff: -29.1855  0.735595
+  TIMECOEFF:   161.8  1
+}
+
+LaBr3_det10 {
+  Address: 0xc000000a
+  EnergyCoeff: -30.423  0.760556
+  TIMECOEFF:   823.9  1
+}
+
+LaBr3_det11 {
+  Address: 0xc000000b
+  EnergyCoeff: -27.1365  0.724251
+  TIMECOEFF:   202.3  1
+}
+
+LaBr3_det12 {
+  Address: 0xc000000c
+  EnergyCoeff: 0  1
+  TIMECOEFF:   0  1
+}
+
+LaBr3_det13 {
+  Address: 0xc000000d
+  EnergyCoeff: -25.8834  0.724293
+  TIMECOEFF:   815  1
+}
+
+LaBr3_det14 {
+  Address: 0xc000000e
+  EnergyCoeff: -20.9429  0.70092
+  TIMECOEFF:   528.1  1
+}
+
+LaBr3_det15 {
+  Address: 0xc000000f
+  EnergyCoeff: -29.1774  0.786145
+  TIMECOEFF:   386.7  1
+}
+
+
+
+
+
+
+
+
+
+
+
