@@ -31,10 +31,14 @@ void ReadVSNMap(std::string in_file_name, int vsnchn_ring_map_energy[MAX_VSN][MA
   }
 
   TEnv *map = new TEnv(in_file_name.c_str()); 
+  if (!map){
+    std::cout << "FAILED TO OPEN MAP FILE" << std::endl;
+    return;
+  }
   for(int ring=0; ring < N_RINGS; ring++){
     for(int det=1; det <= det_per_ring[ring]; det++){
-      //cout << Form("Fera.Ring.%c.chn_en.%d",ring_names[ring],det) << "\t";
-      //cout << map->GetValue(Form("Fera.Ring.%c.chn_en.%d",ring_names[ring],det),-1) << endl;
+      //std::cout << Form("Fera.Ring.%c.chn_en.%d",ring_names[ring],det) << "\t";
+      //std::cout << map->GetValue(Form("Fera.Ring.%c.chn_en.%d",ring_names[ring],det),-1) << endl;
       
       int vsn_e = map->GetValue(Form("Fera.Ring.%c.vsn_en.%d",ring_names[ring],det),-1);
       int vsn_t = map->GetValue(Form("Fera.Ring.%c.vsn_ti.%d",ring_names[ring],det),-1);
@@ -49,6 +53,7 @@ void ReadVSNMap(std::string in_file_name, int vsnchn_ring_map_energy[MAX_VSN][MA
       if(vsn_e>-1 && chn_e>-1){
         if(vsn_e < MAX_VSN &&  chn_e< MAX_CHN){
           if(vsnchn_ring_map_energy[vsn_e][chn_e] == -1 || vsnchn_det_map_energy [vsn_e][chn_e] == -1){ // was not yet set
+            std::cout << "Setting VSN = " << vsn_e << "\t CHN = " << chn_e << "\tto ring = " << ring << "\tdet = " << det-1 << std::endl;
             vsnchn_ring_map_energy[vsn_e][chn_e] = ring;
             vsnchn_det_map_energy [vsn_e][chn_e] = det-1;//det runs now from 0
           }
@@ -174,6 +179,7 @@ void translateCalFile(std::string vsn_map_file_name, std::string ecal_file_name,
       int det  = vsnchn_det_map_energy[vsn][chan];
 
 
+      std::cout << "ring: " << ring << "\tdet: " << det << std::endl;
      
       out_chan_file.fill('0');
       out_chan_file << "RING" << setw(2) << ring << "DET" << setw(2) << det << " {" << std::endl

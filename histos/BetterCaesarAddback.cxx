@@ -112,6 +112,9 @@ void MakeHistograms(TRuntimeObjects& obj) {
     for(unsigned int y=0;y<caesar->Size();y++) {
       TCaesarHit &hit = caesar->GetCaesarHit(y);
 
+      if(hit.IsOverflow())
+        continue;
+
       if (hit.IsValid()){//only accept hits with both times and energies
         std::string histname;
         double energy_dc = hit.GetDoppler(beta,z_shift,&track);        
@@ -135,7 +138,7 @@ void MakeHistograms(TRuntimeObjects& obj) {
             }//inside in-beam cut
           //}//is inside timingcut
         }//is inside pid
-      }//hit has both energy and time
+      }//hit is valid and is not an overflow
     }//loop over singles hits
 
 
@@ -143,6 +146,10 @@ void MakeHistograms(TRuntimeObjects& obj) {
     int num_addback_hits = caesar->AddbackSize();
     for (int y = 0; y < num_addback_hits; y++){
       TCaesarHit &hit = caesar->GetAddbackHit(y);
+      
+      if(hit.IsOverflow())
+        continue;    
+
       if (hit.IsValid()){//only accept hits with both times and energies
         std::string histname;
 
@@ -202,8 +209,8 @@ void MakeHistograms(TRuntimeObjects& obj) {
             }//inside in-beam cut
           //}//is inside timingcut
         }//is inside pid_
-      }//hit has both energy and time
-    }
+      }//hit is valid and is not an overflow
+    }//loop over addback hits
 
 
 
