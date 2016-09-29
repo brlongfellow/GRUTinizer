@@ -30,14 +30,14 @@ void MakeHistograms(TRuntimeObjects& obj) {
   TCaesar  *caesar  = obj.GetDetector<TCaesar>();
   TS800    *s800    = obj.GetDetector<TS800>();
   //double    beta = GValue::Value("BETA");
-  double    beta = 0.417;
-  double    z_shift = GValue::Value("TARGET_SHIFT_Z");
+  double    beta = 0.444;
+  double    z_shift = 0.65;
 
-  static TCutG *timingcut = 0;
-  if(!timingcut) {
+  static TCutG *timingcut_si24 = 0;
+  if(!timingcut_si24) {
     TPreserveGDirectory Preserve;
-    TFile fcut("/mnt/analysis/pecan-2015/longfellow/e10002/timingcut.root");
-    timingcut = (TCutG*)fcut.Get("tcut");
+    TFile fcut("/mnt/analysis/pecan-2015/longfellow/e10002/timeenergy_si24.root");
+    timingcut_si24 = (TCutG*)fcut.Get("si24timegate");
   }
   static TCutG *InBeam_Mid = 0;
   if(!InBeam_Mid) {
@@ -121,7 +121,7 @@ void MakeHistograms(TRuntimeObjects& obj) {
         double corr_time = caesar->GetCorrTime(hit,s800);
 
        if (newsi24blob->IsInside(objtac_corr,ic_sum)){
-          //if(timingcut->IsInside(corr_time,hit.GetDoppler(beta,z_shift,&track))){
+          if(timingcut_si24->IsInside(corr_time,hit.GetDoppler(beta,z_shift,&track))){
             if (InBeam_Top->IsInside(objtac,xfptac)){
               if (energy_dc > SINGLES_ENERGY_THRESHOLD){
               
@@ -136,7 +136,7 @@ void MakeHistograms(TRuntimeObjects& obj) {
               obj.FillHistogram(dirname,histname,
                                 8192,0,8192,energy_dc);
             }//inside in-beam cut
-          //}//is inside timingcut
+          }//is inside timingcut
         }//is inside pid
       }//hit has both energy and time
     }//loop over singles hits
@@ -158,7 +158,7 @@ void MakeHistograms(TRuntimeObjects& obj) {
         double corr_time = caesar->GetCorrTime(hit,s800);
 
         if (newsi24blob->IsInside(objtac_corr,ic_sum)){
-          //if (timingcut->IsInside(corr_time, energy_dc)){
+          if (timingcut_si24->IsInside(corr_time, energy_dc)){
             if (InBeam_Top->IsInside(objtac,xfptac)){
               if (energy_dc > AB_ENERGY_THRESHOLD){    
         
@@ -207,7 +207,7 @@ void MakeHistograms(TRuntimeObjects& obj) {
                 std::cout << "hit.GetNumHitsContained() = " << hit.GetNumHitsContained() << std::endl;
               }
             }//inside in-beam cut
-          //}//is inside timingcut
+          }//is inside timingcut
         }//is inside pid_
       }//hit has both energy and time
     }

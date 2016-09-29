@@ -26,7 +26,6 @@ const int total_det_in_prev_rings[N_RINGS] = {0,10,24,48,72,96,120,144,168,182};
 const double START_ANGLE = 3.2;
 const double FINAL_ANGLE = 3.2;
 const double ANGLE_STEPS = 0.1;
-const int ENERGY_THRESHOLD = 300;
 const int TOTAL_ANGLES = (FINAL_ANGLE-START_ANGLE)/ANGLE_STEPS + 1;
 
 std::vector<double> angles;
@@ -52,14 +51,36 @@ void MakeHistograms(TRuntimeObjects& obj) {
   TCaesar  *caesar  = obj.GetDetector<TCaesar>();
   TS800    *s800    = obj.GetDetector<TS800>();
   //double    beta = GValue::Value("BETA");
-  double    beta = 0.417;
-  double    z_shift = GValue::Value("TARGET_SHIFT_Z");
+  double    beta = 0.407;
+  double    beta_al23 = 0.433;
+  double    beta_si24 = 0.444;
+  double    beta_mg22 = 0.421;
+  double    beta_mg23 = 0.407;
+  double    z_shift = 0.65;
 
-  static TCutG *timingcut = 0;
-  if(!timingcut) {
+  static TCutG *timingcut_al23 = 0;
+  if(!timingcut_al23) {
     TPreserveGDirectory Preserve;
-    TFile fcut("/mnt/analysis/pecan-2015/longfellow/e10002/timingcut.root");
-    timingcut = (TCutG*)fcut.Get("tcut");
+    TFile fcut("/mnt/analysis/pecan-2015/longfellow/e10002/timeenergy_al23.root");
+    timingcut_al23 = (TCutG*)fcut.Get("al23timegate");
+  }
+  static TCutG *timingcut_si24 = 0;
+  if(!timingcut_si24) {
+    TPreserveGDirectory Preserve;
+    TFile fcut("/mnt/analysis/pecan-2015/longfellow/e10002/timeenergy_si24.root");
+    timingcut_si24 = (TCutG*)fcut.Get("si24timegate");
+  }
+  static TCutG *timingcut_mg22 = 0;
+  if(!timingcut_mg22) {
+    TPreserveGDirectory Preserve;
+    TFile fcut("/mnt/analysis/pecan-2015/longfellow/e10002/timeenergy_mg22.root");
+    timingcut_mg22 = (TCutG*)fcut.Get("mg22timegate");
+  }
+  static TCutG *timingcut_mg23 = 0;
+  if(!timingcut_mg23) {
+    TPreserveGDirectory Preserve;
+    TFile fcut("/mnt/analysis/pecan-2015/longfellow/e10002/timeenergy_mg23.root");
+    timingcut_mg23 = (TCutG*)fcut.Get("mg23timegate");
   }
   static TCutG *InBeam_Mid = 0;
   if(!InBeam_Mid) {
@@ -144,16 +165,16 @@ void MakeHistograms(TRuntimeObjects& obj) {
         TVector3 track_m = s800->Track();
         double corr_time_m = caesar->GetCorrTime(hit_m,s800);
 
-        if(newal23blob->IsInside(objtac_corr_m,ic_sum_m) && InBeam_btwnTopMid->IsInside(objtac_m,xfptac_m) && 		       		   timingcut->IsInside(corr_time_m,hit_m.GetDoppler(beta,z_shift,&track_m)))
+        if(newal23blob->IsInside(objtac_corr_m,ic_sum_m) && InBeam_btwnTopMid->IsInside(objtac_m,xfptac_m) && 		       		   timingcut_al23->IsInside(corr_time_m,hit_m.GetEnergy()))
           ng_newal23blob++;
 
-        if(newsi24blob->IsInside(objtac_corr_m,ic_sum_m) && InBeam_Top->IsInside(objtac_m,xfptac_m) &&                         	          timingcut->IsInside(corr_time_m,hit_m.GetDoppler(beta,z_shift,&track_m)))
+        if(newsi24blob->IsInside(objtac_corr_m,ic_sum_m) && InBeam_Top->IsInside(objtac_m,xfptac_m) &&                         	          timingcut_si24->IsInside(corr_time_m,hit_m.GetEnergy()))
           ng_newsi24blob++;
 
-        if(newmg22blob->IsInside(objtac_corr_m,ic_sum_m) && InBeam_Mid->IsInside(objtac_m,xfptac_m) &&                         	      	   timingcut->IsInside(corr_time_m,hit_m.GetDoppler(beta,z_shift,&track_m)))
+        if(newmg22blob->IsInside(objtac_corr_m,ic_sum_m) && InBeam_Mid->IsInside(objtac_m,xfptac_m) &&                         	      	   timingcut_mg22->IsInside(corr_time_m,hit_m.GetEnergy()))
           ng_newmg22blob++;
 
-        if(newmg23blob->IsInside(objtac_corr_m,ic_sum_m) && InBeam_Mid->IsInside(objtac_m,xfptac_m) &&                         	      	   timingcut->IsInside(corr_time_m,hit_m.GetDoppler(beta,z_shift,&track_m)))
+        if(newmg23blob->IsInside(objtac_corr_m,ic_sum_m) && InBeam_Mid->IsInside(objtac_m,xfptac_m) &&                         	      	   timingcut_mg23->IsInside(corr_time_m,hit_m.GetEnergy()))
           ng_newmg23blob++;
 
     }//end for loop to get multiplicity of caesar event
@@ -176,10 +197,10 @@ void MakeHistograms(TRuntimeObjects& obj) {
                                                                           //2000,0,2000,hit.GetTime());
       //}//end if Doppler > 300
 
-      obj.FillHistogram("Caesar","Detector_Charge_Summary",300,0,300,hit.GetDetectorNumber()+total_det_in_prev_rings[ring],
+      obj.FillHistogram("Caesar","Detector_Charge_Summary",200,0,200,hit.GetDetectorNumber()+total_det_in_prev_rings[ring],
                                                   4096,0,4096,hit.Charge());
 
-      obj.FillHistogram("Caesar","Detector_Energy_Summary",300,0,300,hit.GetDetectorNumber()+total_det_in_prev_rings[ring],
+      obj.FillHistogram("Caesar","Detector_Energy_Summary",200,0,200,hit.GetDetectorNumber()+total_det_in_prev_rings[ring],
                                                   2048,0,8192,hit.GetEnergy());
 
       //obj.FillHistogram("Caesar","Detector_Doppler_Summary",300,0,300,hit.GetDetectorNumber()+total_det_in_prev_rings[ring],
@@ -219,7 +240,9 @@ void MakeHistograms(TRuntimeObjects& obj) {
         TVector3 track = s800->Track();
         double corr_time = caesar->GetCorrTime(hit,s800);
         obj.FillHistogram("Caesar","GetCorrTime_vs_GetDoppler",2000,-2000,2000,corr_time,
-                                                               2048,0,8192,hit.GetDoppler(beta,z_shift));
+                                                               1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+        obj.FillHistogram("Caesar","GetCorrTime_vs_GetEnergy",2000,-2000,2000,corr_time,
+                                                               1024,0,8192,hit.GetEnergy());
         if(hit.GetDoppler(beta,z_shift)>300){
           obj.FillHistogram("Caesar","GetCorrTime_vs_GetAbsoluteDetectorNumber",200,0,200,hit.GetAbsoluteDetectorNumber(),
                                                                           2000,-2000,2000,corr_time);
@@ -257,8 +280,8 @@ void MakeHistograms(TRuntimeObjects& obj) {
 	    obj.FillHistogram(dirname,histname,
 			      1000,-500,2500,objtac_corr,
 			      1000,-100,4000,ic_sum);
-            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Mid",4000,-2000,2000,corr_time,
-                                                               2048,0,8192,hit.GetDoppler(beta,z_shift,&track));
+            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Mid",2000,-2000,2000,corr_time,
+                                                               1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
 	  }//end if in mid cut
 
           if(InBeam_Top->IsInside(objtac,xfptac)){
@@ -266,8 +289,8 @@ void MakeHistograms(TRuntimeObjects& obj) {
 	    obj.FillHistogram(dirname,histname,
 			      1000,-500,2500,objtac_corr,
 			      1000,-100,4000,ic_sum);
-            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Top",4000,-2000,2000,corr_time,
-                                                               2048,0,8192,hit.GetDoppler(beta,z_shift,&track));
+            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Top",2000,-2000,2000,corr_time,
+                                                               1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
 	  }//end if in top cut
 
           if(InBeam_btwnTopMid->IsInside(objtac,xfptac)){
@@ -275,8 +298,8 @@ void MakeHistograms(TRuntimeObjects& obj) {
 	    obj.FillHistogram(dirname,histname,
 			      1000,-500,2500,objtac_corr,
 			      1000,-100,4000,ic_sum);
-            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Btwn",4000,-2000,2000,corr_time,
-                                                            2048,0,8192,hit.GetDoppler(beta,z_shift,&track));
+            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Btwn",2000,-2000,2000,corr_time,
+                                                            1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
 	  }//end if in between cut
 
           if(InBeam_below->IsInside(objtac,xfptac)){
@@ -284,16 +307,16 @@ void MakeHistograms(TRuntimeObjects& obj) {
 	    obj.FillHistogram(dirname,histname,
 			      1000,-500,2500,objtac_corr,
 			      1000,-100,4000,ic_sum);
-            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Below",4000,-2000,2000,corr_time,
-                                                            2048,0,8192,hit.GetDoppler(beta,z_shift,&track));
+            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Below",2000,-2000,2000,corr_time,
+                                                            1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
 	  }//end if in below cut
 
-          if(newal23blob->IsInside(objtac_corr,ic_sum) && InBeam_btwnTopMid->IsInside(objtac,xfptac)){
+          if(newal23blob->IsInside(objtac_corr,ic_sum) && InBeam_btwnTopMid->IsInside(objtac,xfptac) && timingcut_al23->IsInside(corr_time,hit.GetEnergy())){
 
 	    histname = "Gamma_Gated_newal23blob";
 	    obj.FillHistogram("GATED",histname,
                               200,0,200,hit.GetAbsoluteDetectorNumber(),
-			      1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+			      1024,0,8192,hit.GetDoppler(beta_al23,z_shift,&track));
             obj.FillHistogram("s800","CRDC1Y_Gated_newal23blob",
 			      5000,-5000,5000,s800->GetCrdc(0).GetNonDispersiveY());
 	    obj.FillHistogram("s800","CRDC2Y_Gated_newal23blob",
@@ -322,29 +345,38 @@ void MakeHistograms(TRuntimeObjects& obj) {
             histname = "DTA_vs_Doppler_newal23blob";
             obj.FillHistogram("Momentum_Distribution",histname,
                               500,-0.2,0.2,s800->GetDta(),
-                              1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                              1024,0,8192,hit.GetDoppler(beta_al23,z_shift,&track));
 
             if(ng_newal23blob==1){
               obj.FillHistogram("Momentum_Distribution","DTA_vs_Doppler_newal23blob_Mult1",
                                 500,-0.2,0.2,s800->GetDta(),
-                                1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                                1024,0,8192,hit.GetDoppler(beta_al23,z_shift,&track));
+              histname = "Gamma_Gated_newal23blob_Mult1";
+	      obj.FillHistogram("GATED",histname,
+                                200,0,200,hit.GetAbsoluteDetectorNumber(),
+			        1024,0,8192,hit.GetDoppler(beta_al23,z_shift,&track));
             }//if multiplicity 1
 
             if(ng_newal23blob==2){
               obj.FillHistogram("Momentum_Distribution","DTA_vs_Doppler_newal23blob_Mult2",
                                 500,-0.2,0.2,s800->GetDta(),
-                                1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                                1024,0,8192,hit.GetDoppler(beta_al23,z_shift,&track));
             }//if multiplicity 2
      
             if(ng_newal23blob>2){
               obj.FillHistogram("Momentum_Distribution","DTA_vs_Doppler_newal23blob_Mult>2",
                                 500,-0.2,0.2,s800->GetDta(),
-                                1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                                1024,0,8192,hit.GetDoppler(beta_al23,z_shift,&track));
             }//if multiplicity > 2	
 
-            histname = "FindBeta_newal23blob";
+
+            //for(int z_i=0;z_i<20;z_i++){ 
+              //double z_use = 0.1*double(z_i);
+      
 	      for(int beta_i=0;beta_i<300;beta_i++){
 		double beta_use = 0.2+(0.3/300.0)*double(beta_i);
+                //histname = Form("FindBeta_newal23blob_zshift_is_%f",z_use);
+                histname = "FindBeta_newal23blob";
 		obj.FillHistogram("GATED",histname,
 				  300,0.2,0.499,beta_use,
 				  1024,0,8192,hit.GetDoppler(beta_use,z_shift,&track));
@@ -366,25 +398,31 @@ void MakeHistograms(TRuntimeObjects& obj) {
                 }//if multiplicity > 2
 	      }//for loop over beta_i
 
-            if(hit.GetDoppler(beta,z_shift,&track)>300){
+            //}//end for loop over z_i
+
+            if(hit.GetDoppler(beta_al23,z_shift,&track)>300){
               obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetAbsoluteDetectorNumber_Gated_newal23blob",
                                 200,0,200,hit.GetAbsoluteDetectorNumber(),
                                 2000,-2000,2000,corr_time);
             }
             obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Btwn_newal23blob",
                               2000,-2000,2000,corr_time,
-                              1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                              1024,0,8192,hit.GetDoppler(beta_al23,z_shift,&track));
+            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetEnergy_Btwn_newal23blob",
+                              2000,-2000,2000,corr_time,
+                              1024,0,8192,hit.GetEnergy());
 	  }//end if inside newal23blob and inside between incomingPID
 
-          if(newsi24blob->IsInside(objtac_corr,ic_sum) && InBeam_Top->IsInside(objtac,xfptac)){
+          if(newsi24blob->IsInside(objtac_corr,ic_sum) && InBeam_Top->IsInside(objtac,xfptac) && timingcut_si24->IsInside(corr_time,hit.GetEnergy())){
+
 	    histname = "Gamma_Gated_newsi24blob";
 	    obj.FillHistogram("GATED",histname,
                               200,0,200,hit.GetAbsoluteDetectorNumber(),
-			      1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
-            obj.FillHistogram("s800","CRDC1Y_Gated_newsi24blob",10000,-5000,5000,s800->GetCrdc(0).GetNonDispersiveY());
-	    obj.FillHistogram("s800","CRDC2Y_Gated_newsi24blob",10000,-5000,5000,s800->GetCrdc(1).GetNonDispersiveY());
-            obj.FillHistogram("s800","CRDC1X_Gated_newsi24blob",800,-400,400,s800->GetCrdc(0).GetDispersiveX());
-	    obj.FillHistogram("s800","CRDC2X_Gated_newsi24blob",800,-400,400,s800->GetCrdc(1).GetDispersiveX());
+			      1024,0,8192,hit.GetDoppler(beta_si24,z_shift,&track));
+            obj.FillHistogram("s800","CRDC1Y_Gated_newsi24blob",5000,-5000,5000,s800->GetCrdc(0).GetNonDispersiveY());
+	    obj.FillHistogram("s800","CRDC2Y_Gated_newsi24blob",5000,-5000,5000,s800->GetCrdc(1).GetNonDispersiveY());
+            obj.FillHistogram("s800","CRDC1X_Gated_newsi24blob",400,-400,400,s800->GetCrdc(0).GetDispersiveX());
+	    obj.FillHistogram("s800","CRDC2X_Gated_newsi24blob",400,-400,400,s800->GetCrdc(1).GetDispersiveX());
 
             dirname = "InverseMap_GATED";
 
@@ -404,24 +442,28 @@ void MakeHistograms(TRuntimeObjects& obj) {
             histname = "DTA_vs_Doppler_newsi24blob";
             obj.FillHistogram("Momentum_Distribution",histname,
                               500,-0.2,0.2,s800->GetDta(),
-                              1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                              1024,0,8192,hit.GetDoppler(beta_si24,z_shift,&track));
 
             if(ng_newsi24blob==1){
               obj.FillHistogram("Momentum_Distribution","DTA_vs_Doppler_newsi24blob_Mult1",
                                 500,-0.2,0.2,s800->GetDta(),
-                                1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                                1024,0,8192,hit.GetDoppler(beta_si24,z_shift,&track));
             }//if multiplicity 1
 
             if(ng_newsi24blob==2){
               obj.FillHistogram("Momentum_Distribution","DTA_vs_Doppler_newsi24blob_Mult2",
                                 500,-0.2,0.2,s800->GetDta(),
-                                1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                                1024,0,8192,hit.GetDoppler(beta_si24,z_shift,&track));
+              histname = "Gamma_Gated_newsi24blob_Mult1";
+	      obj.FillHistogram("GATED",histname,
+                                200,0,200,hit.GetAbsoluteDetectorNumber(),
+			        1024,0,8192,hit.GetDoppler(beta_si24,z_shift,&track));
             }//if multiplicity 2
      
             if(ng_newsi24blob>2){
               obj.FillHistogram("Momentum_Distribution","DTA_vs_Doppler_newsi24blob_Mult>2",
                                 500,-0.2,0.2,s800->GetDta(),
-                                1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                                1024,0,8192,hit.GetDoppler(beta_si24,z_shift,&track));
             }//if multiplicity > 2	
 
             histname = "FindBeta_newsi24blob";
@@ -450,18 +492,22 @@ void MakeHistograms(TRuntimeObjects& obj) {
 
             obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Top_newsi24blob",
                               2000,-2000,2000,corr_time,
-                              1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                              1024,0,8192,hit.GetDoppler(beta_si24,z_shift,&track));
+            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetEnergy_Top_newsi24blob",
+                              2000,-2000,2000,corr_time,
+                              1024,0,8192,hit.GetEnergy());
 	  }//end if inside newsi24blob and inside top incomingPID
 
-          if(newmg22blob->IsInside(objtac_corr,ic_sum) && InBeam_Mid->IsInside(objtac,xfptac)){
+          if(newmg22blob->IsInside(objtac_corr,ic_sum) && InBeam_Mid->IsInside(objtac,xfptac) && timingcut_mg22->IsInside(corr_time,hit.GetEnergy())){
+
 	    histname = "Gamma_Gated_newmg22blob";
 	    obj.FillHistogram("GATED",histname,
                               200,0,200,hit.GetAbsoluteDetectorNumber(),
-			      1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
-            obj.FillHistogram("s800","CRDC1Y_Gated_newmg22blob",10000,-5000,5000,s800->GetCrdc(0).GetNonDispersiveY());
-	    obj.FillHistogram("s800","CRDC2Y_Gated_newmg22blob",10000,-5000,5000,s800->GetCrdc(1).GetNonDispersiveY());
-            obj.FillHistogram("s800","CRDC1X_Gated_newmg22blob",800,-400,400,s800->GetCrdc(0).GetDispersiveX());
-	    obj.FillHistogram("s800","CRDC2X_Gated_newmg22blob",800,-400,400,s800->GetCrdc(1).GetDispersiveX());
+			      1024,0,8192,hit.GetDoppler(beta_mg22,z_shift,&track));
+            obj.FillHistogram("s800","CRDC1Y_Gated_newmg22blob",5000,-5000,5000,s800->GetCrdc(0).GetNonDispersiveY());
+	    obj.FillHistogram("s800","CRDC2Y_Gated_newmg22blob",5000,-5000,5000,s800->GetCrdc(1).GetNonDispersiveY());
+            obj.FillHistogram("s800","CRDC1X_Gated_newmg22blob",400,-400,400,s800->GetCrdc(0).GetDispersiveX());
+	    obj.FillHistogram("s800","CRDC2X_Gated_newmg22blob",400,-400,400,s800->GetCrdc(1).GetDispersiveX());
 
             dirname = "InverseMap_GATED";
 
@@ -481,24 +527,28 @@ void MakeHistograms(TRuntimeObjects& obj) {
             histname = "DTA_vs_Doppler_newmg22blob";
             obj.FillHistogram("Momentum_Distribution",histname,
                               500,-0.2,0.2,s800->GetDta(),
-                              1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                              1024,0,8192,hit.GetDoppler(beta_mg22,z_shift,&track));
 
             if(ng_newmg22blob==1){
               obj.FillHistogram("Momentum_Distribution","DTA_vs_Doppler_newmg22blob_Mult1",
                                 500,-0.2,0.2,s800->GetDta(),
-                                1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                                1024,0,8192,hit.GetDoppler(beta_mg22,z_shift,&track));
+              histname = "Gamma_Gated_newmg22blob_Mult1";
+	      obj.FillHistogram("GATED",histname,
+                                200,0,200,hit.GetAbsoluteDetectorNumber(),
+			        1024,0,8192,hit.GetDoppler(beta_mg22,z_shift,&track));
             }//if multiplicity 1
 
             if(ng_newmg22blob==2){
               obj.FillHistogram("Momentum_Distribution","DTA_vs_Doppler_newmg22blob_Mult2",
                                 500,-0.2,0.2,s800->GetDta(),
-                                1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                                1024,0,8192,hit.GetDoppler(beta_mg22,z_shift,&track));
             }//if multiplicity 2
      
             if(ng_newmg22blob>2){
               obj.FillHistogram("Momentum_Distribution","DTA_vs_Doppler_newmg22blob_Mult>2",
                                 500,-0.2,0.2,s800->GetDta(),
-                                1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                                1024,0,8192,hit.GetDoppler(beta_mg22,z_shift,&track));
             }//if multiplicity > 2	
 
             histname = "FindBeta_newmg22blob";
@@ -525,15 +575,20 @@ void MakeHistograms(TRuntimeObjects& obj) {
                 }//if multiplicity > 2
 	      }//for loop over beta_i
 
-            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Mid_newmg22blob",4000,-2000,2000,corr_time,
-                                                            1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Mid_newmg22blob",
+                              2000,-2000,2000,corr_time,
+                              1024,0,8192,hit.GetDoppler(beta_mg22,z_shift,&track));
+            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetEnergy_Mid_newmg22blob",
+                              2000,-2000,2000,corr_time,
+                              1024,0,8192,hit.GetEnergy());
 	  }//end if inside newmg22blob and inside mid incomingPID
 
-          if(newmg23blob->IsInside(objtac_corr,ic_sum) && InBeam_Mid->IsInside(objtac,xfptac)){
+          if(newmg23blob->IsInside(objtac_corr,ic_sum) && InBeam_Mid->IsInside(objtac,xfptac) && timingcut_mg23->IsInside(corr_time,hit.GetEnergy())){
+
 	    histname = "Gamma_Gated_newmg23blob";
 	    obj.FillHistogram("GATED",histname,
                               200,0,200,hit.GetAbsoluteDetectorNumber(),
-			      1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+			      1024,0,8192,hit.GetDoppler(beta_mg23,z_shift,&track));
             obj.FillHistogram("s800","CRDC1Y_Gated_newmg22blob",10000,-5000,5000,s800->GetCrdc(0).GetNonDispersiveY());
 	    obj.FillHistogram("s800","CRDC2Y_Gated_newmg22blob",10000,-5000,5000,s800->GetCrdc(1).GetNonDispersiveY());
             obj.FillHistogram("s800","CRDC1X_Gated_newmg22blob",800,-400,400,s800->GetCrdc(0).GetDispersiveX());
@@ -557,32 +612,45 @@ void MakeHistograms(TRuntimeObjects& obj) {
             histname = "DTA_vs_Doppler_newmg23blob";
             obj.FillHistogram("Momentum_Distribution",histname,
                               500,-0.2,0.2,s800->GetDta(),
-                              1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                              1024,0,8192,hit.GetDoppler(beta_mg23,z_shift,&track));
 
             if(ng_newmg23blob==1){
               obj.FillHistogram("Momentum_Distribution","DTA_vs_Doppler_newmg23blob_Mult1",
                                 500,-0.2,0.2,s800->GetDta(),
-                                1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                                1024,0,8192,hit.GetDoppler(beta_mg23,z_shift,&track));
+              histname = "Gamma_Gated_newmg23blob_Mult1";
+	      obj.FillHistogram("GATED",histname,
+                                200,0,200,hit.GetAbsoluteDetectorNumber(),
+			        1024,0,8192,hit.GetDoppler(beta_mg23,z_shift,&track));
             }//if multiplicity 1
 
             if(ng_newmg23blob==2){
               obj.FillHistogram("Momentum_Distribution","DTA_vs_Doppler_newmg23blob_Mult2",
                                 500,-0.2,0.2,s800->GetDta(),
-                                1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                                1024,0,8192,hit.GetDoppler(beta_mg23,z_shift,&track));
             }//if multiplicity 2
      
             if(ng_newmg23blob>2){
               obj.FillHistogram("Momentum_Distribution","DTA_vs_Doppler_newmg23blob_Mult>2",
                                 500,-0.2,0.2,s800->GetDta(),
-                                1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+                                1024,0,8192,hit.GetDoppler(beta_mg23,z_shift,&track));
             }//if multiplicity > 2	
 
-            histname = "FindBeta_newmg23blob";
+
+            //for(int z_i=0;z_i<20;z_i++){ 
+              //double z_use = 0.1*double(z_i);
+            
 	      for(int beta_i=0;beta_i<300;beta_i++){
 		double beta_use = 0.2+(0.3/300.0)*double(beta_i);
-		obj.FillHistogram("GATED",histname,
+                 histname = Form("FindBeta_newmg23blob");
+                 obj.FillHistogram("GATED",histname,
 				  300,0.2,0.499,beta_use,
-				  1024,0,8192,hit.GetDoppler(beta_use,z_shift,&track));	
+				  1024,0,8192,hit.GetDoppler(beta_use,z_shift,&track));
+		
+                //histname = Form("FindBeta_newmg23blob_zshift_is_%f",z_use);
+                //obj.FillHistogram("GATED",histname,
+				  //300,0.2,0.499,beta_use,
+				  //1024,0,8192,hit.GetDoppler(beta_use,z_use,&track));	
 
                 if(ng_newmg23blob==1){
                    obj.FillHistogram("GATED","FindBeta_newmg23blob_Mult1",
@@ -601,8 +669,14 @@ void MakeHistograms(TRuntimeObjects& obj) {
                 }//if multiplicity > 2	
 	      }//for loop over beta_i
 
-            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Mid_newmg23blob",4000,-2000,2000,corr_time,
-                                                            2048,0,8192,hit.GetDoppler(beta,z_shift,&track));
+            //}//for loop over z_i
+
+            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Mid_newmg23blob",
+                              2000,-2000,2000,corr_time,
+                              1024,0,8192,hit.GetDoppler(beta_mg23,z_shift,&track));
+            obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetEnergy_Mid_newmg23blob",
+                              2000,-2000,2000,corr_time,
+                              1024,0,8192,hit.GetEnergy());
 	  }//end if inside newmg23blob and inside mid incomingPID
     
 	  obj.FillHistogram("s800","CRDC1Y",5000,-5000,5000,s800->GetCrdc(0).GetNonDispersiveY());
@@ -667,11 +741,11 @@ void MakeHistograms(TRuntimeObjects& obj) {
       }// end of if(s800)
 
     }// end of caesar for hit loop
-    obj.FillHistogram("Caesar","Multiplicity",300,0,300,valid_counter);
-    obj.FillHistogram("Caesar","Multiplicity_ng_al23blob",300,0,300,ng_newal23blob);
-    obj.FillHistogram("Caesar","Multiplicity_ng_si24blob",300,0,300,ng_newsi24blob);
-    obj.FillHistogram("Caesar","Multiplicity_ng_mg22blob",300,0,300,ng_newmg22blob);
-    obj.FillHistogram("Caesar","Multiplicity_ng_mg23blob",300,0,300,ng_newmg23blob);
+    obj.FillHistogram("Caesar","Multiplicity",200,0,200,valid_counter);
+    obj.FillHistogram("Caesar","Multiplicity_ng_al23blob",200,0,200,ng_newal23blob);
+    obj.FillHistogram("Caesar","Multiplicity_ng_si24blob",200,0,200,ng_newsi24blob);
+    obj.FillHistogram("Caesar","Multiplicity_ng_mg22blob",200,0,200,ng_newmg22blob);
+    obj.FillHistogram("Caesar","Multiplicity_ng_mg23blob",200,0,200,ng_newmg23blob);
   
   } // I have a valid caesar event
 

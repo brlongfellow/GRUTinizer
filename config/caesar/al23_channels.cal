@@ -1,4 +1,4 @@
-RING00DET00:::  {
+RING00DET00:  {
    Address:	0x2507000b
    Number:	-1
    Info:	
@@ -6,15 +6,14 @@ RING00DET00:::  {
    Position:	0
    Subposition:	0
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	25.4375	3.83633	-0.000309998
-   TimeCoeff:	-115.153	1
+   EnergyCoeff:	36.2316	3.75258	-0.00016508
+   TimeCoeff:	-144.26	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING00DET01:::  {
+RING00DET01:  {
    Address:	0x250a000b
    Number:	-1
    Info:	
@@ -22,15 +21,14 @@ RING00DET01:::  {
    Position:	0
    Subposition:	0
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	12.9455	3.87746	-0.000370568
-   TimeCoeff:	-176.804	1
+   EnergyCoeff:	25.064	3.80682	-0.000200385
+   TimeCoeff:	-216.048	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING00DET02:::  {
+RING00DET02:  {
    Address:	0x250a000c
    Number:	-1
    Info:	
@@ -38,15 +36,14 @@ RING00DET02:::  {
    Position:	0
    Subposition:	0
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	-4.16185	3.8479	-0.000233626
-   TimeCoeff:	-180.595	1
+   EnergyCoeff:	10.6323	3.78773	-0.000176962
+   TimeCoeff:	-211.443	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING00DET03:::  {
+RING00DET03:  {
    Address:	0x250a000d
    Number:	-1
    Info:	
@@ -54,15 +51,14 @@ RING00DET03:::  {
    Position:	0
    Subposition:	0
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	15.0975	3.88152	-0.000375092
-   TimeCoeff:	-109.757	1
+   EnergyCoeff:	35.4023	3.74129	-0.000173038
+   TimeCoeff:	-143.008	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING00DET04:::  {
+RING00DET04:  {
    Address:	0x250a000e
    Number:	-1
    Info:	
@@ -70,15 +66,14 @@ RING00DET04:::  {
    Position:	0
    Subposition:	0
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	35.6361	3.78497	-0.000324568
-   TimeCoeff:	-174.367	1
+   EnergyCoeff:	50.9632	3.68489	-0.000165942
+   TimeCoeff:	-198.827	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING00DET05:::  {
+RING00DET05:  {
    Address:	0x250a000f
    Number:	-1
    Info:	
@@ -86,15 +81,14 @@ RING00DET05:::  {
    Position:	0
    Subposition:	0
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	35.4879	3.83841	-0.000388607
-   TimeCoeff:	-100.594	1
+   EnergyCoeff:	52.3648	3.70733	-0.000199509
+   TimeCoeff:	-130.356	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING00DET06:::  {
+RING00DET06:  {
    Address:	0x2507000f
    Number:	-1
    Info:	
@@ -102,15 +96,14 @@ RING00DET06:::  {
    Position:	0
    Subposition:	0
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	20.9887	3.8262	-0.000319166
-   TimeCoeff:	-154.555	1
+   EnergyCoeff:	36.894	3.73553	-0.00015675
+   TimeCoeff:	-190.367	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING00DET07:::  {
+RING00DET07:  {
    Address:	0x2507000e
    Number:	-1
    Info:	
@@ -118,15 +111,14 @@ RING00DET07:::  {
    Position:	0
    Subposition:	0
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	43.8469	3.63897	3.21939e-06
-   TimeCoeff:	-42.1112	1
+   EnergyCoeff:	43.5095	3.64366	-3.29155e-05
+   TimeCoeff:	-74.6723	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING00DET08:::  {
+RING00DET08:  {
    Address:	0x2507000d
    Number:	-1
    Info:	
@@ -134,15 +126,14 @@ RING00DET08:::  {
    Position:	0
    Subposition:	0
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	24.6034	3.79251	-0.000247177
-   TimeCoeff:	-94.3865	1
+   EnergyCoeff:	37.9159	3.7099	-0.000142322
+   TimeCoeff:	-128.12	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING00DET09:::  {
+RING00DET09:  {
    Address:	0x2507000c
    Number:	-1
    Info:	
@@ -150,15 +141,14 @@ RING00DET09:::  {
    Position:	0
    Subposition:	0
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	30.8591	3.77629	-0.000283006
-   TimeCoeff:	-112.849	1
+   EnergyCoeff:	37.1698	3.72027	-0.00017958
+   TimeCoeff:	-141.676	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING01DET00:::  {
+RING01DET00:  {
    Address:	0x250b000f
    Number:	-1
    Info:	
@@ -166,15 +156,14 @@ RING01DET00:::  {
    Position:	0
    Subposition:	1
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	52.9916	3.8151	-0.000427015
-   TimeCoeff:	-26.4214	1
+   EnergyCoeff:	65.9802	3.71878	-0.000226969
+   TimeCoeff:	-61.9253	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING01DET01:::  {
+RING01DET01:  {
    Address:	0x250b000e
    Number:	-1
    Info:	
@@ -182,15 +171,14 @@ RING01DET01:::  {
    Position:	0
    Subposition:	1
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	36.8234	3.80704	-0.000362397
-   TimeCoeff:	-55.9071	1
+   EnergyCoeff:	56.4458	3.64648	-0.000156891
+   TimeCoeff:	-93.0844	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING01DET02:::  {
+RING01DET02:  {
    Address:	0x250a0004
    Number:	-1
    Info:	
@@ -198,15 +186,14 @@ RING01DET02:::  {
    Position:	0
    Subposition:	1
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	31.2443	3.79595	-0.000305502
-   TimeCoeff:	-158.64	1
+   EnergyCoeff:	44.2289	3.72576	-0.000174764
+   TimeCoeff:	-202.909	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING01DET03:::  {
+RING01DET03:  {
    Address:	0x250a0005
    Number:	-1
    Info:	
@@ -214,15 +201,14 @@ RING01DET03:::  {
    Position:	0
    Subposition:	1
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	20.3133	3.8082	-0.000266612
-   TimeCoeff:	-101.107	1
+   EnergyCoeff:	39.3712	3.67879	-0.000150744
+   TimeCoeff:	-132.239	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING01DET04:::  {
+RING01DET04:  {
    Address:	0x250a0006
    Number:	-1
    Info:	
@@ -230,15 +216,14 @@ RING01DET04:::  {
    Position:	0
    Subposition:	1
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	38.4834	3.77573	-0.000277935
-   TimeCoeff:	-150.53	1
+   EnergyCoeff:	40.4031	3.74641	-0.000232495
+   TimeCoeff:	-186.015	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING01DET05:::  {
+RING01DET05:  {
    Address:	0x250a0007
    Number:	-1
    Info:	
@@ -246,15 +231,14 @@ RING01DET05:::  {
    Position:	0
    Subposition:	1
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	41.2001	3.77899	-0.000316737
-   TimeCoeff:	-117.15	1
+   EnergyCoeff:	51.3738	3.69648	-0.00020089
+   TimeCoeff:	-146.516	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING01DET06:::  {
+RING01DET06:  {
    Address:	0x250a0008
    Number:	-1
    Info:	
@@ -262,15 +246,14 @@ RING01DET06:::  {
    Position:	0
    Subposition:	1
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	5.9647	3.88046	-0.000279021
-   TimeCoeff:	-144.366	1
+   EnergyCoeff:	4.21937	3.88427	-0.000227472
+   TimeCoeff:	-184.241	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING01DET07:::  {
+RING01DET07:  {
    Address:	0x250a0009
    Number:	-1
    Info:	
@@ -278,15 +261,14 @@ RING01DET07:::  {
    Position:	0
    Subposition:	1
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	23.9589	3.86883	-0.000415719
-   TimeCoeff:	-202.568	1
+   EnergyCoeff:	45.6365	3.70684	-0.000189974
+   TimeCoeff:	-229.416	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING01DET08:::  {
+RING01DET08:  {
    Address:	0x250a000a
    Number:	-1
    Info:	
@@ -294,15 +276,14 @@ RING01DET08:::  {
    Position:	0
    Subposition:	1
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	32.3662	3.84904	-0.000410784
-   TimeCoeff:	-228.144	1
+   EnergyCoeff:	49.5652	3.71182	-0.000209402
+   TimeCoeff:	-268.474	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING01DET09:::  {
+RING01DET09:  {
    Address:	0x2507000a
    Number:	-1
    Info:	
@@ -310,15 +291,14 @@ RING01DET09:::  {
    Position:	0
    Subposition:	1
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	29.4687	3.72897	-0.000139427
-   TimeCoeff:	-142.596	1
+   EnergyCoeff:	36.3298	3.71454	-4.52909e-05
+   TimeCoeff:	-181.986	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING01DET10:::  {
+RING01DET10:  {
    Address:	0x25070009
    Number:	-1
    Info:	
@@ -326,15 +306,14 @@ RING01DET10:::  {
    Position:	0
    Subposition:	1
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	21.6418	3.80736	-0.000272649
-   TimeCoeff:	-147.843	1
+   EnergyCoeff:	29.6279	3.74063	-0.00017538
+   TimeCoeff:	-183.284	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING01DET11:::  {
+RING01DET11:  {
    Address:	0x25070008
    Number:	-1
    Info:	
@@ -342,15 +321,14 @@ RING01DET11:::  {
    Position:	0
    Subposition:	1
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	48.5186	3.72058	-0.000255739
-   TimeCoeff:	-178.341	1
+   EnergyCoeff:	51.7106	3.6637	-0.000160266
+   TimeCoeff:	-210.978	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING01DET12:::  {
+RING01DET12:  {
    Address:	0x25070007
    Number:	-1
    Info:	
@@ -358,15 +336,14 @@ RING01DET12:::  {
    Position:	0
    Subposition:	1
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	25.335	3.8212	-0.000359841
-   TimeCoeff:	-126.789	1
+   EnergyCoeff:	39.2537	3.69982	-0.000178221
+   TimeCoeff:	-158.985	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING01DET13:::  {
+RING01DET13:  {
    Address:	0x25070006
    Number:	-1
    Info:	
@@ -374,15 +351,14 @@ RING01DET13:::  {
    Position:	0
    Subposition:	1
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	13.2248	3.82444	-0.000259048
-   TimeCoeff:	-155.039	1
+   EnergyCoeff:	25.8533	3.76525	-0.000159351
+   TimeCoeff:	-184.703	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET00:::  {
+RING02DET00:  {
    Address:	0x250b000d
    Number:	-1
    Info:	
@@ -390,15 +366,14 @@ RING02DET00:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	20.6401	3.79069	-0.000241409
-   TimeCoeff:	-108.131	1
+   EnergyCoeff:	29.9051	3.7402	-0.000143219
+   TimeCoeff:	-140.747	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET01:::  {
+RING02DET01:  {
    Address:	0x250b000c
    Number:	-1
    Info:	
@@ -406,15 +381,14 @@ RING02DET01:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	37.3106	3.75478	-0.000269949
-   TimeCoeff:	-96.7446	1
+   EnergyCoeff:	42.4303	3.71272	-0.000176981
+   TimeCoeff:	-131.577	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET02:::  {
+RING02DET02:  {
    Address:	0x250b000b
    Number:	-1
    Info:	
@@ -422,15 +396,14 @@ RING02DET02:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	31.2864	3.80734	-0.000371144
-   TimeCoeff:	-67.4928	1
+   EnergyCoeff:	42.1346	3.71494	-0.000191366
+   TimeCoeff:	-106.043	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET03:::  {
+RING02DET03:  {
    Address:	0x250b000a
    Number:	-1
    Info:	
@@ -438,15 +411,14 @@ RING02DET03:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	37.9759	3.77141	-0.0002876
-   TimeCoeff:	-25.2515	1
+   EnergyCoeff:	44.738	3.70773	-0.000212186
+   TimeCoeff:	-60.7401	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET04:::  {
+RING02DET04:  {
    Address:	0x250b0009
    Number:	-1
    Info:	
@@ -454,15 +426,14 @@ RING02DET04:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	87.4398	3.68149	-0.000296414
-   TimeCoeff:	-4.41487	1
+   EnergyCoeff:	101.197	3.57136	-0.000126321
+   TimeCoeff:	-39.8866	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET05:::  {
+RING02DET05:  {
    Address:	0x2508000d
    Number:	-1
    Info:	
@@ -470,15 +441,14 @@ RING02DET05:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	27.6044	3.80046	-0.00029162
-   TimeCoeff:	-57.149	1
+   EnergyCoeff:	38.1928	3.72221	-0.000199125
+   TimeCoeff:	-84.9395	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET06:::  {
+RING02DET06:  {
    Address:	0x2508000e
    Number:	-1
    Info:	
@@ -486,15 +456,14 @@ RING02DET06:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	21.6457	3.83664	-0.000331767
-   TimeCoeff:	-97.6662	1
+   EnergyCoeff:	36.1556	3.73492	-0.000191019
+   TimeCoeff:	-131.714	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET07:::  {
+RING02DET07:  {
    Address:	0x2508000f
    Number:	-1
    Info:	
@@ -502,15 +471,14 @@ RING02DET07:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	25.9638	3.84334	-0.000379291
-   TimeCoeff:	-101.495	1
+   EnergyCoeff:	43.0884	3.69232	-0.000198255
+   TimeCoeff:	-139.052	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET08:::  {
+RING02DET08:  {
    Address:	0x250a0000
    Number:	-1
    Info:	
@@ -518,15 +486,14 @@ RING02DET08:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	10.2579	3.92293	-0.000462552
-   TimeCoeff:	-44.4626	1
+   EnergyCoeff:	25.1388	3.80006	-0.000239896
+   TimeCoeff:	-71.797	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET09:::  {
+RING02DET09:  {
    Address:	0x250a0001
    Number:	-1
    Info:	
@@ -534,15 +501,14 @@ RING02DET09:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	33.6882	3.8002	-0.000291126
-   TimeCoeff:	-104.522	1
+   EnergyCoeff:	38.7095	3.75755	-0.000212707
+   TimeCoeff:	-134.963	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET10:::  {
+RING02DET10:  {
    Address:	0x250a0002
    Number:	-1
    Info:	
@@ -550,15 +516,14 @@ RING02DET10:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	9.47423	3.89927	-0.000399693
-   TimeCoeff:	-27.4453	1
+   EnergyCoeff:	35.0012	3.73363	-0.000173245
+   TimeCoeff:	-59.6745	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET11:::  {
+RING02DET11:  {
    Address:	0x250a0003
    Number:	-1
    Info:	
@@ -566,15 +531,14 @@ RING02DET11:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	18.3364	3.89601	-0.000381661
-   TimeCoeff:	-205.227	1
+   EnergyCoeff:	26.9765	3.8221	-0.000219772
+   TimeCoeff:	-232.195	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET12:::  {
+RING02DET12:  {
    Address:	0x25040009
    Number:	-1
    Info:	
@@ -582,15 +546,14 @@ RING02DET12:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	24.4038	3.83246	-0.00034763
-   TimeCoeff:	-102.547	1
+   EnergyCoeff:	33.1966	3.74828	-0.000194845
+   TimeCoeff:	-132.916	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET13:::  {
+RING02DET13:  {
    Address:	0x25040008
    Number:	-1
    Info:	
@@ -598,15 +561,14 @@ RING02DET13:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	18.477	3.81998	-0.000303713
-   TimeCoeff:	-94.4822	1
+   EnergyCoeff:	33.0424	3.70583	-0.000181101
+   TimeCoeff:	-123.614	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET14:::  {
+RING02DET14:  {
    Address:	0x25040007
    Number:	-1
    Info:	
@@ -614,15 +576,14 @@ RING02DET14:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	35.198	3.80443	-0.000318591
-   TimeCoeff:	-8.32429	1
+   EnergyCoeff:	43.2553	3.76279	-0.000218756
+   TimeCoeff:	-39.3342	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET15:::  {
+RING02DET15:  {
    Address:	0x25040006
    Number:	-1
    Info:	
@@ -630,15 +591,14 @@ RING02DET15:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	37.4477	3.83396	-0.000400602
-   TimeCoeff:	-23.8459	1
+   EnergyCoeff:	48.5603	3.74202	-0.000256417
+   TimeCoeff:	-51.1488	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET16:::  {
+RING02DET16:  {
    Address:	0x25040005
    Number:	-1
    Info:	
@@ -646,15 +606,14 @@ RING02DET16:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	4.81455	3.92992	-0.000480765
-   TimeCoeff:	12.4371	1
+   EnergyCoeff:	27.7144	3.752	-0.000211958
+   TimeCoeff:	-17.0516	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET17:::  {
+RING02DET17:  {
    Address:	0x25070005
    Number:	-1
    Info:	
@@ -662,15 +621,14 @@ RING02DET17:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	30.8582	3.8096	-0.000312254
-   TimeCoeff:	-86.9209	1
+   EnergyCoeff:	46.0518	3.70168	-0.000187695
+   TimeCoeff:	-117.568	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET18:::  {
+RING02DET18:  {
    Address:	0x25070004
    Number:	-1
    Info:	
@@ -678,15 +636,14 @@ RING02DET18:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	23.313	3.83415	-0.000348208
-   TimeCoeff:	-95.0819	1
+   EnergyCoeff:	37.1556	3.72904	-0.000186242
+   TimeCoeff:	-123.541	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET19:::  {
+RING02DET19:  {
    Address:	0x25070003
    Number:	-1
    Info:	
@@ -694,15 +651,14 @@ RING02DET19:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	44.224	3.78694	-0.000329938
-   TimeCoeff:	-77.1648	1
+   EnergyCoeff:	53.7528	3.70134	-0.000194885
+   TimeCoeff:	-112.432	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET20:::  {
+RING02DET20:  {
    Address:	0x25070002
    Number:	-1
    Info:	
@@ -710,15 +666,14 @@ RING02DET20:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	37.8049	3.73089	-0.000237709
-   TimeCoeff:	-107.656	1
+   EnergyCoeff:	48.7668	3.64668	-0.000145644
+   TimeCoeff:	-144.532	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET21:::  {
+RING02DET21:  {
    Address:	0x25070001
    Number:	-1
    Info:	
@@ -726,15 +681,14 @@ RING02DET21:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	17.3154	3.83247	-0.000272608
-   TimeCoeff:	-99.7429	1
+   EnergyCoeff:	24.7981	3.79031	-0.000204364
+   TimeCoeff:	-133.528	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET22:::  {
+RING02DET22:  {
    Address:	0x25070000
    Number:	-1
    Info:	
@@ -742,15 +696,14 @@ RING02DET22:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	31.4556	3.85111	-0.000394844
-   TimeCoeff:	-35.6272	1
+   EnergyCoeff:	43.0665	3.74744	-0.000223473
+   TimeCoeff:	-71.2441	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING02DET23:::  {
+RING02DET23:  {
    Address:	0x2505000f
    Number:	-1
    Info:	
@@ -758,15 +711,14 @@ RING02DET23:::  {
    Position:	0
    Subposition:	2
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	47.3821	3.75042	-0.000224159
-   TimeCoeff:	-232.555	1
+   EnergyCoeff:	51.2553	3.71352	-0.000182173
+   TimeCoeff:	-269.823	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET00:::  {
+RING03DET00:  {
    Address:	0x250b0008
    Number:	-1
    Info:	
@@ -774,15 +726,14 @@ RING03DET00:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	22.8226	3.77034	-0.000223026
-   TimeCoeff:	-29.8665	1
+   EnergyCoeff:	34.2741	3.69003	-9.45767e-05
+   TimeCoeff:	-69.1033	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET01:::  {
+RING03DET01:  {
    Address:	0x250b0007
    Number:	-1
    Info:	
@@ -790,15 +741,14 @@ RING03DET01:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	29.4592	3.78231	-0.000224885
-   TimeCoeff:	31.4878	1
+   EnergyCoeff:	37.421	3.72416	-0.000140071
+   TimeCoeff:	-2.53248	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET02:::  {
+RING03DET02:  {
    Address:	0x250b0006
    Number:	-1
    Info:	
@@ -806,15 +756,14 @@ RING03DET02:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	10.7462	3.83585	-0.000299605
-   TimeCoeff:	-67.8526	1
+   EnergyCoeff:	23.8681	3.74659	-0.000182215
+   TimeCoeff:	-114.824	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET03:::  {
+RING03DET03:  {
    Address:	0x250b0005
    Number:	-1
    Info:	
@@ -822,15 +771,14 @@ RING03DET03:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	36.7144	3.73401	-0.000265309
-   TimeCoeff:	60.0673	1
+   EnergyCoeff:	47.9137	3.63637	-0.000134916
+   TimeCoeff:	25.6407	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET04:::  {
+RING03DET04:  {
    Address:	0x250b0004
    Number:	-1
    Info:	
@@ -838,15 +786,14 @@ RING03DET04:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	29.4789	3.76967	-0.000273326
-   TimeCoeff:	-93.3508	1
+   EnergyCoeff:	39.174	3.67553	-0.000154534
+   TimeCoeff:	-130.941	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET05:::  {
+RING03DET05:  {
    Address:	0x25080006
    Number:	-1
    Info:	
@@ -854,15 +801,14 @@ RING03DET05:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	30.2701	3.81877	-0.00030473
-   TimeCoeff:	-62.4581	1
+   EnergyCoeff:	45.4201	3.7218	-0.000204594
+   TimeCoeff:	-98.6022	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET06:::  {
+RING03DET06:  {
    Address:	0x25080007
    Number:	-1
    Info:	
@@ -870,15 +816,14 @@ RING03DET06:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	18.2764	3.84881	-0.000332116
-   TimeCoeff:	-36.8025	1
+   EnergyCoeff:	31.8027	3.75751	-0.000219212
+   TimeCoeff:	-75.6794	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET07:::  {
+RING03DET07:  {
    Address:	0x25080008
    Number:	-1
    Info:	
@@ -886,15 +831,14 @@ RING03DET07:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	8.21472	3.88995	-0.000384223
-   TimeCoeff:	-110.411	1
+   EnergyCoeff:	25.4912	3.7711	-0.000213072
+   TimeCoeff:	-146.278	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET08:::  {
+RING03DET08:  {
    Address:	0x25080009
    Number:	-1
    Info:	
@@ -902,15 +846,14 @@ RING03DET08:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	-3.19529	3.87736	-0.000291595
-   TimeCoeff:	-34.4405	1
+   EnergyCoeff:	11.1295	3.78546	-0.000142532
+   TimeCoeff:	-68.7626	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET09:::  {
+RING03DET09:  {
    Address:	0x2508000a
    Number:	-1
    Info:	
@@ -918,15 +861,14 @@ RING03DET09:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	11.1501	3.89104	-0.00037706
-   TimeCoeff:	-59.9882	1
+   EnergyCoeff:	23.926	3.80318	-0.000239496
+   TimeCoeff:	-95.769	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET10:::  {
+RING03DET10:  {
    Address:	0x2508000b
    Number:	-1
    Info:	
@@ -934,15 +876,14 @@ RING03DET10:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	17.128	3.88595	-0.000388432
-   TimeCoeff:	-93.7936	1
+   EnergyCoeff:	33.0481	3.77157	-0.000197575
+   TimeCoeff:	-134.598	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET11:::  {
+RING03DET11:  {
    Address:	0x2508000c
    Number:	-1
    Info:	
@@ -950,15 +891,14 @@ RING03DET11:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	19.2759	3.84671	-0.00028318
-   TimeCoeff:	-60.3543	1
+   EnergyCoeff:	29.9147	3.77891	-0.000218088
+   TimeCoeff:	-98.6133	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET12:::  {
+RING03DET12:  {
    Address:	0x25040004
    Number:	-1
    Info:	
@@ -966,15 +906,14 @@ RING03DET12:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	45.8025	3.76798	-0.000374835
-   TimeCoeff:	4.96658	1
+   EnergyCoeff:	60.436	3.66945	-0.000199381
+   TimeCoeff:	-23.6512	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET13:::  {
+RING03DET13:  {
    Address:	0x25040003
    Number:	-1
    Info:	
@@ -982,15 +921,14 @@ RING03DET13:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	24.2782	3.88235	-0.000467634
-   TimeCoeff:	-19.5439	1
+   EnergyCoeff:	45.4615	3.70156	-0.000234263
+   TimeCoeff:	-52.4616	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET14:::  {
+RING03DET14:  {
    Address:	0x25040002
    Number:	-1
    Info:	
@@ -998,15 +936,14 @@ RING03DET14:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	28.9239	3.84262	-0.000385452
-   TimeCoeff:	-79.7294	1
+   EnergyCoeff:	49.2621	3.69282	-0.000172727
+   TimeCoeff:	-113.518	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET15:::  {
+RING03DET15:  {
    Address:	0x25040001
    Number:	-1
    Info:	
@@ -1014,15 +951,14 @@ RING03DET15:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	29.7065	3.79121	-0.000254901
-   TimeCoeff:	-79.6633	1
+   EnergyCoeff:	33.8531	3.75367	-0.000181708
+   TimeCoeff:	-116.248	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET16:::  {
+RING03DET16:  {
    Address:	0x25040000
    Number:	-1
    Info:	
@@ -1030,15 +966,14 @@ RING03DET16:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	33.2206	3.84947	-0.000406071
-   TimeCoeff:	-55.9986	1
+   EnergyCoeff:	50.4424	3.75658	-0.000204516
+   TimeCoeff:	-88.0597	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET17:::  {
+RING03DET17:  {
    Address:	0x2505000e
    Number:	-1
    Info:	
@@ -1046,15 +981,14 @@ RING03DET17:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	9.6556	3.81459	-0.000237709
-   TimeCoeff:	-156.549	1
+   EnergyCoeff:	17.3632	3.77179	-0.000191002
+   TimeCoeff:	-187.205	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET18:::  {
+RING03DET18:  {
    Address:	0x2505000d
    Number:	-1
    Info:	
@@ -1062,15 +996,14 @@ RING03DET18:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	20.8085	3.82202	-0.000293883
-   TimeCoeff:	-200.984	1
+   EnergyCoeff:	35.8625	3.71847	-0.000181343
+   TimeCoeff:	-235.301	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET19:::  {
+RING03DET19:  {
    Address:	0x2505000c
    Number:	-1
    Info:	
@@ -1078,15 +1011,14 @@ RING03DET19:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	27.4591	3.78162	-0.000260118
-   TimeCoeff:	-208.326	1
+   EnergyCoeff:	33.645	3.72967	-0.000187514
+   TimeCoeff:	-241.314	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET20:::  {
+RING03DET20:  {
    Address:	0x2505000b
    Number:	-1
    Info:	
@@ -1094,15 +1026,14 @@ RING03DET20:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	16.0064	3.84754	-0.00030763
-   TimeCoeff:	-159.887	1
+   EnergyCoeff:	42.7405	3.71906	-0.000239215
+   TimeCoeff:	-195.861	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET21:::  {
+RING03DET21:  {
    Address:	0x2505000a
    Number:	-1
    Info:	
@@ -1110,15 +1041,14 @@ RING03DET21:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	20.6724	3.87829	-0.000397447
-   TimeCoeff:	-167.728	1
+   EnergyCoeff:	38.9202	3.75135	-0.000215358
+   TimeCoeff:	-199.2	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET22:::  {
+RING03DET22:  {
    Address:	0x25050009
    Number:	-1
    Info:	
@@ -1126,15 +1056,14 @@ RING03DET22:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	24.7655	3.80459	-0.000279339
-   TimeCoeff:	-162.142	1
+   EnergyCoeff:	21.6935	3.80238	-0.000225792
+   TimeCoeff:	-199.163	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING03DET23:::  {
+RING03DET23:  {
    Address:	0x25050008
    Number:	-1
    Info:	
@@ -1142,15 +1071,14 @@ RING03DET23:::  {
    Position:	0
    Subposition:	3
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	21.992	3.80393	-0.000273151
-   TimeCoeff:	-206.989	1
+   EnergyCoeff:	32.6049	3.73012	-0.000193592
+   TimeCoeff:	-233.886	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET00:::  {
+RING04DET00:  {
    Address:	0x250b0003
    Number:	-1
    Info:	
@@ -1158,15 +1086,14 @@ RING04DET00:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	38.0423	3.8372	-0.000368189
-   TimeCoeff:	8.95767	1
+   EnergyCoeff:	52.0546	3.73024	-0.000205194
+   TimeCoeff:	-27.4161	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET01:::  {
+RING04DET01:  {
    Address:	0x250b0002
    Number:	-1
    Info:	
@@ -1174,15 +1101,14 @@ RING04DET01:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	26.4431	3.8671	-0.000392024
-   TimeCoeff:	-55.105	1
+   EnergyCoeff:	40.766	3.73774	-0.000208965
+   TimeCoeff:	-93.7325	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET02:::  {
+RING04DET02:  {
    Address:	0x250b0001
    Number:	-1
    Info:	
@@ -1190,15 +1116,14 @@ RING04DET02:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	18.1954	3.84226	-0.000331808
-   TimeCoeff:	-65.3345	1
+   EnergyCoeff:	28.6924	3.77149	-0.00018987
+   TimeCoeff:	-98.8396	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET03:::  {
+RING04DET03:  {
    Address:	0x250b0000
    Number:	-1
    Info:	
@@ -1206,15 +1131,14 @@ RING04DET03:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	22.3545	3.83581	-0.000297027
-   TimeCoeff:	-6.04205	1
+   EnergyCoeff:	35.4367	3.75112	-0.000199355
+   TimeCoeff:	-41.233	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET04:::  {
+RING04DET04:  {
    Address:	0x2509000f
    Number:	-1
    Info:	
@@ -1222,15 +1146,14 @@ RING04DET04:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	35.3382	3.75944	-0.000232453
-   TimeCoeff:	-38.2461	1
+   EnergyCoeff:	45.9246	3.68818	-0.000121042
+   TimeCoeff:	-73.4956	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET05:::  {
+RING04DET05:  {
    Address:	0x2506000f
    Number:	-1
    Info:	
@@ -1238,15 +1161,14 @@ RING04DET05:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	44.7499	3.85089	-0.000456282
-   TimeCoeff:	-97.0665	1
+   EnergyCoeff:	58.8729	3.73424	-0.000266667
+   TimeCoeff:	-136.536	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET06:::  {
+RING04DET06:  {
    Address:	0x25080000
    Number:	-1
    Info:	
@@ -1254,15 +1176,14 @@ RING04DET06:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	18.6588	3.88305	-0.000391902
-   TimeCoeff:	4.6879	1
+   EnergyCoeff:	39.009	3.75298	-0.000244522
+   TimeCoeff:	-32.3103	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET07:::  {
+RING04DET07:  {
    Address:	0x25080001
    Number:	-1
    Info:	
@@ -1270,15 +1191,14 @@ RING04DET07:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	20.6937	3.89272	-0.000446177
-   TimeCoeff:	-8.41031	1
+   EnergyCoeff:	38.9911	3.7573	-0.000244692
+   TimeCoeff:	-43.976	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET08:::  {
+RING04DET08:  {
    Address:	0x25080002
    Number:	-1
    Info:	
@@ -1286,15 +1206,14 @@ RING04DET08:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	21.3441	3.93404	-0.00050977
-   TimeCoeff:	-60.6237	1
+   EnergyCoeff:	40.6209	3.78649	-0.000280165
+   TimeCoeff:	-95.1967	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET09:::  {
+RING04DET09:  {
    Address:	0x25080003
    Number:	-1
    Info:	
@@ -1302,15 +1221,14 @@ RING04DET09:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	18.7472	3.9064	-0.000453388
-   TimeCoeff:	-22.8365	1
+   EnergyCoeff:	40.1448	3.75107	-0.000225234
+   TimeCoeff:	-60.2655	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET10:::  {
+RING04DET10:  {
    Address:	0x25080004
    Number:	-1
    Info:	
@@ -1318,15 +1236,14 @@ RING04DET10:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	27.1005	3.86242	-0.000417521
-   TimeCoeff:	-48.1139	1
+   EnergyCoeff:	47.8613	3.70816	-0.000215441
+   TimeCoeff:	-84.767	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET11:::  {
+RING04DET11:  {
    Address:	0x25080005
    Number:	-1
    Info:	
@@ -1334,15 +1251,14 @@ RING04DET11:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	21.2816	3.89658	-0.000462411
-   TimeCoeff:	-82.2633	1
+   EnergyCoeff:	39.5568	3.75099	-0.000230791
+   TimeCoeff:	-121.171	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET12:::  {
+RING04DET12:  {
    Address:	0x2502000f
    Number:	-1
    Info:	
@@ -1350,15 +1266,14 @@ RING04DET12:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	15.0273	3.76495	-0.000145007
-   TimeCoeff:	0.13333	1
+   EnergyCoeff:	19.3472	3.74635	-0.000124758
+   TimeCoeff:	-37.4401	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET13:::  {
+RING04DET13:  {
    Address:	0x2502000e
    Number:	-1
    Info:	
@@ -1366,15 +1281,14 @@ RING04DET13:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	20.0459	3.83473	-0.000376484
-   TimeCoeff:	21.7649	1
+   EnergyCoeff:	37.0263	3.67592	-0.000184991
+   TimeCoeff:	-13.9758	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET14:::  {
+RING04DET14:  {
    Address:	0x2502000d
    Number:	-1
    Info:	
@@ -1382,15 +1296,14 @@ RING04DET14:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	21.4513	3.79933	-0.000261145
-   TimeCoeff:	-18.8542	1
+   EnergyCoeff:	32.7499	3.73603	-0.000160433
+   TimeCoeff:	-55.0143	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET15:::  {
+RING04DET15:  {
    Address:	0x2502000c
    Number:	-1
    Info:	
@@ -1398,15 +1311,14 @@ RING04DET15:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	16.2342	3.84168	-0.00033865
-   TimeCoeff:	-25.1145	1
+   EnergyCoeff:	25.1889	3.75104	-0.000202439
+   TimeCoeff:	-60.4994	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET16:::  {
+RING04DET16:  {
    Address:	0x2502000b
    Number:	-1
    Info:	
@@ -1414,15 +1326,14 @@ RING04DET16:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	40.7128	3.84721	-0.000406045
-   TimeCoeff:	-47.2452	1
+   EnergyCoeff:	50.9541	3.76532	-0.000263379
+   TimeCoeff:	-84.0088	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET17:::  {
+RING04DET17:  {
    Address:	0x25050007
    Number:	-1
    Info:	
@@ -1430,15 +1341,14 @@ RING04DET17:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	46.0944	3.84417	-0.000429713
-   TimeCoeff:	-113.748	1
+   EnergyCoeff:	48.783	3.80061	-0.000333337
+   TimeCoeff:	-149.06	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET18:::  {
+RING04DET18:  {
    Address:	0x25050006
    Number:	-1
    Info:	
@@ -1446,15 +1356,14 @@ RING04DET18:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	21.9208	3.863	-0.000382268
-   TimeCoeff:	-170.249	1
+   EnergyCoeff:	32.3946	3.77905	-0.000269165
+   TimeCoeff:	-205.491	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET19:::  {
+RING04DET19:  {
    Address:	0x25050005
    Number:	-1
    Info:	
@@ -1462,15 +1371,14 @@ RING04DET19:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	41.7437	3.86239	-0.000450247
-   TimeCoeff:	-115.076	1
+   EnergyCoeff:	47.8184	3.79277	-0.000284067
+   TimeCoeff:	-151.641	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET20:::  {
+RING04DET20:  {
    Address:	0x25050004
    Number:	-1
    Info:	
@@ -1478,15 +1386,14 @@ RING04DET20:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	1.7724	3.9037	-0.000385333
-   TimeCoeff:	-88.3337	1
+   EnergyCoeff:	18.6569	3.77676	-0.00020526
+   TimeCoeff:	-124.774	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET21:::  {
+RING04DET21:  {
    Address:	0x25050003
    Number:	-1
    Info:	
@@ -1494,15 +1401,14 @@ RING04DET21:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	35.2087	3.83607	-0.000393832
-   TimeCoeff:	-79.0446	1
+   EnergyCoeff:	50.1088	3.72148	-0.000229071
+   TimeCoeff:	-118.365	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET22:::  {
+RING04DET22:  {
    Address:	0x25050002
    Number:	-1
    Info:	
@@ -1510,15 +1416,14 @@ RING04DET22:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	22.9461	3.89819	-0.000484026
-   TimeCoeff:	-161.268	1
+   EnergyCoeff:	35.4515	3.76861	-0.000266862
+   TimeCoeff:	-202.447	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING04DET23:::  {
+RING04DET23:  {
    Address:	0x25050001
    Number:	-1
    Info:	
@@ -1526,15 +1431,14 @@ RING04DET23:::  {
    Position:	0
    Subposition:	4
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	30.4497	3.87807	-0.000439098
-   TimeCoeff:	-146.692	1
+   EnergyCoeff:	44.2065	3.75926	-0.000230011
+   TimeCoeff:	-185.386	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET00:::  {
+RING05DET00:  {
    Address:	0x2509000e
    Number:	-1
    Info:	
@@ -1542,15 +1446,14 @@ RING05DET00:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	18.1948	3.79284	-0.000236755
-   TimeCoeff:	-57.5124	1
+   EnergyCoeff:	28.7507	3.73624	-0.000122416
+   TimeCoeff:	-93.395	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET01:::  {
+RING05DET01:  {
    Address:	0x2509000d
    Number:	-1
    Info:	
@@ -1558,15 +1461,14 @@ RING05DET01:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	46.1271	3.76738	-0.000299177
-   TimeCoeff:	-39.7871	1
+   EnergyCoeff:	54.7018	3.66318	-0.000162468
+   TimeCoeff:	-72.9565	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET02:::  {
+RING05DET02:  {
    Address:	0x2509000c
    Number:	-1
    Info:	
@@ -1574,15 +1476,14 @@ RING05DET02:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	23.9811	3.80913	-0.000302744
-   TimeCoeff:	-107.385	1
+   EnergyCoeff:	39.3972	3.69318	-0.000143617
+   TimeCoeff:	-142.031	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET03:::  {
+RING05DET03:  {
    Address:	0x2509000b
    Number:	-1
    Info:	
@@ -1590,15 +1491,14 @@ RING05DET03:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	30.7301	3.84647	-0.00038816
-   TimeCoeff:	-32.1593	1
+   EnergyCoeff:	42.4248	3.7325	-0.000205093
+   TimeCoeff:	-67.5304	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET04:::  {
+RING05DET04:  {
    Address:	0x2509000a
    Number:	-1
    Info:	
@@ -1606,15 +1506,14 @@ RING05DET04:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	26.793	3.81759	-0.000290617
-   TimeCoeff:	-46.4535	1
+   EnergyCoeff:	40.0957	3.73967	-0.000144714
+   TimeCoeff:	-78.8385	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET05:::  {
+RING05DET05:  {
    Address:	0x25060008
    Number:	-1
    Info:	
@@ -1622,15 +1521,14 @@ RING05DET05:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	19.3397	3.85666	-0.000350647
-   TimeCoeff:	-74.99	1
+   EnergyCoeff:	33.9155	3.77076	-0.000211808
+   TimeCoeff:	-110.467	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET06:::  {
+RING05DET06:  {
    Address:	0x25060009
    Number:	-1
    Info:	
@@ -1638,15 +1536,14 @@ RING05DET06:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	14.3345	3.87197	-0.000366411
-   TimeCoeff:	-21.4887	1
+   EnergyCoeff:	30.6449	3.75651	-0.000197088
+   TimeCoeff:	-59.2746	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET07:::  {
+RING05DET07:  {
    Address:	0x2506000a
    Number:	-1
    Info:	
@@ -1654,15 +1551,14 @@ RING05DET07:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	41.9734	3.7842	-0.000292349
-   TimeCoeff:	-25.4851	1
+   EnergyCoeff:	47.6834	3.72028	-0.000219628
+   TimeCoeff:	-62.8783	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET08:::  {
+RING05DET08:  {
    Address:	0x2506000b
    Number:	-1
    Info:	
@@ -1670,15 +1566,14 @@ RING05DET08:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	26.2454	3.75577	-0.000162029
-   TimeCoeff:	-35.5421	1
+   EnergyCoeff:	36.5411	3.69821	-0.000119857
+   TimeCoeff:	-71.7759	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET09:::  {
+RING05DET09:  {
    Address:	0x2506000c
    Number:	-1
    Info:	
@@ -1686,15 +1581,14 @@ RING05DET09:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	25.0232	3.80008	-0.00027495
-   TimeCoeff:	-17.4163	1
+   EnergyCoeff:	35.6777	3.72007	-0.00017644
+   TimeCoeff:	-55.6727	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET10:::  {
+RING05DET10:  {
    Address:	0x2506000d
    Number:	-1
    Info:	
@@ -1702,15 +1596,14 @@ RING05DET10:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	6.18583	3.86177	-0.000315004
-   TimeCoeff:	-26.5327	1
+   EnergyCoeff:	19.4778	3.77105	-0.000204971
+   TimeCoeff:	-64.482	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET11:::  {
+RING05DET11:  {
    Address:	0x2506000e
    Number:	-1
    Info:	
@@ -1718,15 +1611,14 @@ RING05DET11:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	6.72705	3.91668	-0.000431716
-   TimeCoeff:	-7.78331	1
+   EnergyCoeff:	32.079	3.77162	-0.000202941
+   TimeCoeff:	-45.0275	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET12:::  {
+RING05DET12:  {
    Address:	0x2502000a
    Number:	-1
    Info:	
@@ -1734,15 +1626,14 @@ RING05DET12:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	34.0215	3.85852	-0.000412149
-   TimeCoeff:	13.0375	1
+   EnergyCoeff:	48.8946	3.77261	-0.000231645
+   TimeCoeff:	-23.6521	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET13:::  {
+RING05DET13:  {
    Address:	0x25020009
    Number:	-1
    Info:	
@@ -1750,15 +1641,14 @@ RING05DET13:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	29.664	3.7705	-0.000218984
-   TimeCoeff:	10.7632	1
+   EnergyCoeff:	37.4561	3.71978	-0.000165808
+   TimeCoeff:	-27.0155	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET14:::  {
+RING05DET14:  {
    Address:	0x25020008
    Number:	-1
    Info:	
@@ -1766,15 +1656,14 @@ RING05DET14:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	32.3767	3.78802	-0.000262604
-   TimeCoeff:	-24.2858	1
+   EnergyCoeff:	46.3391	3.69558	-0.000167869
+   TimeCoeff:	-58.6615	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET15:::  {
+RING05DET15:  {
    Address:	0x25020007
    Number:	-1
    Info:	
@@ -1782,15 +1671,14 @@ RING05DET15:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	21.2672	3.80734	-0.000295001
-   TimeCoeff:	39.1689	1
+   EnergyCoeff:	34.2148	3.7355	-0.000163752
+   TimeCoeff:	1.41387	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET16:::  {
+RING05DET16:  {
    Address:	0x25020006
    Number:	-1
    Info:	
@@ -1798,15 +1686,14 @@ RING05DET16:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	18.5724	3.88489	-0.00038083
-   TimeCoeff:	0.240744	1
+   EnergyCoeff:	28.4612	3.79726	-0.000241634
+   TimeCoeff:	-39.5082	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET17:::  {
+RING05DET17:  {
    Address:	0x25050000
    Number:	-1
    Info:	
@@ -1814,15 +1701,14 @@ RING05DET17:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	24.4041	3.77083	-0.000185333
-   TimeCoeff:	-120.779	1
+   EnergyCoeff:	22.0767	3.78655	-0.000201254
+   TimeCoeff:	-158.291	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET18:::  {
+RING05DET18:  {
    Address:	0x2503000f
    Number:	-1
    Info:	
@@ -1830,15 +1716,14 @@ RING05DET18:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	17.6548	3.77602	-0.00012069
-   TimeCoeff:	-74.6742	1
+   EnergyCoeff:	18.8957	3.78226	-0.000139196
+   TimeCoeff:	-110.219	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET19:::  {
+RING05DET19:  {
    Address:	0x2503000e
    Number:	-1
    Info:	
@@ -1846,15 +1731,14 @@ RING05DET19:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	25.4281	3.81112	-0.000273133
-   TimeCoeff:	-72.2178	1
+   EnergyCoeff:	40.0425	3.71124	-0.00014355
+   TimeCoeff:	-105.834	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET20:::  {
+RING05DET20:  {
    Address:	0x2503000d
    Number:	-1
    Info:	
@@ -1862,15 +1746,14 @@ RING05DET20:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	9.63672	3.87486	-0.000314684
-   TimeCoeff:	-59.9738	1
+   EnergyCoeff:	22.4877	3.79212	-0.000184928
+   TimeCoeff:	-94.4424	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET21:::  {
+RING05DET21:  {
    Address:	0x2503000c
    Number:	-1
    Info:	
@@ -1878,15 +1761,14 @@ RING05DET21:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	20.7046	3.81736	-0.000305371
-   TimeCoeff:	-23.9905	1
+   EnergyCoeff:	37.5993	3.69174	-0.000124569
+   TimeCoeff:	-57.2586	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET22:::  {
+RING05DET22:  {
    Address:	0x2503000b
    Number:	-1
    Info:	
@@ -1894,15 +1776,14 @@ RING05DET22:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	18.3578	3.78191	-0.000225297
-   TimeCoeff:	76.0074	1
+   EnergyCoeff:	25.9602	3.72325	-0.000150897
+   TimeCoeff:	37.3688	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING05DET23:::  {
+RING05DET23:  {
    Address:	0x2503000a
    Number:	-1
    Info:	
@@ -1910,15 +1791,14 @@ RING05DET23:::  {
    Position:	0
    Subposition:	5
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	33.5395	3.82403	-0.00041652
-   TimeCoeff:	25.2799	1
+   EnergyCoeff:	48.7771	3.70376	-0.000216776
+   TimeCoeff:	-11.0668	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET00:::  {
+RING06DET00:  {
    Address:	0x25090009
    Number:	-1
    Info:	
@@ -1926,15 +1806,14 @@ RING06DET00:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	32.2693	3.8211	-0.000346218
-   TimeCoeff:	-41.6307	1
+   EnergyCoeff:	49.7684	3.69116	-0.000168421
+   TimeCoeff:	-79.3796	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET01:::  {
+RING06DET01:  {
    Address:	0x25090008
    Number:	-1
    Info:	
@@ -1942,15 +1821,14 @@ RING06DET01:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	42.06	3.7934	-0.000332681
-   TimeCoeff:	-26.9789	1
+   EnergyCoeff:	52.5327	3.70203	-0.0001834
+   TimeCoeff:	-63.9111	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET02:::  {
+RING06DET02:  {
    Address:	0x25090007
    Number:	-1
    Info:	
@@ -1958,15 +1836,14 @@ RING06DET02:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	25.0041	3.82913	-0.000322701
-   TimeCoeff:	-28.7617	1
+   EnergyCoeff:	38.5462	3.72781	-0.000157475
+   TimeCoeff:	-66.629	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET03:::  {
+RING06DET03:  {
    Address:	0x25090006
    Number:	-1
    Info:	
@@ -1974,15 +1851,14 @@ RING06DET03:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	35.3011	3.811	-0.000338157
-   TimeCoeff:	-66.6412	1
+   EnergyCoeff:	46.5097	3.74702	-0.00017173
+   TimeCoeff:	-100.762	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET04:::  {
+RING06DET04:  {
    Address:	0x25090005
    Number:	-1
    Info:	
@@ -1990,15 +1866,14 @@ RING06DET04:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	29.2639	3.79144	-0.000280738
-   TimeCoeff:	-0.903637	1
+   EnergyCoeff:	39.2027	3.75556	-0.000166364
+   TimeCoeff:	-39.4016	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET05:::  {
+RING06DET05:  {
    Address:	0x25060001
    Number:	-1
    Info:	
@@ -2006,15 +1881,14 @@ RING06DET05:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	36.7942	3.79834	-0.000330258
-   TimeCoeff:	-41.8795	1
+   EnergyCoeff:	42.5293	3.73488	-0.000232288
+   TimeCoeff:	-81.0305	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET06:::  {
+RING06DET06:  {
    Address:	0x25060002
    Number:	-1
    Info:	
@@ -2022,15 +1896,14 @@ RING06DET06:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	32.3192	3.85303	-0.000436651
-   TimeCoeff:	-31.5474	1
+   EnergyCoeff:	50.9236	3.70311	-0.000198177
+   TimeCoeff:	-72.1749	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET07:::  {
+RING06DET07:  {
    Address:	0x25060003
    Number:	-1
    Info:	
@@ -2038,15 +1911,14 @@ RING06DET07:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	11.2185	3.881	-0.00039292
-   TimeCoeff:	-1.41057	1
+   EnergyCoeff:	33.5876	3.73887	-0.000202723
+   TimeCoeff:	-44.8653	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET08:::  {
+RING06DET08:  {
    Address:	0x25060004
    Number:	-1
    Info:	
@@ -2054,15 +1926,14 @@ RING06DET08:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	20.8341	3.8536	-0.000325279
-   TimeCoeff:	4.64339	1
+   EnergyCoeff:	32.2864	3.76496	-0.000213456
+   TimeCoeff:	-34.3832	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET09:::  {
+RING06DET09:  {
    Address:	0x25060005
    Number:	-1
    Info:	
@@ -2070,15 +1941,14 @@ RING06DET09:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	31.5939	3.74053	-0.000204122
-   TimeCoeff:	9.55263	1
+   EnergyCoeff:	37.2452	3.69018	-0.000106026
+   TimeCoeff:	-32.5007	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET10:::  {
+RING06DET10:  {
    Address:	0x25060006
    Number:	-1
    Info:	
@@ -2086,15 +1956,14 @@ RING06DET10:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	38.357	3.61738	8.06033e-05
-   TimeCoeff:	-70.724	1
+   EnergyCoeff:	33.4126	3.64051	3.30407e-05
+   TimeCoeff:	-108.561	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET11:::  {
+RING06DET11:  {
    Address:	0x25060007
    Number:	-1
    Info:	
@@ -2102,15 +1971,14 @@ RING06DET11:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	15.1243	3.83999	-0.000272826
-   TimeCoeff:	-47.4949	1
+   EnergyCoeff:	28.5772	3.75865	-0.000147043
+   TimeCoeff:	-86.7985	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET12:::  {
+RING06DET12:  {
    Address:	0x25020005
    Number:	-1
    Info:	
@@ -2118,15 +1986,14 @@ RING06DET12:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	8.25161	3.8466	-0.000335859
-   TimeCoeff:	-62.9695	1
+   EnergyCoeff:	30.5451	3.71352	-0.000144841
+   TimeCoeff:	-103.457	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET13:::  {
+RING06DET13:  {
    Address:	0x25020004
    Number:	-1
    Info:	
@@ -2134,15 +2001,14 @@ RING06DET13:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	32.2622	3.81152	-0.000349709
-   TimeCoeff:	-19.5421	1
+   EnergyCoeff:	44.7436	3.71074	-0.000232114
+   TimeCoeff:	-56.6775	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET14:::  {
+RING06DET14:  {
    Address:	0x25020003
    Number:	-1
    Info:	
@@ -2150,15 +2016,14 @@ RING06DET14:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	23.011	3.79222	-0.000294748
-   TimeCoeff:	2.25274	1
+   EnergyCoeff:	37.0875	3.6737	-0.000167164
+   TimeCoeff:	-35.5461	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET15:::  {
+RING06DET15:  {
    Address:	0x25020002
    Number:	-1
    Info:	
@@ -2166,15 +2031,14 @@ RING06DET15:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	59.2819	3.88687	-0.000707147
-   TimeCoeff:	-22.5296	1
+   EnergyCoeff:	72.9559	3.69392	-0.000440991
+   TimeCoeff:	-59.8574	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET16:::  {
+RING06DET16:  {
    Address:	0x25020001
    Number:	-1
    Info:	
@@ -2182,15 +2046,14 @@ RING06DET16:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	24.4123	3.73564	-0.000200007
-   TimeCoeff:	-6.52856	1
+   EnergyCoeff:	29.5631	3.71574	-0.000145901
+   TimeCoeff:	-42.8786	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET17:::  {
+RING06DET17:  {
    Address:	0x25030009
    Number:	-1
    Info:	
@@ -2198,15 +2061,14 @@ RING06DET17:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	48.0766	3.74042	-0.00025086
-   TimeCoeff:	54.3739	1
+   EnergyCoeff:	54.7616	3.67996	-0.000175395
+   TimeCoeff:	15.9975	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET18:::  {
+RING06DET18:  {
    Address:	0x25030008
    Number:	-1
    Info:	
@@ -2214,15 +2076,14 @@ RING06DET18:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	28.3829	3.76102	-0.000234867
-   TimeCoeff:	-74.1666	1
+   EnergyCoeff:	41.3043	3.69815	-0.000140052
+   TimeCoeff:	-109.935	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET19:::  {
+RING06DET19:  {
    Address:	0x25030007
    Number:	-1
    Info:	
@@ -2230,15 +2091,14 @@ RING06DET19:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	13.7322	3.86501	-0.000342656
-   TimeCoeff:	57.0563	1
+   EnergyCoeff:	29.735	3.7638	-0.000180639
+   TimeCoeff:	23.0995	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET20:::  {
+RING06DET20:  {
    Address:	0x25030006
    Number:	-1
    Info:	
@@ -2246,15 +2106,14 @@ RING06DET20:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	22.8556	3.75274	-0.000161609
-   TimeCoeff:	91.5187	1
+   EnergyCoeff:	28.2208	3.71729	-0.000118444
+   TimeCoeff:	53.9087	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET21:::  {
+RING06DET21:  {
    Address:	0x25030005
    Number:	-1
    Info:	
@@ -2262,15 +2121,14 @@ RING06DET21:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	43.3744	3.74153	-0.000208759
-   TimeCoeff:	-35.3175	1
+   EnergyCoeff:	45.0491	3.7217	-0.000179063
+   TimeCoeff:	-74.8578	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET22:::  {
+RING06DET22:  {
    Address:	0x25030004
    Number:	-1
    Info:	
@@ -2278,15 +2136,14 @@ RING06DET22:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	39.3143	3.76313	-0.000241531
-   TimeCoeff:	-25.8156	1
+   EnergyCoeff:	45.1148	3.71605	-0.000175477
+   TimeCoeff:	-62.8947	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING06DET23:::  {
+RING06DET23:  {
    Address:	0x25030003
    Number:	-1
    Info:	
@@ -2294,15 +2151,14 @@ RING06DET23:::  {
    Position:	0
    Subposition:	6
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	25.3225	3.80634	-0.000249235
-   TimeCoeff:	-51.5903	1
+   EnergyCoeff:	34.1117	3.75373	-0.000171455
+   TimeCoeff:	-87.4644	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET00:::  {
+RING07DET00:  {
    Address:	0x25090004
    Number:	-1
    Info:	
@@ -2310,15 +2166,14 @@ RING07DET00:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	39.4145	3.67501	-8.4389e-05
-   TimeCoeff:	-0.336136	1
+   EnergyCoeff:	37.2475	3.71698	-0.000150601
+   TimeCoeff:	-37.6704	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET01:::  {
+RING07DET01:  {
    Address:	0x25090003
    Number:	-1
    Info:	
@@ -2326,15 +2181,14 @@ RING07DET01:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	40.7988	3.77922	-0.000286608
-   TimeCoeff:	-92.0669	1
+   EnergyCoeff:	47.18	3.71609	-0.00016806
+   TimeCoeff:	-129.697	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET02:::  {
+RING07DET02:  {
    Address:	0x25090002
    Number:	-1
    Info:	
@@ -2342,15 +2196,14 @@ RING07DET02:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	48.8546	3.70696	-0.000209591
-   TimeCoeff:	-67.1051	1
+   EnergyCoeff:	53.5078	3.70052	-0.000161362
+   TimeCoeff:	-104.82	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET03:::  {
+RING07DET03:  {
    Address:	0x25090001
    Number:	-1
    Info:	
@@ -2358,15 +2211,14 @@ RING07DET03:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	18.6483	3.80483	-0.000253388
-   TimeCoeff:	-18.9679	1
+   EnergyCoeff:	27.4652	3.76383	-0.000163093
+   TimeCoeff:	-59.0382	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET04:::  {
+RING07DET04:  {
    Address:	0x25090000
    Number:	-1
    Info:	
@@ -2374,15 +2226,14 @@ RING07DET04:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	7.84962	3.82856	-0.000214421
-   TimeCoeff:	34.7391	1
+   EnergyCoeff:	24.8601	3.77377	-0.000120686
+   TimeCoeff:	-6.79847	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET05:::  {
+RING07DET05:  {
    Address:	0x2504000a
    Number:	-1
    Info:	
@@ -2390,15 +2241,14 @@ RING07DET05:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	19.4249	3.85193	-0.000354827
-   TimeCoeff:	-118.072	1
+   EnergyCoeff:	32.0646	3.76158	-0.000199607
+   TimeCoeff:	-154.463	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET06:::  {
+RING07DET06:  {
    Address:	0x2504000b
    Number:	-1
    Info:	
@@ -2406,15 +2256,14 @@ RING07DET06:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	9.96882	3.85527	-0.000288232
-   TimeCoeff:	-49.3937	1
+   EnergyCoeff:	15.8947	3.80496	-0.000198194
+   TimeCoeff:	-87.7029	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET07:::  {
+RING07DET07:  {
    Address:	0x2504000c
    Number:	-1
    Info:	
@@ -2422,15 +2271,14 @@ RING07DET07:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	29.555	3.83833	-0.000370741
-   TimeCoeff:	-83.3217	1
+   EnergyCoeff:	45.22	3.73088	-0.000213065
+   TimeCoeff:	-119.37	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET08:::  {
+RING07DET08:  {
    Address:	0x2504000d
    Number:	-1
    Info:	
@@ -2438,15 +2286,14 @@ RING07DET08:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	44.7598	3.82388	-0.000382923
-   TimeCoeff:	-114.234	1
+   EnergyCoeff:	54.7018	3.73957	-0.000217985
+   TimeCoeff:	-153.092	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET09:::  {
+RING07DET09:  {
    Address:	0x2504000e
    Number:	-1
    Info:	
@@ -2454,15 +2301,14 @@ RING07DET09:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	11.8227	3.89195	-0.000403564
-   TimeCoeff:	-72.8108	1
+   EnergyCoeff:	31.5346	3.76515	-0.000185379
+   TimeCoeff:	-110.549	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET10:::  {
+RING07DET10:  {
    Address:	0x2504000f
    Number:	-1
    Info:	
@@ -2470,15 +2316,14 @@ RING07DET10:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	14.7502	3.8413	-0.000272189
-   TimeCoeff:	-59.3401	1
+   EnergyCoeff:	16.807	3.82718	-0.000226273
+   TimeCoeff:	-101.902	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET11:::  {
+RING07DET11:  {
    Address:	0x25060000
    Number:	-1
    Info:	
@@ -2486,15 +2331,14 @@ RING07DET11:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	21.9771	3.85842	-0.000388543
-   TimeCoeff:	-21.3147	1
+   EnergyCoeff:	43.9558	3.7057	-0.00021014
+   TimeCoeff:	-62.0291	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET12:::  {
+RING07DET12:  {
    Address:	0x25020000
    Number:	-1
    Info:	
@@ -2502,15 +2346,14 @@ RING07DET12:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	21.8108	3.83649	-0.000354862
-   TimeCoeff:	46.6163	1
+   EnergyCoeff:	41.8935	3.6834	-0.000173709
+   TimeCoeff:	9.57018	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET13:::  {
+RING07DET13:  {
    Address:	0x2500000f
    Number:	-1
    Info:	
@@ -2518,15 +2361,14 @@ RING07DET13:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	16.4942	3.8611	-0.000386725
-   TimeCoeff:	-35.3016	1
+   EnergyCoeff:	33.4773	3.74784	-0.000196345
+   TimeCoeff:	-73.8818	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET14:::  {
+RING07DET14:  {
    Address:	0x2500000e
    Number:	-1
    Info:	
@@ -2534,15 +2376,14 @@ RING07DET14:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	33.0596	3.70577	-0.000161707
-   TimeCoeff:	-42.9636	1
+   EnergyCoeff:	42.5555	3.65787	-6.14647e-05
+   TimeCoeff:	-81.4804	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET15:::  {
+RING07DET15:  {
    Address:	0x2500000d
    Number:	-1
    Info:	
@@ -2550,15 +2391,14 @@ RING07DET15:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	16.702	3.85762	-0.000363279
-   TimeCoeff:	-25.0987	1
+   EnergyCoeff:	34.3507	3.76474	-0.000186454
+   TimeCoeff:	-64.6978	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET16:::  {
+RING07DET16:  {
    Address:	0x2500000c
    Number:	-1
    Info:	
@@ -2566,15 +2406,14 @@ RING07DET16:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	14.2993	3.87037	-0.00036186
-   TimeCoeff:	-40.5797	1
+   EnergyCoeff:	33.8995	3.78263	-0.000195248
+   TimeCoeff:	-77.8874	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET17:::  {
+RING07DET17:  {
    Address:	0x25030002
    Number:	-1
    Info:	
@@ -2582,15 +2421,14 @@ RING07DET17:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	30.5183	3.81519	-0.000319177
-   TimeCoeff:	22.0006	1
+   EnergyCoeff:	44.0847	3.72532	-0.000195794
+   TimeCoeff:	-16.1638	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET18:::  {
+RING07DET18:  {
    Address:	0x25030001
    Number:	-1
    Info:	
@@ -2598,15 +2436,14 @@ RING07DET18:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	31.2433	3.80025	-0.000278743
-   TimeCoeff:	-36.3884	1
+   EnergyCoeff:	42.0415	3.72993	-0.000206304
+   TimeCoeff:	-75.775	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET19:::  {
+RING07DET19:  {
    Address:	0x25030000
    Number:	-1
    Info:	
@@ -2614,15 +2451,14 @@ RING07DET19:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	25.7672	3.86182	-0.000378183
-   TimeCoeff:	87.9989	1
+   EnergyCoeff:	43.0692	3.75323	-0.000206628
+   TimeCoeff:	47.9757	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET20:::  {
+RING07DET20:  {
    Address:	0x2501000f
    Number:	-1
    Info:	
@@ -2630,15 +2466,14 @@ RING07DET20:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	20.9875	3.91355	-0.000475225
-   TimeCoeff:	-19.4837	1
+   EnergyCoeff:	40.2683	3.78704	-0.000286949
+   TimeCoeff:	-58.3293	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET21:::  {
+RING07DET21:  {
    Address:	0x2501000e
    Number:	-1
    Info:	
@@ -2646,15 +2481,14 @@ RING07DET21:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	34.6088	3.77861	-0.000286897
-   TimeCoeff:	-26.8778	1
+   EnergyCoeff:	45.3157	3.72646	-0.000188074
+   TimeCoeff:	-65.5342	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET22:::  {
+RING07DET22:  {
    Address:	0x2501000d
    Number:	-1
    Info:	
@@ -2662,15 +2496,14 @@ RING07DET22:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	24.3251	3.86772	-0.000413094
-   TimeCoeff:	-82.6862	1
+   EnergyCoeff:	43.0782	3.74882	-0.00021648
+   TimeCoeff:	-119.069	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING07DET23:::  {
+RING07DET23:  {
    Address:	0x2501000c
    Number:	-1
    Info:	
@@ -2678,15 +2511,14 @@ RING07DET23:::  {
    Position:	0
    Subposition:	7
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	-2.09353	3.91929	-0.000413549
-   TimeCoeff:	3.19601	1
+   EnergyCoeff:	26.587	3.76164	-0.000199681
+   TimeCoeff:	-31.8467	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING08DET00:::  {
+RING08DET00:  {
    Address:	0x25010006
    Number:	-1
    Info:	
@@ -2694,15 +2526,14 @@ RING08DET00:::  {
    Position:	0
    Subposition:	8
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	1.32594	3.9469	-0.000478925
-   TimeCoeff:	-100.201	1
+   EnergyCoeff:	5.31944	3.89435	-0.00028397
+   TimeCoeff:	-140.317	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING08DET01:::  {
+RING08DET01:  {
    Address:	0x25010005
    Number:	-1
    Info:	
@@ -2710,15 +2541,14 @@ RING08DET01:::  {
    Position:	0
    Subposition:	8
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	24.0735	3.9093	-0.000537362
-   TimeCoeff:	-14.0563	1
+   EnergyCoeff:	42.7584	3.81546	-0.000272305
+   TimeCoeff:	-53.1179	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING08DET02:::  {
+RING08DET02:  {
    Address:	0x25000005
    Number:	-1
    Info:	
@@ -2726,15 +2556,14 @@ RING08DET02:::  {
    Position:	0
    Subposition:	8
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	35.0378	3.81832	-0.000398213
-   TimeCoeff:	-116.624	1
+   EnergyCoeff:	54.8309	3.75323	-0.000178453
+   TimeCoeff:	-155.42	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING08DET03:::  {
+RING08DET03:  {
    Address:	0x25000006
    Number:	-1
    Info:	
@@ -2742,15 +2571,14 @@ RING08DET03:::  {
    Position:	0
    Subposition:	8
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	20.7461	3.85013	-0.000336386
-   TimeCoeff:	-26.8203	1
+   EnergyCoeff:	30.9301	3.76249	-0.000185229
+   TimeCoeff:	-66.9442	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING08DET04:::  {
+RING08DET04:  {
    Address:	0x25000007
    Number:	-1
    Info:	
@@ -2758,15 +2586,14 @@ RING08DET04:::  {
    Position:	0
    Subposition:	8
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	13.7983	3.94583	-0.000514683
-   TimeCoeff:	-99.943	1
+   EnergyCoeff:	32.3491	3.82844	-0.000258562
+   TimeCoeff:	-140.506	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING08DET05:::  {
+RING08DET05:  {
    Address:	0x25000008
    Number:	-1
    Info:	
@@ -2774,15 +2601,14 @@ RING08DET05:::  {
    Position:	0
    Subposition:	8
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	35.9662	3.76123	-0.000256997
-   TimeCoeff:	-125.57	1
+   EnergyCoeff:	37.0845	3.82294	-0.000227128
+   TimeCoeff:	-163.785	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING08DET06:::  {
+RING08DET06:  {
    Address:	0x25000009
    Number:	-1
    Info:	
@@ -2790,15 +2616,14 @@ RING08DET06:::  {
    Position:	0
    Subposition:	8
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	34.47	3.65961	-1.83925e-05
-   TimeCoeff:	-37.9459	1
+   EnergyCoeff:	36.5063	3.69877	-1.2758e-05
+   TimeCoeff:	-75.5713	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING08DET07:::  {
+RING08DET07:  {
    Address:	0x2500000a
    Number:	-1
    Info:	
@@ -2806,15 +2631,14 @@ RING08DET07:::  {
    Position:	0
    Subposition:	8
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	30.2413	3.59933	0.000111077
-   TimeCoeff:	-85.9713	1
+   EnergyCoeff:	32.9561	3.66344	9.36641e-05
+   TimeCoeff:	-123.509	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING08DET08:::  {
+RING08DET08:  {
    Address:	0x2500000b
    Number:	-1
    Info:	
@@ -2822,15 +2646,14 @@ RING08DET08:::  {
    Position:	0
    Subposition:	8
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	3.87893	3.81329	-0.000224458
-   TimeCoeff:	-4.72858	1
+   EnergyCoeff:	12.076	3.91425	-0.0001485
+   TimeCoeff:	-44.57	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING08DET09:::  {
+RING08DET09:  {
    Address:	0x2501000b
    Number:	-1
    Info:	
@@ -2838,15 +2661,14 @@ RING08DET09:::  {
    Position:	0
    Subposition:	8
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	6.76582	3.81344	-0.000261475
-   TimeCoeff:	-13.9201	1
+   EnergyCoeff:	20.1928	3.75063	-0.000171563
+   TimeCoeff:	-54.1051	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING08DET10:::  {
+RING08DET10:  {
    Address:	0x2501000a
    Number:	-1
    Info:	
@@ -2854,15 +2676,14 @@ RING08DET10:::  {
    Position:	0
    Subposition:	8
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	34.0903	3.85904	-0.000437381
-   TimeCoeff:	-33.4528	1
+   EnergyCoeff:	50.9296	3.82454	-0.000283483
+   TimeCoeff:	-72.2567	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING08DET11:::  {
+RING08DET11:  {
    Address:	0x25010009
    Number:	-1
    Info:	
@@ -2870,15 +2691,14 @@ RING08DET11:::  {
    Position:	0
    Subposition:	8
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	4.04313	3.90243	-0.000436128
-   TimeCoeff:	-124.73	1
+   EnergyCoeff:	23.5229	3.78652	-0.000216585
+   TimeCoeff:	-164.658	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING08DET12:::  {
+RING08DET12:  {
    Address:	0x25010008
    Number:	-1
    Info:	
@@ -2886,15 +2706,14 @@ RING08DET12:::  {
    Position:	0
    Subposition:	8
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	20.8299	3.81725	-0.000334151
-   TimeCoeff:	-130.288	1
+   EnergyCoeff:	38.5408	3.77038	-0.000205798
+   TimeCoeff:	-170.557	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING08DET13:::  {
+RING08DET13:  {
    Address:	0x25010007
    Number:	-1
    Info:	
@@ -2902,15 +2721,14 @@ RING08DET13:::  {
    Position:	0
    Subposition:	8
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	19.7919	3.94394	-0.000575851
-   TimeCoeff:	-103.948	1
+   EnergyCoeff:	40.5395	3.82749	-0.000295778
+   TimeCoeff:	-143.016	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING09DET00:::  {
+RING09DET00:  {
    Address:	0x25010000
    Number:	-1
    Info:	
@@ -2918,15 +2736,14 @@ RING09DET00:::  {
    Position:	0
    Subposition:	9
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	14.1998	3.8526	-0.000324662
-   TimeCoeff:	-68.68	1
+   EnergyCoeff:	28.293	3.85329	-0.000200479
+   TimeCoeff:	-111.017	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING09DET01:::  {
+RING09DET01:  {
    Address:	0x25000000
    Number:	-1
    Info:	
@@ -2934,15 +2751,14 @@ RING09DET01:::  {
    Position:	0
    Subposition:	9
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	25.0713	3.7537	-0.000191321
-   TimeCoeff:	-35.4065	1
+   EnergyCoeff:	28.7722	3.87524	-0.000187112
+   TimeCoeff:	-75.3801	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING09DET02:::  {
+RING09DET02:  {
    Address:	0x25000001
    Number:	-1
    Info:	
@@ -2950,15 +2766,14 @@ RING09DET02:::  {
    Position:	0
    Subposition:	9
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	33.5545	3.8606	-0.000425994
-   TimeCoeff:	-115.075	1
+   EnergyCoeff:	49.7206	3.77349	-0.000244206
+   TimeCoeff:	-157.214	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING09DET03:::  {
+RING09DET03:  {
    Address:	0x25000002
    Number:	-1
    Info:	
@@ -2966,15 +2781,14 @@ RING09DET03:::  {
    Position:	0
    Subposition:	9
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	12.7369	3.87424	-0.000388881
-   TimeCoeff:	-17.7026	1
+   EnergyCoeff:	38.9461	3.80268	-0.000181097
+   TimeCoeff:	-58.2476	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING09DET04:::  {
+RING09DET04:  {
    Address:	0x25000003
    Number:	-1
    Info:	
@@ -2982,15 +2796,14 @@ RING09DET04:::  {
    Position:	0
    Subposition:	9
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	16.6347	3.85114	-0.000334466
-   TimeCoeff:	-103.193	1
+   EnergyCoeff:	31.7113	3.88056	-0.000240239
+   TimeCoeff:	-145.786	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING09DET05:::  {
+RING09DET05:  {
    Address:	0x25000004
    Number:	-1
    Info:	
@@ -2998,15 +2811,14 @@ RING09DET05:::  {
    Position:	0
    Subposition:	9
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	49.491	3.81744	-0.000429643
-   TimeCoeff:	-78.4373	1
+   EnergyCoeff:	65.5065	3.75211	-0.000244066
+   TimeCoeff:	-119.211	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING09DET06:::  {
+RING09DET06:  {
    Address:	0x25010004
    Number:	-1
    Info:	
@@ -3014,15 +2826,14 @@ RING09DET06:::  {
    Position:	0
    Subposition:	9
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	30.3662	3.81036	-0.00031458
-   TimeCoeff:	-53.4419	1
+   EnergyCoeff:	39.3742	3.74764	-0.000191519
+   TimeCoeff:	-93.2432	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING09DET07:::  {
+RING09DET07:  {
    Address:	0x25010003
    Number:	-1
    Info:	
@@ -3030,15 +2841,14 @@ RING09DET07:::  {
    Position:	0
    Subposition:	9
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	43.5161	3.84407	-0.000424717
-   TimeCoeff:	0.317716	1
+   EnergyCoeff:	50.4631	3.85976	-0.000303727
+   TimeCoeff:	-47.302	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING09DET08:::  {
+RING09DET08:  {
    Address:	0x25010002
    Number:	-1
    Info:	
@@ -3046,15 +2856,14 @@ RING09DET08:::  {
    Position:	0
    Subposition:	9
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	19.1825	3.89393	-0.000444998
-   TimeCoeff:	-104.35	1
+   EnergyCoeff:	34.0923	3.87438	-0.000268922
+   TimeCoeff:	-145.806	1
    EfficiencyCoeff:
 }
 -----------------------------------
 
-RING09DET09:::  {
+RING09DET09:  {
    Address:	0x25010001
    Number:	-1
    Info:	
@@ -3062,10 +2871,9 @@ RING09DET09:::  {
    Position:	0
    Subposition:	9
    Segment:	0
-   Collected_Charge:	D
    Pedestal:	0
-   EnergyCoeff:	23.9045	3.84121	-0.000358553
-   TimeCoeff:	-26.6231	1
+   EnergyCoeff:	39.9607	3.80575	-0.000199868
+   TimeCoeff:	-78.7654	1
    EfficiencyCoeff:
 }
 -----------------------------------
