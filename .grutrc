@@ -7,7 +7,7 @@ Unix.*.Root.MacroPath: .:$(GRUTSYS)/util:$(ROOTSYS)/macros
 GRUT.HistLib: $(GRUTSYS)/lib/libBetterCaesarHistos.so
 #GRUT.HistLib: $(GRUTSYS)/lib/libMake_CRDC_Mask_Histos.so
 #GRUT.HistLib: $(GRUTSYS)/lib/libPolarHists.so
-#:GRUT.HistLib: $(GRUTSYS)/lib/libPolarHists3.so
+#GRUT.HistLib: $(GRUTSYS)/lib/libPolarHists3.so
 #GRUT.HistLib: $(GRUTSYS)/lib/libMakeSegaJanusHistos.so
 #GRUT.HistLib: $(GRUTSYS)/lib/libMakeHistos.so
 #GRUT.HistLib: $(GRUTSYS)/lib/libFastScintHists.so
