@@ -206,18 +206,22 @@ void MakeHistograms(TRuntimeObjects& obj) {
       //obj.FillHistogram("Caesar","Detector_Doppler_Summary",300,0,300,hit.GetDetectorNumber()+total_det_in_prev_rings[ring],
                                                   //1024,0,8192,hit.GetDoppler(beta,z_shift));
 
-      //for(unsigned int j=0;j<caesar->Size();j++) {
-        //if(i==j)
-          //continue;
-        //TCaesarHit hit2 = caesar->GetCaesarHit(j);
-      //if(!hit2.IsValid())
-        //continue;
-      //if(hit2.IsOverflow())
-        //continue;
-        //obj.FillHistogram("Caesar","Energy_Coincidence_Matrix",2048,0,8192,hit.GetEnergy(),
-                                                             //2048,0,8192,hit2.GetEnergy());
+      for(unsigned int j=0;j<caesar->Size();j++) {
+        if(i==j)
+          continue;
+        TCaesarHit hit2 = caesar->GetCaesarHit(j);
+      if(!hit2.IsValid())
+        continue;
+      if(hit2.IsOverflow())
+        continue;
+        obj.FillHistogram("Caesar","Coincidence_Timing",2000,-2000,2000,hit.GetTime()-hit2.GetTime());
 
-      //}//end for loop over coincidence hits
+      if(abs(hit.GetEnergy()-1332)<25){
+        obj.FillHistogram("Caesar","Coincidence_Timing_Gated_1332",2000,-2000,2000,hit.GetTime()-hit2.GetTime());
+      }
+                                                             
+
+      }//end for loop over coincidence hits
 
       if(!s800) {
        continue;
