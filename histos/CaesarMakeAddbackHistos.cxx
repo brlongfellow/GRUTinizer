@@ -57,7 +57,6 @@ void initializeKr88Cuts(TFile * &cut_file, TCutG* &pid, TCutG* &tcut,
     pid = (TCutG*)cut_file->Get("large2_pid_kr88");
     tcut = (TCutG*)cut_file->Get("full_tcut");
     in = (TCutG*)cut_file->Get("in_kr88_large");
-
 }
 
 void initializeKr90Cuts(TFile * &cut_file, TCutG* &pid, TCutG* &tcut,
@@ -76,6 +75,8 @@ void initializeKr90Cuts(TFile * &cut_file, TCutG* &pid, TCutG* &tcut,
 extern "C"
 void MakeHistograms(TRuntimeObjects& obj) {
   TCaesar  *caesar  = obj.GetDetector<TCaesar>();
+  TCaesar  *caesar_ab = new TCaesar();//will be used to do addback correction 
+                                      //only for the hits inside the time cut
   TS800    *s800    = obj.GetDetector<TS800>();
 
   TList *list = &(obj.GetObjects());
@@ -117,8 +118,9 @@ void MakeHistograms(TRuntimeObjects& obj) {
         double energy_dc = hit.GetDoppler();
         double scatter_angle = s800->Track().Theta()*(180.0/TMath::Pi());
         double corr_time = caesar->GetCorrTime(hit,s800);
-        if (pid->IsInside(objtac_corr, ic_sum)){
-          if (tcut->IsInside(corr_time, energy_dc)){
+        if (tcut->IsInside(corr_time, energy_dc)){
+          caesar_ab->InsertHit(hit);
+          if (pid->IsInside(objtac_corr, ic_sum)){
             if (in->IsInside(xfptac,objtac)){
               if (energy_dc > SINGLES_ENERGY_THRESHOLD){
                 if (scatter_angle < SCATTER_ANGLE_CUT){
@@ -139,9 +141,9 @@ void MakeHistograms(TRuntimeObjects& obj) {
 
 
     //Now loop over addback hits
-    int num_addback_hits = caesar->AddbackSize();
+    int num_addback_hits = caesar_ab->AddbackSize();
     for (int y = 0; y < num_addback_hits; y++){
-      TCaesarHit &hit = caesar->GetAddbackHit(y);
+      TCaesarHit &hit = caesar_ab->GetAddbackHit(y);
       
       if (omitted_det != -1 &&  omitted_det == hit.GetAbsoluteDetectorNumber()){
         continue;
@@ -149,9 +151,8 @@ void MakeHistograms(TRuntimeObjects& obj) {
       if (hit.IsValid()){//only accept hits with both times and energies
         std::string histname;
 
-        //double energy_dc = caesar->GetEnergyDC(hit);
         double energy_dc = hit.GetDoppler();
-        double corr_time = caesar->GetCorrTime(hit,s800);
+        double corr_time = caesar_ab->GetCorrTime(hit,s800);
         double scatter_angle = s800->Track().Theta()*(180.0/TMath::Pi());
 
 
@@ -431,6 +432,7 @@ void MakeHistograms(TRuntimeObjects& obj) {
   }//caesar exists
 
   if(caesar) { caesar->Clear(); }
+  if(caesar_ab) { caesar_ab->Clear(); }
 
   if(numobj!=list->GetSize())
     list->Sort();

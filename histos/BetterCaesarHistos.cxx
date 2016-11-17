@@ -131,6 +131,13 @@ void MakeHistograms(TRuntimeObjects& obj) {
     newmg23blob = (TCutG*)fcut.Get("newmg23blob");
   }
 
+  static TCutG *o16blob = 0;
+  if(!o16blob) {
+    TPreserveGDirectory Preserve;
+    TFile fcut("/mnt/analysis/pecan-2015/longfellow/e10002/o16pid.root");
+    o16blob = (TCutG*)fcut.Get("o16");
+  }
+
   // Stuff for interactive gates!
   TList *gates = &(obj.GetGates());
   bool haspids = gates->GetSize();
@@ -314,6 +321,12 @@ void MakeHistograms(TRuntimeObjects& obj) {
             obj.FillHistogram("Caesar_GATED","GetCorrTime_vs_GetDoppler_Below",2000,-2000,2000,corr_time,
                                                             1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
 	  }//end if in below cut
+
+          if(o16blob->IsInside(objtac_corr,ic_sum) && InBeam_Mid->IsInside(objtac,xfptac)){
+            histname = "Gamma_Gated_o16blob";
+            obj.FillHistogram("GATED",histname,
+                              1024,0,8192,hit.GetDoppler(beta,z_shift,&track));
+          }
 
           if(newal23blob->IsInside(objtac_corr,ic_sum) && InBeam_btwnTopMid->IsInside(objtac,xfptac) && timingcut_al23->IsInside(corr_time,hit.GetEnergy())){
 
