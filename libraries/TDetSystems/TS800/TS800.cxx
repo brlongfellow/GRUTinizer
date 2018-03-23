@@ -246,6 +246,10 @@ int TS800::BuildHits(std::vector<TRawEvent>& raw_data){
       case 0x5802:  // S800 TOF.
 	HandleTOFPacket(dptr+1,sizeleft);
 	break;
+      case 0x5803:  // S800 Timestamp Packet
+        break;
+      case 0x5804:  // S800 Event Number Packet
+        break;
       case 0x5810:  // S800 Scint
 	HandleScintPacket(dptr+1,sizeleft);
 	break;

@@ -181,6 +181,7 @@ int TCaesar::BuildHits(std::vector<TRawEvent>& raw_data){
 //  event.Print("all");
 //  std::cout <<  "==================================================" << std::endl;
 
+
     Build_Single_Read(nscl.GetPayloadBuffer());
 //  std::cout <<  "++++++++++++++++++++++++++++++++++++++++++++++++++" << std::endl;
 //  nscl.GetPayloadBuffer().Print("all");
@@ -259,19 +260,35 @@ void TCaesar::Build_Single_Read(TSmartBuffer buf){
     TRawEvent::CAESARFeraHeader* fera_header = (TRawEvent::CAESARFeraHeader*)data;
 
 
+    //      data += fera_header->size * 2; // Size is inclusive number of 16-bit values.
     if((fera_header->tag != FERA_ENERGY_ID) && (fera_header->tag != FERA_TIME_ID)){
-      data += fera_header->size * 2; // Size is inclusive number of 16-bit values.
       if(fera_header->tag == FERA_TIMESTAMP_ID){
+        if (fera_header->size != 0x0006){
+          std::cout << "invalid timestamp size: " << fera_header->size << std::endl;
+          data += fera_header->size * 2; // Size is inclusive number of 16-bit values.
+          continue;
+        }
+        Long_t ts = *data + 4;//skip over size and tag
+        ts += *(data + 6) << 16;
+        SetTimestamp(ts);
+        data += fera_header->size * 2; // Size is inclusive number of 16-bit values.
         continue;
-      }
+      }//timestamp id
       else if (fera_header->tag == FERA_ERROR_ID){
+        Short_t ec = *(data+4);
+        if (ec != 0x0000){
+          std::cout << "\nFERA_ERROR_ID with Error Code: " <<  ec << std::endl;
+        }
+        SetFeraError(ec);
+        data += fera_header->size * 2; // Size is inclusive number of 16-bit values.
         break; // what we actually need to do is check if the fera is bad and take some action.
       }
       else {
-        std::cout << "Unknown fera pkt tag" << (std::hex) << fera_header->tag << std::endl;
+        std::cout << "Unknown fera pkt tag" << (std::hex) << fera_header->tag << "\n";
+        data += fera_header->size * 2; // Size is inclusive number of 16-bit values.
         break;
       }
-    }
+    }//not a time or energy
     const char* fera_end = data + fera_header->size*2;
     data += sizeof(TRawEvent::CAESARFeraHeader);
 
@@ -283,19 +300,25 @@ void TCaesar::Build_Single_Read(TSmartBuffer buf){
       if(nchan==0){
 	nchan = 16;
       }
-
       //Now we have the first header and know the VSN and number of channels
       //We need to start grabbing CAESARFeraItems now
-      for(int i=0; i<nchan; i++){
-        TRawEvent::CAESARFeraItem *item = (TRawEvent::CAESARFeraItem*)data;
-
-	if(fera_header->tag == FERA_ENERGY_ID){
-	  SetCharge(fera->vsn(), item->channel(), item->value());
-	} else { //FERA_TIME_ID
-	  SetTime(fera->vsn(), item->channel(), item->value());
-	}
-        data += sizeof(TRawEvent::CAESARFeraItem);//just read in a single CAESARFeraItem
+      if (nchan > MAX_CHN || nchan < 0 || fera->vsn() > MAX_VSN || fera->vsn() <0){
+        std::cout << "\nBad Event with fera->vsn() = " << fera->vsn() 
+                  << " and nchans = " << nchan << "\n";
+        data += fera_end - data;//skip event; bad
       }
+      else{
+        for(int i=0; i<nchan; i++){
+          TRawEvent::CAESARFeraItem *item = (TRawEvent::CAESARFeraItem*)data;
+
+          if(fera_header->tag == FERA_ENERGY_ID){
+            SetCharge(fera->vsn(), item->channel(), item->value());
+          } else { //FERA_TIME_ID
+            SetTime(fera->vsn(), item->channel(), item->value());
+          }
+          data += sizeof(TRawEvent::CAESARFeraItem);//just read in a single CAESARFeraItem
+        }
+      }//if vsn && chan make sense
     }
   }
 }

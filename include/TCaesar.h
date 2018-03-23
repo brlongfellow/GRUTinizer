@@ -43,6 +43,8 @@ public:
   virtual TCaesarHit&   GetAddbackHit(int i) { BuildAddback(); return addback_hits.at(i); }
   virtual const TCaesarHit& GetCaesarHit(int i) const;
   virtual std::vector<TCaesarHit> GetCaesarHits() const  { return caesar_hits; };
+  short  GetFeraError() const {return this->fera_error;}
+  void SetFeraError(short fera_error) {this->fera_error = fera_error;} 
   
 
   int GetULM() const { return fUlm; }
@@ -115,6 +117,8 @@ public:
   static bool filled_det_pos;
   //////////////////////////////////////////////////////////////////////
 
+  short fera_error;
+
 #if !defined (__CINT__)
   static void SetAddbackCondition(std::function<bool(const TCaesarHit&,const TCaesarHit&)> condition) {
     fAddbackCondition = condition;
@@ -137,6 +141,7 @@ private:
   void ReadVSNMap(std::string in_file_name);
   void ReadNeighborMap(std::string in_file_name);
   TCaesarHit& GetHit_VSNChannel(int vsn, int channel);
+
 
   //Loops over all CAESAR events and passes raw data to Build_Single_Read
   //Sets timestamp of TCaesar event

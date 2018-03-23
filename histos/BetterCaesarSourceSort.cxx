@@ -15,6 +15,7 @@
 #include "TObject.h"
 #include "TCaesar.h"
 #include "TS800.h"
+#include "TS800Hit.h"
 
 #include "TChannel.h"
 #include "GValue.h"
@@ -26,12 +27,29 @@ int HandleUngated(TRuntimeObjects& obj) {
   TCaesar  *caesar  = obj.GetDetector<TCaesar>();
   TCaesar  *caesar_ab = new TCaesar();//will be used to do addback correction 
                                       //only for the hits inside the time cut
+  TS800    *s800    = obj.GetDetector<TS800>();
+
+  std::string histname;
+  std::string dirname;
+
+  dirname = "Ungated";
+
+  if(s800){
+    histname = "S800_E_Up";
+    obj.FillHistogram(dirname,histname,4000,0,4000,s800->GetScint().GetEUp());
+    histname = "S800_E_Down";
+    obj.FillHistogram(dirname,histname,4000,0,4000,s800->GetScint().GetEDown());
+    histname = "S800_Time_Up";
+    obj.FillHistogram(dirname,histname,2000,-10,10,s800->GetMTof().fE1Up[0]);
+    histname = "S800_Time_Down";
+    obj.FillHistogram(dirname,histname,2000,-10,10,s800->GetMTof().fE1Up[0]);
+  }
 
   if(!caesar)
     return false;
 
-  std::string histname;
-  std::string dirname;
+  histname = "Fera_error_code";
+  obj.FillHistogram(dirname,histname,5,0,5,caesar->GetFeraError());
 
   //const int SINGLES_ENERGY_THRESHOLD = 150;
   const int AB_ENERGY_THRESHOLD = 0;
