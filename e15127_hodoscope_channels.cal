@@ -1,0 +1,481 @@
+HODODET00:  {
+   Address:	0x58040400
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	0
+   Pedestal:	0
+   EnergyCoeff:	53.7147	0.855864	1.74754e-05	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET01:  {
+   Address:	0x58040401
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	1
+   Pedestal:	0
+   EnergyCoeff:	52.4518	0.856488	2.12168e-05	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET02:  {
+   Address:	0x58040402
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	2
+   Pedestal:	0
+   EnergyCoeff:	52.7903	0.872428	1.06259e-05	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET03:  {
+   Address:	0x58040403
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	3
+   Pedestal:	0
+   EnergyCoeff:	48.2376	0.87411	8.34949e-06	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET04:  {
+   Address:	0x58040404
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	4
+   Pedestal:	0
+   EnergyCoeff:	48.8093	0.858914	7.87728e-06	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET05:  {
+   Address:	0x58040405
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	5
+   Pedestal:	0
+   EnergyCoeff:	57.5823	0.827921	8.6357e-06	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET06:  {
+   Address:	0x58040406
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	6
+   Pedestal:	0
+   EnergyCoeff:	56.7821	0.815843	2.30884e-05	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET07:  {
+   Address:	0x58040407
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	7
+   Pedestal:	0
+   EnergyCoeff:	46.9233	0.83186	9.07541e-06	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET08:  {
+   Address:	0x58040408
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	8
+   Pedestal:	0
+   EnergyCoeff:	44.3052	0.831723	1.07195e-05	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET09:  {
+   Address:	0x58040409
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	9
+   Pedestal:	0
+   EnergyCoeff:	43.06	0.841566	1.66347e-05	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET10:  {
+   Address:	0x5804040a
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	10
+   Pedestal:	0
+   EnergyCoeff:	42.5225	0.859756	1.07059e-05	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET11:  {
+   Address:	0x5804040b
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	11
+   Pedestal:	0
+   EnergyCoeff:	39.281 0.87775 1.0144e-05 0 
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET12:  {
+   Address:	0x5804040c
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	12
+   Pedestal:	0
+   EnergyCoeff:	48.8883	0.85572	1.21712e-05	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET13:  {
+   Address:	0x5804040d
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	13
+   Pedestal:	0
+   EnergyCoeff:	48.1396	0.846539	4.28409e-06	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET14:  {
+   Address:	0x5804040e
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	14
+   Pedestal:	0
+   EnergyCoeff:	43.8435	0.847382	9.56253e-06	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET15:  {
+   Address:	0x5804040f
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	15
+   Pedestal:	0
+   EnergyCoeff:	46.4058	0.852165	-8.73574e-06	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET16:  {
+   Address:	0x58040410
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	16
+   Pedestal:	0
+   EnergyCoeff:	46.3605	0.848717	7.80095e-06	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET17:  {
+   Address:	0x58040411
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	17
+   Pedestal:	0
+   EnergyCoeff:	57.3845	0.795296	1.33779e-05	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET18:  {
+   Address:	0x58040412
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	18
+   Pedestal:	0
+   EnergyCoeff: 57.467 0.79504 6.3516e-06	 0 
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET19:  {
+   Address:	0x58040413
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	19
+   Pedestal:	0
+   EnergyCoeff:	53.0422	0.80256	9.07076e-06	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET20:  {
+   Address:	0x58040414
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	20
+   Pedestal:	0
+   EnergyCoeff:	56.6602	0.786287	1.92234e-05	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET21:  {
+   Address:	0x58040415
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	21
+   Pedestal:	0
+   EnergyCoeff:	59.0494	0.792632	1.20182e-05	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET22:  {
+   Address:	0x58040416
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	22
+   Pedestal:	0
+   EnergyCoeff:	56.8613	0.797497	1.44715e-05	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET23:  {
+   Address:	0x58040417
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	23
+   Pedestal:	0
+   EnergyCoeff:	57.012	0.784635	1.03581e-05	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET24:  {
+   Address:	0x58040418
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	24
+   Pedestal:	0
+   EnergyCoeff:	57.557	0.794286	1.3063e-05	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET25:  {
+   Address:	0x58040419
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	25
+   Pedestal:	0
+   EnergyCoeff:	53.7523	0.792879	7.562e-06	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET26:  {
+   Address:	0x5804041a
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	26
+   Pedestal:	0
+   EnergyCoeff:	56.3375	0.813197	9.19715e-06	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET27:  {
+   Address:	0x5804041b
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	27
+   Pedestal:	0
+   EnergyCoeff:	51.95	0.805066	1.06077e-05	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET28:  {
+   Address:	0x5804041c
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	28
+   Pedestal:	0
+   EnergyCoeff:	55.6752	0.792548	9.46961e-06	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET29:  {
+   Address:	0x5804041d
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	29
+   Pedestal:	0
+   EnergyCoeff:	52.8773	0.810413	8.04919e-06	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET30:  {
+   Address:	0x5804041e
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	30
+   Pedestal:	0
+   EnergyCoeff:	56.9445	0.813559	9.3469e-06	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+HODODET31:  {
+   Address:	0x5804041f
+   Number:	-1
+   Info:	
+   System:	HOD
+   Position:	0
+   Subposition:	E
+   Segment:	31
+   Pedestal:	0
+   EnergyCoeff:	61.7173	0.801109	9.2049e-06	0
+   TimeCoeff:
+   EfficiencyCoeff:
+}
+-----------------------------------
+
+
