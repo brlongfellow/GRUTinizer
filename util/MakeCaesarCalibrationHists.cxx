@@ -2,7 +2,7 @@
 #define MAX_DETS 24
 
 //CHANGE THIS
-#define NUM_FILES 7
+#define NUM_FILES 5
 #include <iostream>
 #include <string>
 #include <vector>
@@ -26,19 +26,20 @@ int main(int argc, char *argv[]){
   }
 
   //CHANGE THIS
-  std::string source_name[NUM_FILES] = {
-    "bg",
-    "na22",
+  std::string source_name[NUM_FILES] = {      
     "y88",
-    "co60",
-    "ba133",
     "cs137",
-    "ambe"
+    "ba133",
+    "co60",    
+    "bg" 
+    //"na22",
+    //"ambe"
   };
 
   //CHANGE THIS
   int run_numbers[NUM_FILES] = {
-    1,2,3,4,5,6,7
+    //1,2,3,4,5,6,7
+    253,254,255,256,257
   };
   int det_per_ring[N_RINGS] = {
     10, 14, 24, 24, 24,
@@ -86,6 +87,7 @@ int main(int argc, char *argv[]){
   }
   if (files.size() != NUM_FILES){
     std::cout << "ERROR: Found incorrect number of files!" << std::endl;
+    std::cout << "Expected number of files: " << files.size() << std::endl;
   }
   
   //Make all histograms with format:

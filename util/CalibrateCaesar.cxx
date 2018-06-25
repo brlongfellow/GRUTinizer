@@ -5,10 +5,11 @@
 #define MAX_PEAKS 2          // Maximum number of peaks in a source spectrum
 //#define TOTAL_PEAKS_TO_FIT 8 // Maximum number of peaks to find for each detector
 #define FIT_PADDING 15       // Distance to go to left and right of peak for fitting with gaussian
-#define FIND_PADDING 100     // for ensuring correct energy is found from rough estimate
+#define FIND_PADDING 150     // for ensuring correct energy is found from rough estimate
 #define FIT_ORDER 2
 
-#define HIGH_CH_LIMIT_Y88_PEAK_1 330 //Helps fit y88 by checking whether found peaks are in correct
+
+#define HIGH_CH_LIMIT_Y88_PEAK_1 300 //Helps fit y88 by checking whether found peaks are in correct
 #define LOW_CH_LIMIT_Y88_PEAK_2  400  //range
 
 #include <iostream>
@@ -118,7 +119,7 @@ class Source {
       known_ranges[2][1]  = 500;
 
       known_ranges[3][0]  = 100;
-      known_ranges[3][1]  = 400;
+      known_ranges[3][1]  = 500;
 
       known_ranges[4][0]  = 75;
       known_ranges[4][1]  = 130;
@@ -232,6 +233,7 @@ void saveChannels(double data_to_save[N_RINGS][MAX_DETS][4], char *out_cal_file_
   if (!cal_file_name.empty()){
     TChannel::ReadCalFile(cal_file_name.c_str());
   }
+  std::cout << "Starting process of saving channels.. " << std::endl;
   TCaesar *caesar = new TCaesar(); //gets us access to VSN mapping
 
   TChannel *tchan;
@@ -261,6 +263,7 @@ void saveChannels(double data_to_save[N_RINGS][MAX_DETS][4], char *out_cal_file_
     }//loop over channels
   }//loop over vsn
 
+  std::cout << "Writing channels to: " << out_cal_file_name << std::endl;
   TChannel::WriteCalFile(out_cal_file_name);
 }
 
@@ -333,7 +336,7 @@ void readInitialCalibration_GRUTinizer(char *in_cal_file_name, double cal_par[N_
 //in_cal_file_name is the file containing the time calibration that you want to append the energy
 //coefficients to
 void CalibrateCaesar(char *in_hist_file_name, char *in_source_list, char *out_cal_file_name, 
-                     char *out_hist_file_name, char *in_cal_file_name = NULL, char *in_par_file_name =NULL){
+                     char *out_hist_file_name, char *in_cal_file_name = "", char *in_par_file_name =NULL){
   unsigned int det_per_ring[N_RINGS] = {
     10, 14, 24, 24, 24,
     24, 24, 24, 14, 10
@@ -427,7 +430,7 @@ void CalibrateCaesar(char *in_hist_file_name, char *in_source_list, char *out_ca
   //fitting.
 
   TF1 *gaus_fit_1 = new TF1("gaus_fit_1", "gaus"); //need two gaussian functions defined
-                                                   //because TH1::Fit overwrites the function
+                                                  //because TH1::Fit overwrites the function
                                                    //with the given name, and need to retain
                                                    //the parameters
 
@@ -645,9 +648,11 @@ void CalibrateCaesar(char *in_hist_file_name, char *in_source_list, char *out_ca
     }//loop over det
   }//loop over rings
 
-//  saveCalibration(cal_par, out_cal_file_name);
+
+  std::cout << "Before entering save channels function" << std::endl;
   saveChannels(cal_par, out_cal_file_name, in_cal_file_name);
   
+  std::cout << "Writing fitted hist file:  " <<  out_hist_file_name  <<std::endl;
   out_hist_file->Write();
   out_hist_file->Close();
   in_hist_file->Close();

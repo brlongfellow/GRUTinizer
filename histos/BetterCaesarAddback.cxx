@@ -42,32 +42,34 @@ bool OutgoingBeam(TRuntimeObjects& obj,GCutG *incoming) {
     dirname = "outgoing";
 
 
-  double objtac = s800->GetTof().GetTacOBJ();
-  double xfptac = s800->GetTof().GetTacXFP();
+  //double objtac = s800->GetTof().GetTacOBJ();
+  double objmesy = s800->GetMTof().GetCorrelatedObjE1();
+  //double xfptac = s800->GetTof().GetTacXFP();
+  double xfpmesy = s800->GetMTof().GetCorrelatedXfpE1();
   if(incoming) {
-    if(!incoming->IsInside(objtac,xfptac))
+    if(!incoming->IsInside(objmesy,xfpmesy))
       return false;
   }
 
   double ic_sum         = s800->GetIonChamber().GetAve();
-  double objtac_corr    = s800->GetCorrTOF_OBJTAC();
+  //double objtac_corr    = s800->GetCorrTOF_OBJTAC();
   double afp            = s800->GetAFP();
   double xfp_focalplane = s800->GetXFP(0);
 
 
   histname = "AFP_vs_OBJTOF";
   obj.FillHistogram(dirname,histname,
-  		    1000,-500,2500,objtac_corr,
+  		    1000,-500,2500,objmesy,
         	    1000,-1,1,afp); // check units of AFP
  
   histname = "XFP_vs_OBJTOF";
   obj.FillHistogram(dirname,histname,
-        	    1000,-500,2500,objtac_corr,
+        	    1000,-500,2500,objmesy,
         	    1000,-300,300,xfp_focalplane);
  
   histname = "IC_vs_OBJTOF_PID";
   obj.FillHistogram(dirname,histname,
-        	    1000,-500,2500,objtac_corr,
+        	    1000,-500,2500,objmesy,
         	    1000,-100,4000,ic_sum);
 
   obj.FillHistogram(dirname,"CRDC1Y",5000,-5000,5000,s800->GetCrdc(0).GetNonDispersiveY());
@@ -100,18 +102,20 @@ bool IncomingBeam(TRuntimeObjects& obj,GCutG *outgoing) {
     dirname = "incoming";
   
   double ic_sum         = s800->GetIonChamber().GetAve();
-  double objtac_corr    = s800->GetCorrTOF_OBJTAC();
+  //double objtac_corr    = s800->GetCorrTOF_OBJTAC();
+  double objmesy = s800->GetMTof().GetCorrelatedObjE1();
   if(outgoing) {
-    if(!outgoing->IsInside(objtac_corr,ic_sum))
+    if(!outgoing->IsInside(objmesy,ic_sum))
       return false;
   }
 
-  double objtac = s800->GetTof().GetTacOBJ();
-  double xfptac = s800->GetTof().GetTacXFP();
+  //double objtac = s800->GetTof().GetTacOBJ();
+  //double xfptac = s800->GetTof().GetTacXFP();
+  double xfpmesy = s800->GetMTof().GetCorrelatedXfpE1();
   histname = "IncomingPID";
   obj.FillHistogram(dirname,histname,
-                     1000,-1000,5000,objtac,
-                     1000,-1000,5000,xfptac);
+                     1000,-1000,5000,objmesy,
+                     1000,-1000,5000,xfpmesy);
   return true;
 }
 

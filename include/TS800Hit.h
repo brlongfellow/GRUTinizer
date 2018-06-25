@@ -294,7 +294,7 @@ class TTOFHit :  public TS800Channel {
   ClassDef(TTOFHit,1);
 };
 
-
+/*
 class THodoHit : public TS800Channel {
   public:
     THodoHit() { Clear(); }
@@ -315,7 +315,7 @@ class THodoHit : public TS800Channel {
 
   ClassDef(THodoHit,1)
 };
-
+*/
 
 class TFPScint :  public TS800Channel {
   public:
@@ -365,6 +365,54 @@ class TIonChamber : public TS800Channel {
 };
 */
 
+class THodoHit : public TDetectorHit{
+  public:
+    THodoHit() { Clear(); }
+    THodoHit(const THodoHit&);
+
+    virtual void Copy(TObject &) const;
+    virtual void Print(Option_t *opt="") const;
+    virtual void Clear(Option_t *opt="");
+
+
+    void SetChannel(int channel) { fChannel = channel;} 
+    
+    int GetCharge() const { return Charge(); }
+    int GetChannel() const { return fChannel; }
+  private:
+    int fChannel;
+
+    ClassDef(THodoHit, 1); 
+};
+
+class THodoscope : public TDetectorHit {
+  public:
+    THodoscope();
+    virtual ~THodoscope();
+    THodoscope(const THodoscope&);
+
+    virtual void Copy(TObject&) const;
+    virtual void Print(Option_t *opt="") const;
+    virtual void Clear(Option_t *opt="");
+    void InsertHit(const TDetectorHit&);
+
+    int  Address(int i) const { return TDetectorHit::Address() + GetChannel(i); }
+
+    int GetChannel(int i) const { return GetHodoHit(i).GetChannel();} 
+    TDetectorHit& GetHit(int i);
+    THodoHit& GetHodoHit(int i);
+    const THodoHit& GetHodoHit(int i) const;
+    std::vector<THodoHit> GetHodoHits() const { return hodo_hits; } ;
+    
+    size_t Size() const { return hodo_hits.size(); } 
+
+    std::vector<THodoHit> hodo_hits;
+
+    ClassDef(THodoscope, 1); 
+
+};
+
+
 class TMTof : public TDetectorHit {
   public:
     TMTof();
@@ -386,17 +434,22 @@ class TMTof : public TDetectorHit {
     int RefSize()        const { return fRef.size(); }
 
 
+    double GetCorrelatedXfpE1() const;//!
+    double GetCorrelatedObjE1() const;//!
 
 
-  //private:
-    mutable int fCorrelatedXFP;   //!
-    mutable int fCorrelatedOBJ;   //!
-    mutable int fCorrelatedE1;    //!
-    mutable int fCorrelatedXFP_Ch15;   //!
-    mutable int fCorrelatedOBJ_Ch15;   //!
-    mutable int fCorrelatedE1_Ch15;    //!
+  private:
+    mutable double fCorrelatedXFPE1;   //!
+    mutable double fCorrelatedOBJE1;   //!
+//  mutable int fCorrelatedXFP;   //!
+//  mutable int fCorrelatedOBJ;   //!
+//  mutable int fCorrelatedE1;    //!
+//  mutable int fCorrelatedXFP_Ch15;   //!
+//  mutable int fCorrelatedOBJ_Ch15;   //!
+//  mutable int fCorrelatedE1_Ch15;    //!
 
 
+  public: 
     std::vector<unsigned short> fE1Up;         // Channel 0
     std::vector<unsigned short> fE1Down;       // Channel 1
     std::vector<unsigned short> fXfp;          // Channel 2
