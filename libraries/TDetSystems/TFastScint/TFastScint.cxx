@@ -289,7 +289,7 @@ TVector3 &TFastScint::GetPosition(int detector) {
   }
   if(fFastScintDetectorMap.count(detector)==0) {
     double phi = TMath::Pi()/2;
-    double theta = TMath::Pi()/2 - TMath::ATan(24.13/139.7);
+    double theta = TMath::Pi()/2 - TMath::ATan(24.13/76.2);
     double x = 0;
     double y = 0;
     double z = 0;
@@ -309,8 +309,10 @@ TVector3 &TFastScint::GetPosition(int detector) {
     //printf("\t\ttheta = %f\n",theta*TMath::RadToDeg());
     //printf("\t\tphi   = %f\n",phi*TMath::RadToDeg());
 
-    x = 139.7*TMath::Cos(phi);
-    y = 139.7*TMath::Sin(phi);
+    //x = 76.2*TMath::Cos(phi); //2.25 in from z axis + 0.75 in to crystal center
+    //y = 76.2*TMath::Sin(phi);
+    x = 69.85*TMath::Cos(phi);
+    y = 69.85*TMath::Sin(phi);
 
     //TVector3 v;
     //v.SetMagThetaPhi(mag,theta,phi);

@@ -117,7 +117,7 @@ void MakeHistograms(TRuntimeObjects& obj) {
         TFastScintHit hit2 = fast->GetLaBrHit(j);
 
         if(hit2.Charge()>3500) continue;
-         
+        
         histname = Form("energy_v_angle_gated_on_%5.1f",gamma1);
         obj.FillHistogram(dirname,histname,180,0,180,hit.GetPosition().Angle(hit2.GetPosition())*TMath::RadToDeg(),
                                            4000,0,4000,hit2.GetEnergy());
