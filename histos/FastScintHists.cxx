@@ -21,19 +21,19 @@
 #include "TObject.h"
 #include "TFastScint.h"
 
-float gamma1 = 1332;
-float gamma2 = 1173;
-//float gamma1 = 122;
+//float gamma1 = 1332;
+//float gamma2 = 1173;
+float gamma1 = 122;
 //float gamma2 = 245;
 //float gamma1 = 1836;
 //float gamma2 = 898;
 //float gamma1 = 244;
 //float gamma1 = 1408;
 //float gamma1 = 443;
-//float tol1 = 5;
+float tol1 = 5;
 //float tol1 = 10;
-float tol1 = 30;
-float tol2 = 30;
+//float tol1 = 30;
+//float tol2 = 30;
 int   eventnum = 0;
 
 extern "C"
@@ -134,16 +134,9 @@ void MakeHistograms(TRuntimeObjects& obj) {
          obj.FillHistogram(dirname,histname,5000,-5000,5000,hit.GetTime() - hit2.GetTime(),
                                             2000,0,4000,hit2.GetEnergy());
 
-         histname = "all_dtime_vs_energy";
-            obj.FillHistogram(dirname,histname,5000,-5000,5000,hit.GetTime() - hit2.GetTime(),
-                                               2000,0,4000,hit2.GetEnergy());
 
-
-         if(hit.GetChannel()!=13 && hit2.GetChannel()!=13){
-            histname = Form("%5.1f_in_first_channel__dtime_vs_energy_in_other_channel_no13",gamma1);
-            obj.FillHistogram(dirname,histname,5000,-5000,5000,hit.GetTime() - hit2.GetTime(),
-                                               2000,0,4000,hit2.GetEnergy());
-            histname = "all_dtime_vs_energy_no13";
+         if(hit.GetChannel()!=11 && hit2.GetChannel()!=11){
+            histname = Form("%5.1f_in_first_channel__dtime_vs_energy_in_other_channel_no11",gamma1);
             obj.FillHistogram(dirname,histname,5000,-5000,5000,hit.GetTime() - hit2.GetTime(),
                                                2000,0,4000,hit2.GetEnergy());
          }
@@ -162,16 +155,10 @@ void MakeHistograms(TRuntimeObjects& obj) {
          histname = Form("%5.1f_in_second_channel__dtime_vs_energy_in_other_channel",gamma1);
          obj.FillHistogram(dirname,histname,5000,-5000,5000,hit.GetTime() - hit2.GetTime(),
                                             2000,0,4000,hit.GetEnergy());
-         histname = "all_dtime_vs_energy";
-            obj.FillHistogram(dirname,histname,5000,-5000,5000,hit2.GetTime() - hit.GetTime(),
-                                               2000,0,4000,hit.GetEnergy());
 
-         if(hit.GetChannel()!=13 && hit2.GetChannel()!=13){
-            histname = Form("%5.1f_in_second_channel__dtime_vs_energy_in_other_channel_no13",gamma1);
+         if(hit.GetChannel()!=11 && hit2.GetChannel()!=11){
+            histname = Form("%5.1f_in_second_channel__dtime_vs_energy_in_other_channel_no11",gamma1);
             obj.FillHistogram(dirname,histname,5000,-5000,5000,hit.GetTime() - hit2.GetTime(),
-                                               2000,0,4000,hit.GetEnergy());
-            histname = "all_dtime_vs_energy_no13";
-            obj.FillHistogram(dirname,histname,5000,-5000,5000,hit2.GetTime() - hit.GetTime(),
                                                2000,0,4000,hit.GetEnergy());
          }
 
