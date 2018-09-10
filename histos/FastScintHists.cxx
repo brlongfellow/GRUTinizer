@@ -64,7 +64,7 @@ void MakeHistograms(TRuntimeObjects& obj) {
         20,0,20,hit.GetChannel());
 
     histname = "ChannelTime-Uncalibrated";
-    obj.FillHistogram(histname,64100,-100,64000,hit.Time(),
+    obj.FillHistogram(histname,64100,-200,128000,hit.Time(),
         20,0,20,hit.GetChannel());
 
     histname = "ChannelEnergy";
