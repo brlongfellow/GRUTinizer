@@ -139,7 +139,7 @@ int HandleCaesar(TRuntimeObjects& obj,GCutG *incoming,GCutG *outgoing) {
    
   TS800    *s800    = obj.GetDetector<TS800>();
   TCaesar  *caesar  = obj.GetDetector<TCaesar>();
-  if(!s800 || !caesar)
+  if(!s800)
     return false;
 
   std::string histname;
@@ -164,6 +164,11 @@ int HandleCaesar(TRuntimeObjects& obj,GCutG *incoming,GCutG *outgoing) {
     return false;
 
   dirname = Form("caesar_%s",outgoing->GetName());
+
+  obj.FillHistogram(dirname,"S800_DTA_all",1000,-0.2,0.2,s800->GetDta());
+
+  if(!caesar)
+    return false;
   
   int good_counter=0;
   int good_counter_te=0;
