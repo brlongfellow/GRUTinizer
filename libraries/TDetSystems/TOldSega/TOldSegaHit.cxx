@@ -58,4 +58,35 @@ TVector3 TOldSegaHit::GetPosition() const {  //double z_shift) const {
   return TOldSega::GetGlobalSegmentPosition(GetDetNum(),GetSegId()) + offset;
 }
 
+int TOldSegaHit::GetLayer() const {
+  int layer = -1;
+  int seg = -1;
+  seg = GetSegId() + 1;
+  if(seg%8==4){
+    layer = 0;
+  }
+  if(seg%8==5){
+    layer = 1;
+  }
+  if(seg%8==3){
+    layer = 2;
+  }
+  if(seg%8==6){
+    layer = 3;
+  }
+  if(seg%8==2){
+    layer = 4;
+  }
+  if(seg%8==7){
+    layer = 5;
+  }
+  if(seg%8==1){
+    layer = 6;
+  }
+  if(seg%8==0){
+    layer = 7;
+  }
+  return layer;
+}
+
 

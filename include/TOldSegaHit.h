@@ -37,6 +37,8 @@ class TOldSegaHit : public TDetectorHit {
     TVector3 GetPosition() const;
     //TVector3 GetPosition(double z_shift) const;
 
+    int GetLayer() const;
+
     double GetDoppler(double beta, const TVector3 *track=0) const {
       if(Size()<1)
         return 0.0;

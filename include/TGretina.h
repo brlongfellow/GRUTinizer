@@ -53,13 +53,31 @@ public:
 
   void  SortHits();
 
-  void  CleanHits(int i=0) { 
-    for(auto x=gretina_hits.begin();x!=gretina_hits.end();x++) {
-      x->TrimSegments(1);
-      x->SetCoreEnergy(x->GetCoreEnergy(i));
+  void  CleanHits(int i=-1) { 
+    for(auto x=gretina_hits.begin();x!=gretina_hits.end();) { //x++) {
+      if(x->GetPad()==0) {
+        x->TrimSegments(1);
+        if(i>=0) 
+          x->SetCoreEnergy(x->GetCoreEnergy(i));
+        x++;
+      } else {
+        x = gretina_hits.erase(x);
+      }
     }
   }
-  
+ 
+  double SumHits(bool clean=true) { 
+    double sum =0.0;
+    for(auto x=gretina_hits.begin();x!=gretina_hits.end();x++) {
+      if(clean && x->GetPad()==0) {
+        sum += x->GetCoreEnergy();
+      } else if(!clean) {
+        sum += x->GetCoreEnergy();
+      }
+    }
+    return sum;
+  }
+
   float MSegPos(int type,int seg,int coord) const {
     return m_segpos[type][seg][coord];
   }

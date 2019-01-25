@@ -112,23 +112,43 @@ int HandleUngatedOldSega(TRuntimeObjects& obj) {
     TOldSegaHit hit = sega->GetSegaHit(i);
 
     obj.FillHistogram("Ungated","Det_Charge",
-                    4096,0,4096,hit.Charge(),
+                    4*8192,0,8192,hit.Charge(),
                     30,0,30,hit.GetDetId());
     obj.FillHistogram("Ungated","Det_Energy",
-                    4096,0,4096,hit.GetEnergy(),
+                    4*8192,0,8192,hit.GetEnergy(),
                     30,0,30,hit.GetDetId());
+    obj.FillHistogram("Ungated","Det_Doppler",
+                    4*8192,0,8192,hit.GetDoppler(0.435),
+                    30,0,30,hit.GetDetId());
+
+    if(hit.GetDetId()<11){
+      obj.FillHistogram("Ungated","Energy_Layer_37",
+                    10,0,10,hit.GetLayer(),
+                    4*8192,0,8192,hit.GetEnergy());
+      obj.FillHistogram("Ungated","Doppler_Layer_37",
+                    10,0,10,hit.GetLayer(),
+                    4*8192,0,8192,hit.GetDoppler(0.435));
+    }
+    if(hit.GetDetId()>=11){
+      obj.FillHistogram("Ungated","Energy_Layer_90",
+                    10,0,10,hit.GetLayer(),
+                    4*8192,0,8192,hit.GetEnergy());
+      obj.FillHistogram("Ungated","Doppler_Layer_90",
+                    10,0,10,hit.GetLayer(),
+                    4*8192,0,8192,hit.GetDoppler(0.435));
+    }
 
     if(hit.Size()>0){
       histname = Form("SegDoppler_Det%02i",hit.GetDetId());
       obj.FillHistogram("Ungated",histname,
-                        4096,0,4096,hit.GetDoppler(0.4),
+                        8192,0,8192,hit.GetDoppler(0.435),
                         40,0,40,hit.GetSegId(0));
     } 
     
     for(int j=0; j<hit.Size(); j++) {
       histname = Form("SegCharge_Det%02i",hit.GetDetId());
       obj.FillHistogram("Ungated",histname,
-                        4096,0,4096,hit.GetSegChg(j),
+                        8192,0,8192,hit.GetSegChg(j),
                         40,0,40,hit.GetSegId(j));
     } 
   }
@@ -140,7 +160,8 @@ int HandleOldSega(TRuntimeObjects& obj,GCutG *incoming,GCutG *outgoing) {
 
   TS800     *s800 = obj.GetDetector<TS800>();
   TOldSega  *sega = obj.GetDetector<TOldSega>();
-  if(!s800 || !sega)
+
+  if(!s800)
     return false;
 
   std::string dirname;
@@ -157,6 +178,7 @@ int HandleOldSega(TRuntimeObjects& obj,GCutG *incoming,GCutG *outgoing) {
   if(strcmp(outgoing_name,incoming->GetName()) != 0)
     return false;
 
+  obj.FillHistogram(dirname,"DTA_All_S800_Hits",1000,-0.2,0.2,s800->GetDta());   
   obj.FillHistogram(dirname,"CRDC1Y",5000,-5000,5000,s800->GetCrdc(0).GetNonDispersiveY());
   obj.FillHistogram(dirname,"CRDC2Y",5000,-5000,5000,s800->GetCrdc(1).GetNonDispersiveY());
   obj.FillHistogram(dirname,"CRDC1_MaxPad",300,0,300,s800->GetCrdc(0).GetMaxPad(),
@@ -167,6 +189,11 @@ int HandleOldSega(TRuntimeObjects& obj,GCutG *incoming,GCutG *outgoing) {
   obj.FillHistogram(dirname,histname,
         	    1000,-1000,1000,s800->GetCorrTOF_OBJ(),
         	    600,-300,300,s800->GetXFP(0));
+  obj.FillHistogram(dirname,"ATA_vs_BTA",1000,-0.2,0.2,s800->GetAta(),
+			                 1000,-0.2,0.2,s800->GetBta());
+
+  if(!sega)
+    return false;
 
   double beta = GValue::Value(Form("BETA_%s",outgoing->GetTitle()));
   TVector3 track = s800->Track();
@@ -196,12 +223,12 @@ int HandleOldSega(TRuntimeObjects& obj,GCutG *incoming,GCutG *outgoing) {
     calorimeter += hit.GetDoppler(beta,&track);
     if(i == (sega->Size() - 1)){
       obj.FillHistogram(dirname,"Doppler_Calorimeter",
-                        4096,0,4096,calorimeter);
+                        2048,0,8192,calorimeter);
     }
 
     if(sega->Size()==1){
       obj.FillHistogram(dirname,"Doppler_Mult1",
-                        4096,0,4096,hit.GetDoppler(beta,&track));
+                        2048,0,8192,hit.GetDoppler(beta,&track));
     }
     if(sega->Size()>1){
       for(unsigned int j=i+1;j<sega->Size();j++) {
@@ -209,18 +236,18 @@ int HandleOldSega(TRuntimeObjects& obj,GCutG *incoming,GCutG *outgoing) {
         if(hit2.Charge()<50 || hit.Charge()<50)
           break;
         obj.FillHistogram(dirname,"Doppler_Doppler",
-                          1024,0,4096,hit.GetDoppler(beta,&track),
-                          1024,0,4096,hit2.GetDoppler(beta,&track));
+                          2048,0,8192,hit.GetDoppler(beta,&track),
+                          2048,0,8192,hit2.GetDoppler(beta,&track));
         obj.FillHistogram(dirname,"Doppler_Doppler",
-                          1024,0,4096,hit2.GetDoppler(beta,&track),
-                          1024,0,4096,hit.GetDoppler(beta,&track));
+                          2048,0,8192,hit2.GetDoppler(beta,&track),
+                          2048,0,8192,hit.GetDoppler(beta,&track));
         if(sega->Size()==2){
           obj.FillHistogram(dirname,"Doppler_Doppler_Mult2",
-                          1024,0,4096,hit.GetDoppler(beta,&track),
-                          1024,0,4096,hit2.GetDoppler(beta,&track));
+                          2048,0,8192,hit.GetDoppler(beta,&track),
+                          2048,0,8192,hit2.GetDoppler(beta,&track));
           obj.FillHistogram(dirname,"Doppler_Doppler_Mult2",
-                          1024,0,4096,hit2.GetDoppler(beta,&track),
-                          1024,0,4096,hit.GetDoppler(beta,&track));
+                          2048,0,8192,hit2.GetDoppler(beta,&track),
+                          2048,0,8192,hit.GetDoppler(beta,&track));
         }
       }
     }
@@ -228,47 +255,73 @@ int HandleOldSega(TRuntimeObjects& obj,GCutG *incoming,GCutG *outgoing) {
     obj.FillHistogram(dirname,"Energy_Time",
                     //1000,0,30000,corr_time,
                     1000,0,30000,hit.GetTime(),
-                    1024,0,4096,hit.GetEnergy());
+                    1024,0,8192,hit.GetEnergy());
+
+    obj.FillHistogram(dirname,"Energy_Doppler",
+                    8192,0,8192,hit.GetDoppler(beta,&track),
+                    8192,0,8192,hit.GetEnergy());
 
     obj.FillHistogram(dirname,"Doppler_DTA_Track",
                       1000,-0.2,0.2,s800->GetDta(),
-                      1024,0,4096,hit.GetDoppler(beta,&track));
+                      2048,0,8192,hit.GetDoppler(beta,&track));
 
     obj.FillHistogram(dirname,"Det_Doppler_NoTrack",
-                    4096,0,4096,hit.GetDoppler(beta),
+                    4*8192,0,8192,hit.GetDoppler(beta),
                     30,0,30,hit.GetDetId());
 
     obj.FillHistogram(dirname,"Det_Doppler_Track",
-                    4096,0,4096,hit.GetDoppler(beta,&track),
+                    4*8192,0,8192,hit.GetDoppler(beta,&track),
                     30,0,30,hit.GetDetId()); 
 
-    obj.FillHistogram(dirname,Form("Det_Doppler_Track_Theta_det%02i",hit.GetDetId()),
+    obj.FillHistogram(dirname,"Doppler_Angle_Track",
+                    180,0,180,hit.GetPosition().Angle(track)*TMath::RadToDeg(),
+                    4*8192,0,8192,hit.GetDoppler(beta,&track));
+
+    obj.FillHistogram(dirname,"Doppler_Theta",
                     180,0,180,hit.GetPosition().Theta()*TMath::RadToDeg(),
-                    4096,0,4096,hit.GetDoppler(beta,&track));
+                    4*8192,0,8192,hit.GetDoppler(beta,&track));
     
-    obj.FillHistogram(dirname,"Det_Doppler_Track_Phi",
+    obj.FillHistogram(dirname,"Doppler_Phi",
                     360,-180,180,hit.GetPosition().Phi()*TMath::RadToDeg(),
-                    4096,0,4096,hit.GetDoppler(beta,&track));
+                    4*8192,0,8192,hit.GetDoppler(beta,&track));
+
+    if(hit.GetDetId()<11){
+      obj.FillHistogram(dirname,"Energy_Layer_37",
+                    10,0,10,hit.GetLayer(),
+                    4*8192,0,8192,hit.GetEnergy());
+      obj.FillHistogram(dirname,"Doppler_Layer_37",
+                    10,0,10,hit.GetLayer(),
+                    4*8192,0,8192,hit.GetDoppler(beta,&track));
+    }
+    if(hit.GetDetId()>=11){
+      obj.FillHistogram(dirname,"Energy_Layer_90",
+                    10,0,10,hit.GetLayer(),
+                    4*8192,0,8192,hit.GetEnergy());
+      obj.FillHistogram(dirname,"Doppler_Layer_90",
+                    10,0,10,hit.GetLayer(),
+                    4*8192,0,8192,hit.GetDoppler(beta,&track));
+    }
+
 
     //TVector3 trackrot = track;
     //obj.FillHistogram(dirname,"Det_Doppler_Track0",
-    //                4096,0,4096,hit.GetDoppler(beta,&trackrot),
+    //                8192,0,8192,hit.GetDoppler(beta,&trackrot),
     //                30,0,30,hit.GetDetId());
     //trackrot.RotateZ(TMath::Pi()/2);
     //obj.FillHistogram(dirname,"Det_Doppler_Track1",
-    //                4096,0,4096,hit.GetDoppler(beta,&trackrot),
+    //                8192,0,8192,hit.GetDoppler(beta,&trackrot),
     //                30,0,30,hit.GetDetId());
     //trackrot.RotateZ(TMath::Pi()/2);
     //obj.FillHistogram(dirname,"Det_Doppler_Track2",
-    //                4096,0,4096,hit.GetDoppler(beta,&trackrot),
+    //                8192,0,8192,hit.GetDoppler(beta,&trackrot),
     //                30,0,30,hit.GetDetId());
     //trackrot.RotateZ(TMath::Pi()/2);
     //obj.FillHistogram(dirname,"Det_Doppler_Track3",
-    //                4096,0,4096,hit.GetDoppler(beta,&trackrot),
+    //                8192,0,8192,hit.GetDoppler(beta,&trackrot),
     //                30,0,30,hit.GetDetId());
 
     histname = Form("Doppler_ZShift_Track_Det%02i",hit.GetDetId());
-    histname2 = Form("Doppler_ZShift_NoTrack_Det%02i",hit.GetDetId());
+    //histname2 = Form("Doppler_ZShift_NoTrack_Det%02i",hit.GetDetId());
     for(int z_i=0;z_i<601;z_i++){
       double z_use = -3 + z_i*0.01;
       TVector3 vec(0,0,z_use);
@@ -276,65 +329,83 @@ int HandleOldSega(TRuntimeObjects& obj,GCutG *incoming,GCutG *outgoing) {
 //      TVector3 vecy(0,z_use,0); // y shift
       obj.FillHistogram(dirname,histname,
                       601,-3,3,z_use,
-                      4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vec).Angle(track)))
+                      8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vec).Angle(track)))
 );
       obj.FillHistogram(dirname,"Doppler_ZShift_Track",
                       601,-3,3,z_use,
-                      4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vec).Angle(track)))
+                      4*8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vec).Angle(track)))
 );
 
 //      obj.FillHistogram(dirname,"Doppler_XShift_Track",
 //                      601,-3,3,z_use,
-//                      4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vecx).Angle(track)))
+//                      8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vecx).Angle(track)))
 //);
 
 //      obj.FillHistogram(dirname,"Doppler_YShift_Track",
 //                      601,-3,3,z_use,
-//                      4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vecy).Angle(track)))
+//                      8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vecy).Angle(track)))
 //);
 
      if(hit.GetDetId()<11){
        obj.FillHistogram(dirname,"Doppler_ZShift_Track_37",
                       601,-3,3,z_use,
-                      4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vec).Angle(track)))
+                      4*8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vec).Angle(track)))
+);
+
+       obj.FillHistogram(dirname,Form("Doppler_ZShift_Track_37_Layer%02i",hit.GetLayer()),
+                      601,-3,3,z_use,
+                      8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vec).Angle(track)))
 );
 
 //       obj.FillHistogram(dirname,"Doppler_XShift_Track_37",
 //                      601,-3,3,z_use,
-//                      4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vecx).Angle(track)))
+//                      8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vecx).Angle(track)))
 //);
   
 //       obj.FillHistogram(dirname,"Doppler_YShift_Track_37",
 //                      601,-3,3,z_use,
-//                      4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vecy).Angle(track)))
+//                      8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vecy).Angle(track)))
 //);
      }
+     
+     if(hit.GetDetId()<11 && hit.GetDetId()!=2){
+       obj.FillHistogram(dirname,"Doppler_ZShift_Track_37_no_det2",
+                      601,-3,3,z_use,
+                      4*8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vec).Angle(track)))
+);
+     }
+
      if(hit.GetDetId()>=11){
        obj.FillHistogram(dirname,"Doppler_ZShift_Track_90",
                       601,-3,3,z_use,
-                      4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vec).Angle(track)))
+                      4*8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vec).Angle(track)))
+);
+
+       obj.FillHistogram(dirname,Form("Doppler_ZShift_Track_90_Layer%02i",hit.GetLayer()),
+                      601,-3,3,z_use,
+                      8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vec).Angle(track)))
 );
 
 //       obj.FillHistogram(dirname,"Doppler_XShift_Track_90",
 //                      601,-3,3,z_use,
-//                      4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vecx).Angle(track)))
+//                      8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vecx).Angle(track)))
 //);
 
 //       obj.FillHistogram(dirname,"Doppler_YShift_Track_90",
 //                      601,-3,3,z_use,
-//                      4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vecy).Angle(track)))
+//                      8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vecy).Angle(track)))
 //);
      }
 
-      obj.FillHistogram(dirname,histname2,
-                      601,-3,3,z_use,
-                      4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vec).Angle(junk)))
-);
-      obj.FillHistogram(dirname,"Doppler_ZShift_NoTrack",
-                      601,-3,3,z_use,
-                      4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vec).Angle(junk)))
-);
-    }
+      //obj.FillHistogram(dirname,histname2,
+      //                601,-3,3,z_use,
+      //                8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vec).Angle(junk)))
+//);
+      //obj.FillHistogram(dirname,"Doppler_ZShift_NoTrack",
+      //                601,-3,3,z_use,
+      //                8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition() + vec).Angle(junk)))
+//);
+    } //end for loop over zshift
     
     //histname = Form("Doppler_ThetaShift_NoTrack_Det%02i",hit.GetDetId());
     //histname2 = Form("Doppler_ThetaShift_Track_Det%02i",hit.GetDetId());
@@ -342,36 +413,36 @@ int HandleOldSega(TRuntimeObjects& obj,GCutG *incoming,GCutG *outgoing) {
     //  double t_use = -0.1 + t_i*0.0004;
     //   obj.FillHistogram(dirname,histname,
     //                  501,-0.1,0.1,t_use,
-    //                  4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition()).Angle(junk) + t_use))
+    //                  8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition()).Angle(junk) + t_use))
 //);
     //  obj.FillHistogram(dirname,"Doppler_ThetaShift_NoTrack",
     //                  501,-0.1,0.1,t_use,
-    //                  4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition()).Angle(junk) + t_use))
+    //                  8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition()).Angle(junk) + t_use))
 //);
     //  obj.FillHistogram(dirname,histname2,
     //                  501,-0.1,0.1,t_use,
-    //                  4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition()).Angle(track) + t_use))
+    //                  8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition()).Angle(track) + t_use))
 //);
     //  obj.FillHistogram(dirname,"Doppler_ThetaShift_Track",
     //                  501,-0.1,0.1,t_use,
-    //                  4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition()).Angle(track) + t_use))
+    //                  8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition()).Angle(track) + t_use))
 //);
     //  if(hit.GetDetId()<11){  
     //  obj.FillHistogram(dirname,"Doppler_ThetaShift_Track_37",
     //                  501,-0.1,0.1,t_use,
-    //                  4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition()).Angle(track) + t_use))
+    //                  8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition()).Angle(track) + t_use))
 //);
     //  }
     //  if(hit.GetDetId()>=11){  
     //  obj.FillHistogram(dirname,"Doppler_ThetaShift_Track_90",
     //                  501,-0.1,0.1,t_use,
-    //                  4096,0,4096,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition()).Angle(track) + t_use))
+    //                  8192,0,8192,hit.GetEnergy()*(1/(sqrt(1-pow(beta,2))))*(1 - beta*TMath::Cos((hit.GetPosition()).Angle(track) + t_use))
 //);
     //  }
     //}
 
     obj.FillHistogram(dirname,"Det_Energy",
-                    4096,0,4096,hit.GetEnergy(),
+                    4*8192,0,8192,hit.GetEnergy(),
                     30,0,30,hit.GetDetId());
 
     for(int beta_i=0;beta_i<500;beta_i++){
@@ -379,32 +450,38 @@ int HandleOldSega(TRuntimeObjects& obj,GCutG *incoming,GCutG *outgoing) {
       histname = "FindBeta_Doppler";
       obj.FillHistogram(dirname,histname,
 		        500,0,0.499,beta_use,
-			4096,0,4096,hit.GetDoppler(beta_use,&track));
+			4*8192,0,8192,hit.GetDoppler(beta_use,&track));
       if(hit.GetDetId()<11){
         histname = "FindBeta_Doppler_37";
         obj.FillHistogram(dirname,histname,
 		          500,0,0.499,beta_use,
-			  4096,0,4096,hit.GetDoppler(beta_use,&track));
+			  4*8192,0,8192,hit.GetDoppler(beta_use,&track));
       }
       if(hit.GetDetId()>=11){
         histname = "FindBeta_Doppler_90";
         obj.FillHistogram(dirname,histname,
 		          500,0,0.499,beta_use,
-			  4096,0,4096,hit.GetDoppler(beta_use,&track));
+			  4*8192,0,8192,hit.GetDoppler(beta_use,&track));
+      }
+      if(hit.GetDetId()<11 && hit.GetDetId()!=2){
+        histname = "FindBeta_Doppler_37_no_det2";
+        obj.FillHistogram(dirname,histname,
+		          500,0,0.499,beta_use,
+			  4*8192,0,8192,hit.GetDoppler(beta_use,&track));
       } 
     }
 
-    //for(int j=0; j<hit.Size(); j++) {
-    if(hit.Size()>0){
-      histname = Form("SegDoppler_Det%02i",hit.GetDetId());
-      obj.FillHistogram(dirname,histname,
-                        4096,0,4096,hit.GetDoppler(beta,&track),
-                        40,0,40,hit.GetSegId(0));
-      histname = Form("SegEnergy_Det%02i",hit.GetDetId());
-      obj.FillHistogram(dirname,histname,
-                        4096,0,4096,hit.GetEnergy(),
-                        40,0,40,hit.GetSegId(0));
-    } 
+    ////for(int j=0; j<hit.Size(); j++) {
+    //if(hit.Size()>0){
+      //histname = Form("SegDoppler_Det%02i",hit.GetDetId());
+      //obj.FillHistogram(dirname,histname,
+      //                  8192,0,8192,hit.GetDoppler(beta,&track),
+      //                  40,0,40,hit.GetSegId(0));
+      //histname = Form("SegEnergy_Det%02i",hit.GetDetId());
+      //obj.FillHistogram(dirname,histname,
+      //                  8192,0,8192,hit.GetEnergy(),
+      //                  40,0,40,hit.GetSegId(0));
+    //} 
   }  
 
   return 0;

@@ -7,10 +7,8 @@
 #include <TMath.h>
 #include <TChain.h>
 
-
 #include <cmath>
 
-//#include "TGEBEvent.h"
 #include "TDetectorHit.h"
 
 #define MAXHPGESEGMENTS 36
@@ -41,6 +39,7 @@ class interaction_point {
     }
     return fSeg<other.fSeg;
   }
+
   void Print(Option_t *opt="") const { 
     printf("Seg[%02i]\tWedge[%i]\tEng: % 4.2f / % 4.2f  \t(X,Y,Z) % 3.2f % 3.2f % 3.2f\n",
             fSeg,(fSeg%6),fEng,fFrac,fX,fY,fZ);
@@ -81,7 +80,7 @@ public:
   void BuildFrom(TSmartBuffer& raw);
 
 
-  Double_t GetTime()            const { return (double)Timestamp() - (double)fWalkCorrection; } 
+  Double_t GetTime()            const { return (double)Timestamp() + (double)fWalkCorrection; } 
   Float_t  GetT0()              const { return fWalkCorrection; }
   Float_t  GetTFit()            const { return fWalkCorrection - fTOffset; }
   Float_t  GetTOffset()         const { return fTOffset; }
@@ -146,6 +145,8 @@ public:
     return tmp;
   } 
   
+  double GetDopplerYta(double beta , double yta, const TVector3 *vec=0, int EngRange =-1) const;
+  double GetDopplerYta(double beta , double yta, double target_x_shift, double target_y_shift, double target_z_shift, const TVector3 *vec=0, int EngRange =-1) const;
   double GetDoppler(const TS800 *s800,bool doDTAcorr=false,int EngRange=-1);
   double GetDoppler_dB(double beta,const TVector3 *vec=0, double Dta=0);
 
@@ -164,15 +165,18 @@ public:
   TVector3 GetLastPosition()                const;
 
   TVector3 GetCrystalPosition()           const; 
-  //TVector3 GetSegmentPosition()           const; 
+
+  //Set segment position; useful for smearing simulated Gretina data
+  void SetPosition(unsigned int i, double x, double y, double z);
                                                 
-  void Add(const TGretinaHit& other) {  }
+  void Add(const TGretinaHit& other);
   void SetCoreEnergy(float temp) const { fCoreEnergy = temp; }
 
   void TrimSegments(int type); // 0: drop multiple ident int pnts.  1: make into wedge "data"
   bool IsClean() const { return !fPad; }
 
-  
+//bool IsAddback() const { return this->TestBit(31); }
+
 private:
   void SortHits();
 /* All possible decomp information and
@@ -208,10 +212,6 @@ private:
   Float_t         fTOffset; //  t0 = toffset + tFit
 
   std::vector<interaction_point> fSegments;
-  //std::vector<Int_t> fSegmentNumber; //[fNumberOfInteractions]
-  //std::vector<Float_t>  fInteractionEnergy;         //[fNumberOfInteractions]
-  //std::vector<Float_t>  fInteractionFraction;       //[fNumberOfInteractions]
-  //std::vector<TVector3> fLocalInteractionPosition;  //[fNumberOfInteractions]
   ClassDef(TGretinaHit,5)
 };
 
