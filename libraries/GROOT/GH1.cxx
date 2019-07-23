@@ -90,14 +90,14 @@ double GH1::FitEval2(double *dim,double *par) {
   double binNum = GetXaxis()->FindBin(x); //gHist->GetBin() does not respect rebinning.
 
   double nBins = GetNbinsX();
-  double kevPerBin = GetXaxis()->GetXmax()/nBins;
+  double kevPerBin = (GetXaxis()->GetXmax()-GetXaxis()->GetXmin())/nBins;
   double curBinX = GetBinCenter(binNum);
   double nextBinX = GetBinCenter(binNum+1);
   double prevBinX = GetBinCenter(binNum-1);
 
   if (x > prevBinX && x <= curBinX){
-    double leftDiff = x - prevBinX;
-    double rightDiff = curBinX - x;
+    double leftDiff = (x - prevBinX);
+    double rightDiff = (curBinX - x);
 
     leftDiff = 1.0 - leftDiff/(double)kevPerBin;   //These numbers are now less than 1
     rightDiff = 1.0 - rightDiff/(double)kevPerBin; //and a measure of how close it is to that bin
@@ -141,8 +141,8 @@ TF1  *GH1::ConstructTF1_shift() const {
     //return 0;
 
   ROOT::Math::ParamFunctor *f = new  ROOT::Math::ParamFunctor((GH1*)this,&GH1::FitEval2);
-  double low  = GetXaxis()->GetBinLowEdge(1);
-  double high = GetXaxis()->GetBinUpEdge(GetXaxis()->GetNbins());
+  double low  = GetXaxis()->GetXmin();
+  double high = GetXaxis()->GetXmax();
   
   TF1 *tf1 = new TF1(Form("%s_tf1",GetName()),*f,low,high,2,1);
   tf1->SetParameter(0,1.0);

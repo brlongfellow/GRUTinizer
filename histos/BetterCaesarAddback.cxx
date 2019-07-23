@@ -54,6 +54,13 @@ bool OutgoingBeam(TRuntimeObjects& obj,GCutG *incoming) {
   double afp            = s800->GetAFP();
   double xfp_focalplane = s800->GetXFP(0);
 
+  //test
+  //if(TMath::Abs(afp)>0.08)
+    //return false;
+  //if(TMath::Abs(s800->GetBFP())>0.02)
+    //return false;
+  //test
+
 
   histname = "AFP_vs_OBJTOF";
   obj.FillHistogram(dirname,histname,
@@ -83,6 +90,14 @@ bool OutgoingBeam(TRuntimeObjects& obj,GCutG *incoming) {
                                            2000,0,8000, s800->GetCrdc(0).GetMaxPadSum());
   obj.FillHistogram(dirname,"CRDC2_MaxPad",300,0,300,s800->GetCrdc(1).GetMaxPad(),
                                            2000,0,8000, s800->GetCrdc(1).GetMaxPadSum());
+
+  histname = "AFP_vs_OBJTOF-XFPTOF";
+  obj.FillHistogram(dirname,histname,
+  		    1000,-500,2500,objtac-xfptac,
+        	    1000,-1,1,afp); // check units of AFP
+
+  histname = "IC_sum";
+  obj.FillHistogram(dirname,histname,1000,-100,4000,ic_sum);
 
   return true;
 }
@@ -250,6 +265,18 @@ int HandleCaesar(TRuntimeObjects& obj,GCutG *incoming,GCutG *outgoing) {
   dirname = Form("caesar_%s",outgoing->GetName());
   if(s800){
     obj.FillHistogram(dirname,"DTA_for_all_S800_hits",512,-0.2,0.2,s800->GetDta());
+
+    obj.FillHistogram(dirname,"DTA_YTA",
+			     512,-0.2,0.2,s800->GetDta(),
+                             1000,-100,100,s800->GetYta());
+
+    obj.FillHistogram(dirname,"DTA_AFP",
+			     512,-0.2,0.2,s800->GetDta(),
+                             1000,-1,1,s800->GetAFP());
+
+    obj.FillHistogram(dirname,"DTA_BFP",
+			     512,-0.2,0.2,s800->GetDta(),
+                             1000,-1,1,s800->GetBFP());
   }
 
   if(!s800 || !caesar)
@@ -317,7 +344,11 @@ int HandleCaesar(TRuntimeObjects& obj,GCutG *incoming,GCutG *outgoing) {
           obj.FillHistogram(dirname,"DTA_energy_dc_pid_in_tcut",
 			     512,-0.2,0.2,s800->GetDta(),
                              1024,0,8192,energy_dc);
-          
+
+          obj.FillHistogram(dirname,"DTA_energy_dc_pid_in_tcut_corrtime",
+			     512,-0.2,0.2,s800->GetDta(),
+                             1000,-2000,2000,corr_time);
+
           obj.FillHistogram(dirname,"corrtime_vs_doppler",2000,-2000,2000,corr_time,
                                                          1024,0,8192,energy_dc);
 
@@ -381,6 +412,10 @@ int HandleCaesar(TRuntimeObjects& obj,GCutG *incoming,GCutG *outgoing) {
               obj.FillHistogram(dirname,"DTA_energy_dc_pid_in_tcut",
 			        512,-0.2,0.2,s800->GetDta(),
                                 1024,0,8192,energy_dc);
+
+              obj.FillHistogram(dirname,"DTA_energy_dc_pid_in_tcut_corrtime",
+			     512,-0.2,0.2,s800->GetDta(),
+                             1000,-2000,2000,corr_time);
 
               obj.FillHistogram(dirname,"corrtime_vs_doppler",2000,-2000,2000,corr_time,
                                                               1024,0,8192,energy_dc);
