@@ -812,7 +812,7 @@ float TS800::GetTofE1_TAC(float c1,float c2)  const {
   \*----------------*/
 
   if(GetTof().GetTacOBJ()>-1)
-    return GetTof().GetTacOBJ() + c1 * GetAFP() + c2  * GetCrdc(0).GetDispersiveX();
+    return GetTof().GetTacOBJ() + c1 * GetAFP() + c2  * GetCrdc(1).GetDispersiveX();
   return sqrt(-1);
 
 }

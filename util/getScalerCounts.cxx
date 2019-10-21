@@ -7,7 +7,7 @@
 #include "TDetector.h"
 
 
-void initialize_map(std::map<int, std::string> &chan_map){
+void initialize_map(std::map<unsigned int, std::string> &chan_map){
   chan_map[0] = "S800.Source";
   chan_map[1] = "Second.Source";
   chan_map[2] = "Ext1.Source";
@@ -30,9 +30,14 @@ void initialize_map(std::map<int, std::string> &chan_map){
   chan_map[21] = "Galotte";
   chan_map[22] = "CRDC1.Anode";
   chan_map[23] = "CRDC2.Anode";
-  chan_map[24] = "XFP.classic";
-  chan_map[25] = "OBJ.classic";
+  chan_map[24] = "OBJ.classic";
+  chan_map[25] = "XFP.classic";
+  chan_map[26] = "Chan_26";
+  chan_map[27] = "Chan_27";
   chan_map[28] = "Hodo";
+  chan_map[29] = "Chan_29";
+  chan_map[30] = "Chan_30";
+  chan_map[31] = "Chan_31";
 }
 
 void getScalerCounts(const char *input_root_file_name, int first_entry = 0, int final_entry = 0){
@@ -50,12 +55,12 @@ void getScalerCounts(const char *input_root_file_name, int first_entry = 0, int 
 
   TNSCLScalers *scalers= 0; 
   in_tree->SetBranchAddress("TNSCLScalers", &scalers);
-  std::vector<int> scaler_32(32);//periodic scaler
-  std::vector<int> scaler_32_overflows(32);//periodic scaler overflow check. adds 2^24 to result
-  std::vector<int> init_scaler_32(32);
+  std::vector<unsigned int> scaler_32(32);//periodic scaler
+  std::vector<unsigned int> scaler_32_overflows(32);//periodic scaler overflow check. adds 2^24 to result
+  std::vector<unsigned int> init_scaler_32(32);
   //std::vector<int> prev_scaler_32(32); not implemented yet
 
-  std::map<int, std::string> chan_map;
+  std::map<unsigned int, std::string> chan_map;
   initialize_map(chan_map);
 
   int n_entries = in_tree->GetEntries();
@@ -193,7 +198,7 @@ void getScalerCounts(const char *input_root_file_name, int first_entry = 0, int 
   }
 
   std::cout << "===========================Final Scalers=======================\n";
-  for (std::map<int, std::string>::iterator iter = chan_map.begin(); iter != chan_map.end(); ++iter){
+  for (std::map<unsigned int, std::string>::iterator iter = chan_map.begin(); iter != chan_map.end(); ++iter){
     std::cout << iter->second << ": " << scaler_32.at(iter->first) << "\n";
   }
   std::cout << "==========================End Final Scalers===================\n";

@@ -27,6 +27,7 @@ std::vector<GCutG*> outgoing_cuts   = {0};
 std::vector<GCutG*> timeenergy_cuts; // = {0};
 int gates_loaded=0;
 
+
 bool OutgoingBeam(TRuntimeObjects& obj,GCutG *incoming) {
   TS800    *s800    = obj.GetDetector<TS800>();
 
@@ -60,6 +61,45 @@ bool OutgoingBeam(TRuntimeObjects& obj,GCutG *incoming) {
   //if(TMath::Abs(s800->GetBFP())>0.02)
     //return false;
   //test
+  //if(s800->GetCrdc(0).GetMaxPadSum() < 150)
+    //return false;
+  //if(s800->GetCrdc(1).GetMaxPadSum() < 150)
+    //return false;
+
+  histname = "AFP_vs_CRDC1MaxPad";
+  obj.FillHistogram(dirname,histname,
+  		    301,-1,300,s800->GetCrdc(0).GetMaxPad(),
+        	    1000,-1,1,afp); // check units of AFP
+  
+  histname = "AFP_vs_CRDC1MaxPadSum";
+  obj.FillHistogram(dirname,histname,
+  		    1000,0,1000,s800->GetCrdc(0).GetMaxPadSum(),
+        	    1000,-1,1,afp); // check units of AFP
+
+  histname = "AFP_vs_CRDC2MaxPad";
+  obj.FillHistogram(dirname,histname,
+  		    301,-1,300,s800->GetCrdc(1).GetMaxPad(),
+        	    1000,-1,1,afp); // check units of AFP
+
+  histname = "AFP_vs_CRDC2MaxPadSum";
+  obj.FillHistogram(dirname,histname,
+  		    1000,0,1000,s800->GetCrdc(1).GetMaxPadSum(),
+        	    1000,-1,1,afp); // check units of AFP
+
+  histname = "CRDC1MaxPadSum_vs_CRDC2MaxPadSum";
+  obj.FillHistogram(dirname,histname,
+  		    1000,0,1000,s800->GetCrdc(0).GetMaxPadSum(),
+        	    1000,0,1000,s800->GetCrdc(1).GetMaxPadSum());
+
+  histname = "CRDC1X_vs_CRDC1Y";
+  obj.FillHistogram(dirname,histname,
+  		    5000,-5000,5000,s800->GetCrdc(0).GetDispersiveX(),
+        	    5000,-5000,5000,s800->GetCrdc(0).GetNonDispersiveY());
+
+  histname = "CRDC2X_vs_CRDC2Y";
+  obj.FillHistogram(dirname,histname,
+  		    5000,-5000,5000,s800->GetCrdc(1).GetDispersiveX(),
+        	    5000,-5000,5000,s800->GetCrdc(1).GetNonDispersiveY());
 
 
   histname = "AFP_vs_OBJTOF";
@@ -75,6 +115,26 @@ bool OutgoingBeam(TRuntimeObjects& obj,GCutG *incoming) {
   histname = "IC_vs_OBJTOF_PID";
   obj.FillHistogram(dirname,histname,
         	    1000,-500,2500,objtac_corr,
+        	    1000,-100,4000,ic_sum);
+
+  histname = "IC_vs_OBJTOF_PID_notcorrected";
+  obj.FillHistogram(dirname,histname,
+        	    1000,-500,2500,s800->GetTof().GetTacOBJ(),
+        	    1000,-100,4000,ic_sum);
+
+  histname = "IC_vs_XFP";
+  obj.FillHistogram(dirname,histname,
+        	    1000,-300,300,xfp_focalplane,
+        	    1000,-100,4000,ic_sum);
+
+  histname = "IC_vs_CRDC1MaxPad";
+  obj.FillHistogram(dirname,histname,
+        	    301,-1,300,s800->GetCrdc(0).GetMaxPad(),
+        	    1000,-100,4000,ic_sum);
+
+  histname = "IC_vs_CRDC2MaxPad";
+  obj.FillHistogram(dirname,histname,
+        	    301,-1,300,s800->GetCrdc(1).GetMaxPad(),
         	    1000,-100,4000,ic_sum);
 
   obj.FillHistogram(dirname,"CRDC1Y",5000,-5000,5000,s800->GetCrdc(0).GetNonDispersiveY());
@@ -277,6 +337,15 @@ int HandleCaesar(TRuntimeObjects& obj,GCutG *incoming,GCutG *outgoing) {
     obj.FillHistogram(dirname,"DTA_BFP",
 			     512,-0.2,0.2,s800->GetDta(),
                              1000,-1,1,s800->GetBFP());
+
+    obj.FillHistogram(dirname,"IC_sum",1000,-100,4000,s800->GetIonChamber().GetAve());
+
+    histname = "AFP_vs_OBJTOF-XFPTOF";
+    obj.FillHistogram(dirname,histname,
+  		     1000,-500,2500,s800->GetTof().GetTacOBJ()-s800->GetTof().GetTacXFP(),
+        	     1000,-1,1,s800->GetAFP()); // check units of AFP
+
+    obj.FillHistogram(dirname,"TrigBit",30,0,30,s800->GetTrigger().GetRegistr());
   }
 
   if(!s800 || !caesar)

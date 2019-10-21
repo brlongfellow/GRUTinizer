@@ -113,7 +113,7 @@ float TIonChamber::GetAve(){
   float temp =0.0;
   //if(fdE==-1.0) {
   
-  for(unsigned int x=0;x<fData.size();x++) {   
+  for(unsigned int x=0;x<fData.size();x++) {  
       TChannel *c = TChannel::GetChannel(Address(x));
       if (c){
         temp += c->CalEnergy(fData.at(x));
@@ -255,6 +255,16 @@ TCrdc::~TCrdc() {
 }
 
 TF1 *TCrdc::fgaus = new TF1("fgaus","gaus");
+
+//void TCrdc::GetTChannels(){
+//  std::vector<double> v;
+//  std::vector<std::vector<double>> mat;
+//  for (int i=1476460544;i<1476460777;i++){
+//    TChannel *c = TChannel::GetChannel(i);
+//    v.push_back(c->GetPedestal());
+//    mat.push_back(c->GetEnergyCoeff());
+//  }
+//}
 
 
 int TCrdc::GetMaxPad() const {
