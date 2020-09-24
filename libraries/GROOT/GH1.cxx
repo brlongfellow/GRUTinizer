@@ -81,6 +81,45 @@ double GH1::FitEval(double *dim,double *par) {
   return scale * GetBinContent(binNum);
 }
 
+double GH1::FitEval2(double *dim,double *par) {
+
+  double x = dim[0] - par[1];
+  //printf("par = 0x%08x\n",par); fflush(stdout);
+  double scale = par[0];
+
+  double binNum = GetXaxis()->FindBin(x); //gHist->GetBin() does not respect rebinning.
+
+  double nBins = GetNbinsX();
+  double kevPerBin = (GetXaxis()->GetXmax()-GetXaxis()->GetXmin())/nBins;
+  double curBinX = GetBinCenter(binNum);
+  double nextBinX = GetBinCenter(binNum+1);
+  double prevBinX = GetBinCenter(binNum-1);
+
+  if (x > prevBinX && x <= curBinX){
+    double leftDiff = (x - prevBinX);
+    double rightDiff = (curBinX - x);
+
+    leftDiff = 1.0 - leftDiff/(double)kevPerBin;   //These numbers are now less than 1
+    rightDiff = 1.0 - rightDiff/(double)kevPerBin; //and a measure of how close it is to that bin
+    double binContentLeft = GetBinContent(binNum-1);
+    double binContentRight = GetBinContent(binNum);
+    return scale * (leftDiff*binContentLeft+rightDiff*binContentRight);
+  }
+
+  else if (x > curBinX && x < nextBinX){
+    double leftDiff = x - curBinX;
+    double rightDiff = nextBinX - x;
+
+    leftDiff = 1.0 - leftDiff/(double)kevPerBin;
+    rightDiff = 1.0 - rightDiff/(double)kevPerBin;
+    double binContentLeft = GetBinContent(binNum);
+    double binContentRight = GetBinContent(binNum+1);
+    return scale * (leftDiff*binContentLeft+rightDiff*binContentRight);
+  }
+  //std::cout << "FAILED IN HISTVALUE!" << std::endl;
+  return scale * GetBinContent(binNum);
+}
+
 
 TF1  *GH1::ConstructTF1() const {
   if(GetDimension()!=1)
@@ -92,6 +131,22 @@ TF1  *GH1::ConstructTF1() const {
   
   TF1 *tf1 = new TF1(Form("%s_tf1",GetName()),*f,low,high,1,1);
   tf1->SetParameter(0,1.0);
+  tf1->SetNpx(GetXaxis()->GetNbins());  
+  return tf1;
+ 
+}
+
+TF1  *GH1::ConstructTF1_shift() const {
+  //if(GetDimension()!=1)
+    //return 0;
+
+  ROOT::Math::ParamFunctor *f = new  ROOT::Math::ParamFunctor((GH1*)this,&GH1::FitEval2);
+  double low  = GetXaxis()->GetXmin();
+  double high = GetXaxis()->GetXmax();
+  
+  TF1 *tf1 = new TF1(Form("%s_tf1",GetName()),*f,low,high,2,1);
+  tf1->SetParameter(0,1.0);
+  tf1->SetParameter(1,0.0);
   tf1->SetNpx(GetXaxis()->GetNbins());  
   return tf1;
  

@@ -45,10 +45,25 @@ int HandleUngated(TRuntimeObjects& obj) {
  //   histname = "S800_Time_Down";
  //   obj.FillHistogram(dirname,histname,2000,-10,10,s800->GetMTof().fE1Down[0]);
     }
-    if(s800->GetHodoscope().Size()){
-      histname = "Hodoscope";
-      obj.FillHistogram(dirname,histname,50,0,50,s800->GetHodoscope().GetHodoHit(0).GetChannel(),
-                                       2048,0,8196,s800->GetHodoscope().GetHodoHit(0).GetCharge());
+    //if(s800->GetHodoscope().Size()){
+      //histname = "Hodoscope";
+      //obj.FillHistogram(dirname,histname,50,0,50,s800->GetHodoscope().GetHodoHit(0).GetChannel(),
+      //                                 2048,0,8196,s800->GetHodoscope().GetHodoHit(0).GetCharge());
+    //}
+    for(unsigned int i=0; i<s800->GetHodoscope().Size(); i++){
+      histname = "Hodoscope_Charge";
+      obj.FillHistogram(dirname,histname,50,0,50,s800->GetHodoscope().GetHodoHit(i).GetChannel(),
+                                       2048,0,8192,s800->GetHodoscope().GetHodoHit(i).GetCharge());
+      histname = "Hodoscope_Energy";
+      obj.FillHistogram(dirname,histname,50,0,50,s800->GetHodoscope().GetHodoHit(i).GetChannel(),
+                                       2048,0,8192,s800->GetHodoscope().GetHodoHit(i).GetEnergy());
+      histname = "Hodoscope_Time";
+    obj.FillHistogram(dirname,histname,50,0,50,s800->GetHodoscope().GetHodoHit(i).GetChannel(),
+                                       1000,-100000,100000,s800->GetHodoscope().GetHodoHit(i).GetTime());
+
+    histname = "Hodoscope_TimeEnergy";
+    obj.FillHistogram(dirname,histname,1024,0,8192,s800->GetHodoscope().GetHodoHit(0).GetEnergy(),
+                                       1000,-100000,100000,s800->GetHodoscope().GetHodoHit(0).GetTime());
     }
   }
 

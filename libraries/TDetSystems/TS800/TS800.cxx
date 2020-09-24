@@ -716,29 +716,51 @@ bool TS800::HandleHodoPacket(unsigned short *data,int size) {
   //ID is the Hodoscope Sub-pcket "Energy" tag
   //If ID == 0, then we are dealing with channels (0,15), if ID == 1, then we
   //are dealing with channels (16,31)
-  int x = 0;
-  int id = *(data+x); x += 1;
-  while (x < size){
-    if (id == 2){
-//    hit_reg1 = *(data+x);
-//    hit_reg2 = *(data+x+1);
-//    tac = *(data+x+2);
-      x += 3;
-      break;
+  //std::cout << "------------------------------------------------" << std::endl;
+  std::vector <unsigned short> charge;
+  std::vector <unsigned short> channel;
+  unsigned short hitpattern1;
+  unsigned short hitpattern2;
+  unsigned short time;
+  int y = 0;
+  int id = *(data+y);
+  for (int x = 1; x < size; x++){
+
+    //std::cout << "x = " << x << std::endl;
+    //std::cout << "id = " << id << std::endl;
+
+    switch(id) {
+      case 0:
+        charge.push_back((*(data+x)) & 0x0fff);
+        channel.push_back(id*16 + (*(data+x) >> 12));
+        break;
+
+      case 1:
+        charge.push_back((*(data+x)) & 0x0fff);
+        channel.push_back(id*16 + (*(data+x) >> 12));
+        break;  
+
+      case 2:
+        hitpattern1 = (*(data+x));
+        hitpattern2 = (*(data+x+1));
+        time = (*(data+x+2));
+        hodo.SetTimeCheck(hitpattern1,hitpattern2,time);
+	//std::cout<<std::hex<<"data : "<<(*data)<<std::endl;
+	//std::cout<<std::hex<<"hp1 :"<<hitpattern1<<std::endl;
+	//std::cout<<std::hex<<"hp2 :"<<hitpattern2<<std::endl;      
+        return true;
     }
-//    unsigned short cur_packet = *data; ++data; size -= 1; 
-    //Energy values are 16-bit integers, where the 13th bit is the channel number
-    //(0,15) and the first 12 bits are the energy.
-    unsigned short charge = (*(data+x)) & 0x0fff;
-    unsigned short channel = id*16 + (*(data+x) >> 12); 
-    x += 1;
+
+   }//end for
 
     THodoHit hit;
-    hit.SetChannel(channel);
-    hit.SetCharge(charge);
-    hit.SetAddress((0x58<<24) + (4<<16) + (4<<8) + channel);
-    hodo.InsertHit(hit);
-  }//x < size
+    for(unsigned int i=0; i<charge.size(); i++){
+      hit.SetChannel(channel.at(i));
+      hit.SetCharge(charge.at(i));
+      hit.SetAddress((0x58<<24) + (4<<16) + (4<<8) + channel.at(i));
+      hodo.InsertHit(hit);
+    }
+
   return true;
 }
 
@@ -967,6 +989,12 @@ float TS800::GetXF_E1Raw_MESY_Ch15(int i) const {
   if(result.size()>(unsigned int)i)
     return result.at(i);
   return sqrt(-1.0);
+}
+
+float TS800::GetHodoTime(unsigned int i) const {
+  if(i>=mtof.fHodoscope.size())
+    return sqrt(-1);
+  return (mtof.fHodoscope.at(i));
 }
 
 //float TS800::MCorrelatedOBJ() const{

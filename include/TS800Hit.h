@@ -375,12 +375,17 @@ class THodoHit : public TDetectorHit{
     virtual void Clear(Option_t *opt="");
 
 
-    void SetChannel(int channel) { fChannel = channel;} 
+    void SetChannel(int channel) { fChannel = channel; } 
+    void SetTime(short time)  { fTime = time; }
+    void SetHitCheck(int hitcheck) { fHitcheck = hitcheck; }
     
     int GetCharge() const { return Charge(); }
     int GetChannel() const { return fChannel; }
+    int GetTime() const { return Time(); }
+    int GetHitCheck() const { return fHitcheck; }
   private:
     int fChannel;
+    int fHitcheck;
 
     ClassDef(THodoHit, 1); 
 };
@@ -403,6 +408,8 @@ class THodoscope : public TDetectorHit {
     THodoHit& GetHodoHit(int i);
     const THodoHit& GetHodoHit(int i) const;
     std::vector<THodoHit> GetHodoHits() const { return hodo_hits; } ;
+
+    bool SetTimeCheck(unsigned short hitp1, unsigned short hitp2, unsigned short time);
     
     size_t Size() const { return hodo_hits.size(); } 
 

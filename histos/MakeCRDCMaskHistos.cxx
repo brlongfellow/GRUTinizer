@@ -41,12 +41,12 @@ void MakeHistograms(TRuntimeObjects& obj) {
       histname = "CRDC1_Cal_Gated";
       obj.FillHistogram(dirname,histname,
 		        800,-400,400,s800->GetCrdc(0).GetDispersiveX(),
-		        3000,-200,200,s800->GetCrdc(0).GetNonDispersiveY());
+		        400,-200,200,s800->GetCrdc(0).GetNonDispersiveY());
 
       histname = "CRDC2_Cal_Gated";
       obj.FillHistogram(dirname,histname,
 		        800,-400,400,s800->GetCrdc(1).GetDispersiveX(),
-		        3000,-200,200,s800->GetCrdc(1).GetNonDispersiveY());
+		        400,-200,200,s800->GetCrdc(1).GetNonDispersiveY());
     }
 
     histname = "IC_Energy";   
@@ -65,13 +65,13 @@ void MakeHistograms(TRuntimeObjects& obj) {
 
     histname = "CRDC1_Cal";
     obj.FillHistogram(dirname,histname,
-		      520,-400,400,s800->GetCrdc(0).GetDispersiveX(),
-		      3000,-200,200,s800->GetCrdc(0).GetNonDispersiveY());
+		      800,-400,400,s800->GetCrdc(0).GetDispersiveX(),
+		      400,-200,200,s800->GetCrdc(0).GetNonDispersiveY());
 
     histname = "CRDC2_Cal";
     obj.FillHistogram(dirname,histname,
 		      800,-400,400,s800->GetCrdc(1).GetDispersiveX(),
-		      3000,-200,200,s800->GetCrdc(1).GetNonDispersiveY());
+		      400,-200,200,s800->GetCrdc(1).GetNonDispersiveY());
 
     dirname = "GetYOffset";
     histname = "CRDC1_Y_vs_S800Timestamp";

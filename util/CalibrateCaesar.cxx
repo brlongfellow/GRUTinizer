@@ -5,7 +5,7 @@
 #define MAX_PEAKS 2          // Maximum number of peaks in a source spectrum
 //#define TOTAL_PEAKS_TO_FIT 8 // Maximum number of peaks to find for each detector
 #define FIT_PADDING 15       // Distance to go to left and right of peak for fitting with gaussian
-#define FIND_PADDING 150     // for ensuring correct energy is found from rough estimate
+#define FIND_PADDING 200     // for ensuring correct energy is found from rough estimate
 #define FIT_ORDER 2
 
 
@@ -121,8 +121,8 @@ class Source {
       known_ranges[3][0]  = 100;
       known_ranges[3][1]  = 500;
 
-      known_ranges[4][0]  = 75;
-      known_ranges[4][1]  = 130;
+      known_ranges[4][0]  = 30;
+      known_ranges[4][1]  = 170;
 
       known_ranges[5][0]  = 300;
       known_ranges[5][1]  = 900;
@@ -362,7 +362,7 @@ void CalibrateCaesar(char *in_hist_file_name, char *in_source_list, char *out_ca
   for (int ring = 0; ring < N_RINGS; ring++){
     for(int det = 0; det < MAX_DETS; det++){
       cal_par[ring][det][0] = 0;
-      cal_par[ring][det][1] = 1;
+      cal_par[ring][det][1] = 0;//1
       cal_par[ring][det][2] = 0;
       cal_par[ring][det][3] = 0;
     }
@@ -437,6 +437,7 @@ void CalibrateCaesar(char *in_hist_file_name, char *in_source_list, char *out_ca
   if (in_par_file_name != NULL){
     //readInitialCalibration(in_par_file_name, cal_par);
     readInitialCalibration_GRUTinizer(in_par_file_name, cal_par);
+    std::cout << "Read initial parameter file: " << in_par_file_name << std::endl;
   }
 
   for (unsigned int ring = 0; ring < N_RINGS; ring++){
@@ -544,6 +545,16 @@ void CalibrateCaesar(char *in_hist_file_name, char *in_source_list, char *out_ca
           extra_rebinning_factor = 0;
           extra_find_padding = 50;
           extra_fit_padding = 5;
+        }
+        else if (source_list[source].name == "co60") {
+          extra_rebinning_factor = -2;
+          extra_find_padding = 0;
+          extra_fit_padding = 0;
+        }
+        else if (source_list[source].name == "y88") {
+          extra_rebinning_factor = -2;
+          extra_find_padding = 0;
+          extra_fit_padding = 0;
         }
         else {
           extra_rebinning_factor = 0;

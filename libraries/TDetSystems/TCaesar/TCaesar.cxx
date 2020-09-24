@@ -228,6 +228,7 @@ double TCaesar::GetCorrTime(TCaesarHit hit, TS800 *s800){
   }
   double caesar_time = hit.GetTime();
   double tac_obj = s800->GetTof().GetTacOBJ();
+  //double tac_obj = s800->GetMTofObjE1();
   double s800_source_time = s800->GetTrigger().GetS800Source();
 //  return (caesar_time - ((s800source + tac_obj)*(0.1/0.25)));
   return GetCorrTime(caesar_time, s800_source_time, tac_obj);

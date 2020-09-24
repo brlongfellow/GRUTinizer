@@ -127,7 +127,8 @@ void TUnpackingLoop::HandleNSCLData(TNSCLEvent& event) {
       if(event.IsBuiltData()){
         HandleBuiltNSCLData(event);
       } else {
-        HandleUnbuiltNSCLData(event);
+        HandleBuiltNSCLData(event);
+        //HandleUnbuiltNSCLData(event);
       }
       break;
   }
